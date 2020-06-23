@@ -30,6 +30,16 @@ public class InitialDataSystemSetup extends AbstractSystemSetup
 	@SuppressWarnings("unused")
 	private static final Logger LOG = Logger.getLogger(InitialDataSystemSetup.class);
 
+	/** The Constant ASTRAAUTO. */
+	private static final String ASTRAAUTO = "astraauto";
+
+	/** The Constant ASTRA_ESSENTIAL_DATA_IMPEXES. */
+	private static final String ASTRA_ESSENTIAL_DATA_IMPEXES = "demoinitialdata.essentialdata.impexes";
+
+	/** The Constant ASTRA_SAMPLE_DATA_IMPEXES. */
+	private static final String ASTRA_SAMPLE_DATA_IMPEXES = "astraautoinitialdata.sampledata.impexes";
+
+
 	private static final String IMPORT_CORE_DATA = "importCoreData";
 	private static final String IMPORT_SAMPLE_DATA = "importSampleData";
 	private static final String ACTIVATE_SOLR_CRON_JOBS = "activateSolrCronJobs";
