@@ -4,13 +4,16 @@
 # ImpEx for Importing Categories
 
 # Macros / Replacement Parameter definitions
-$productCatalog=demoProductCatalog
-$productCatalogName=demoProductCatalog
+$productCatalog = demoProductCatalog
+$productCatalogName = demoProductCatalog
 
-$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$catalogVersion = catalogversion(catalog(id[default=$productCatalog]), version[default='Staged'])[unique=true, default=$productCatalog:Staged]
 
 # Language
-$lang=en
+$lang = en
 
 # Create Categories
-UPDATE Category;code[unique=true];$catalogVersion;name[lang=$lang]
+UPDATE Category; code[unique = true]; $catalogVersion; name[lang = $lang]
+               ; BED                ;                ; Bed
+               ; SPRINGBED          ;                ; Springbed
+               ; SOFA               ;                ; Sofa
