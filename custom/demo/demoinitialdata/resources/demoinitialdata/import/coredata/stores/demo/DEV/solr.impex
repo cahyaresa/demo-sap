@@ -1,0 +1,12 @@
+# Removes old endpoints
+REMOVE SolrEndpointUrl; solrServerConfig(name)[unique = true]; url[unique = true]
+; Default          ; http://localhost:8983/solr
+; Default          ; https://localhost:8983/solr
+; Local Standalone ; http://localhost:8983/solr
+; Local Standalone ; https://localhost:8983/solr
+; Local Cloud      ; localhost:9983
+
+# Updates the endpoints for the Solr server configurations
+INSERT_UPDATE SolrEndpointUrl; solrServerConfig(name)[unique = true]; url[unique = true]; master
+; Default ; http://172.31.36.111:9002/solr ; true
+
