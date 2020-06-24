@@ -12,7 +12,8 @@ $supercategories=source(code, $catalogVersion)[unique=true]
 $categories=target(code, $catalogVersion)[unique=true]
 
 # Insert Categories
-INSERT_UPDATE Category;code[unique=true];allowedPrincipals(uid)[default='customergroup'];$catalogVersion
-
-# Insert Category Structure
-INSERT_UPDATE CategoryCategoryRelation;$categories;$supercategories
+INSERT_UPDATE Category; code[unique = true]    ; $catalogVersion; supercategories(code, $catalogVersion); allowedPrincipals(uid)[default = 'customergroup']; type(code)[default = 'BED']; order
+                      ; BUNDLE                 ;                ;                                       ;                                                  ; NONVISIBLE                     ;
+                      ; BED                    ;                ;                                       ;                                                  ; NONVISIBLE                     ;
+                      ; SPRINGBED              ;                ; BED                                   ;                                                  ; SELLABLE                       ; 1
+                      ; SOFA                   ;                ; BED                                   ;                                                  ; SELLABLE                       ; 2

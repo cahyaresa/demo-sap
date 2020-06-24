@@ -13,4 +13,32 @@ $catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[defa
 $lang=id
 
 # Update allProducts with localisations
-UPDATE Product;code[unique=true];$catalogVersion;name[lang=$lang];summary[lang=$lang];description[lang=$lang]
+UPDATE BedProduct;code[unique=true];name[lang=$lang]
+                 ; INTHEBOXX          ; INTHEBOX X
+                 ; INTHEBOX           ; INTHEBOX
+                 ; INTHEBOXHYBRID     ; INTHEBOX HYBRID
+                 ; SOFABED            ; SOFA BED
+
+
+UPDATE BedSizeVariantProduct;code[unique=true];name[lang=$lang]
+                            ; SUPERKINGX         ; Super King
+                            ; KINGX              ; King
+                            ; QUEENSIZEX         ; Queen Size
+                            ; FULLSIZEX          ; Full Size
+                            ; SUPERSINGLEX       ; Super Single
+                            ; SINGLESIZEX        ; Single Size
+                            ; SUPERKING          ; Super King
+                            ; KING               ; King
+                            ; QUEENSIZE          ; Queen Size
+                            ; FULLSIZE           ; Full Size
+                            ; SUPERSINGLE        ; Super Single
+                            ; SINGLESIZE         ; Single Size
+                            ; SUPERKINGHYBRID    ; Super King
+                            ; KINGHYBRID         ; King
+                            ; QUEENSIZEHYBRID    ; Queen Size
+                            ; FULLSIZEHYBRID     ; Full Size
+                            ; SUPERSINGLEHYBRID  ; Super Single
+                            ; SINGLESIZEHYBRID   ; Single Size
+                            ; HYBRID140X200      ; Hybrid 140 x 200
+                            ; SUPERSINGLESOFA    ; Super Single
+

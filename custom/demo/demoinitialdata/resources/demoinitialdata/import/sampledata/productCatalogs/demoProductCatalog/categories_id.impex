@@ -13,4 +13,7 @@ $catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[defa
 $lang=id
 
 # Create Categories
-UPDATE Category;code[unique=true];$catalogVersion;name[lang=$lang]
+UPDATE Category; code[unique = true]; $catalogVersion; name[lang = $lang]
+               ; BED                ;                ; Bed
+               ; SPRINGBED          ;                ; Springbed
+               ; SOFA               ;                ; Sofa
