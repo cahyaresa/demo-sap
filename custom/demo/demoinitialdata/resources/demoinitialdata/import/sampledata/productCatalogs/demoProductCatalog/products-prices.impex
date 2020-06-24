@@ -4,12 +4,33 @@
 # ImpEx for Importing Prices
 
 # Macros / Replacement Parameter definitions
-$productCatalog=demoProductCatalog
+$productCatalog = demoProductCatalog
 
-$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default='$productCatalog:Staged']
-$prices=Europe1prices[translator=de.hybris.platform.europe1.jalo.impex.Europe1PricesTranslator]
+$catalogVersion = catalogversion(catalog(id[default=$productCatalog]), version[default='Staged'])[unique=true, default='$productCatalog:Staged']
+$prices = Europe1prices[translator=de.hybris.platform.europe1.jalo.impex.Europe1PricesTranslator]
+$taxGroup = Europe1PriceFactory_PTG(code)[default = eu-vat-full]
 
 # Set product approval status to Approved only for those products that have prices.
-$approved=approvalstatus(code)[default='approved']
+$approved = approvalstatus(code)[default='approved']
 
-UPDATE Product;code[unique=true];$prices;$approved;$catalogVersion;Europe1PriceFactory_PTG(code)
+INSERT_UPDATE PriceRow; product(code, $catalogVersion)[unique = true]; unit(code[unique = true, default = pieces]); currency(isocode)[unique = true][default = IDR]; price[translator = de.hybris.platform.acceleratorservices.dataimport.batch.converter.PriceTranslator]; startTime[dateformat = dd-MMM-yyyy]; endTime[dateformat = dd-MMM-yyyy]; channel(code)[unique = true]; net[default = false]; unitFactor[default = 1]; minqtd[default = 1]; $catalogVersion;
+                      ; SUPERKINGX                                   ;                                            ; IDR                                            ; 2606000                                                                                              ;                                    ;
+                      ; KINGX                                        ;                                            ; IDR                                            ; 2606000                                                                                              ;                                    ;
+                      ; QUEENSIZEX                                   ;                                            ; IDR                                            ; 2606000                                                                                              ;                                    ;
+                      ; FULLSIZEX                                    ;                                            ; IDR                                            ; 2606000                                                                                              ;                                    ;
+                      ; SUPERSINGLEX                                 ;                                            ; IDR                                            ; 2606000                                                                                              ;                                    ;
+                      ; SINGLESIZEX                                  ;                                            ; IDR                                            ; 2606000                                                                                              ;                                    ;
+                      ; SUPERKING                                    ;                                            ; IDR                                            ; 2606000                                                                                              ;                                    ;
+                      ; KING                                         ;                                            ; IDR                                            ; 2606000                                                                                              ;                                    ;
+                      ; QUEENSIZE                                    ;                                            ; IDR                                            ; 2606000                                                                                              ;                                    ;
+                      ; FULLSIZE                                     ;                                            ; IDR                                            ; 2606000                                                                                              ;                                    ;
+                      ; SUPERSINGLE                                  ;                                            ; IDR                                            ; 2606000                                                                                              ;                                    ;
+                      ; SINGLESIZE                                   ;                                            ; IDR                                            ; 2606000                                                                                              ;                                    ;
+                      ; SUPERKINGHYBRID                              ;                                            ; IDR                                            ; 2606000                                                                                              ;                                    ;
+                      ; KINGHYBRID                                   ;                                            ; IDR                                            ; 2606000                                                                                              ;                                    ;
+                      ; QUEENSIZEHYBRID                              ;                                            ; IDR                                            ; 2606000                                                                                              ;                                    ;
+                      ; FULLSIZEHYBRID                               ;                                            ; IDR                                            ; 2606000                                                                                              ;                                    ;
+                      ; SUPERSINGLEHYBRID                            ;                                            ; IDR                                            ; 2606000                                                                                              ;                                    ;
+                      ; SINGLESIZEHYBRID                             ;                                            ; IDR                                            ; 2606000                                                                                              ;                                    ;
+                      ; HYBRID140X200                                ;                                            ; IDR                                            ; 2606000                                                                                              ;                                    ;
+                      ; SUPERSINGLESOFA                              ;                                            ; IDR                                            ; 2606000                                                                                              ;                                    ;

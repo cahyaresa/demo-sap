@@ -1,0 +1,16 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+#
+# Import Delivery Modes / Zones
+#
+
+# Language
+$lang=id
+
+# Zone Delivery Modes
+UPDATE ZoneDeliveryMode;code[unique=true];name[lang=$lang];description[lang=$lang]
+                       ;premium-gross;"Premium Delivery";"1-2 hari kerja"
+                       ;premium-net;"Premium Delivery";"1-2 hari kerja"
+                       ;standard-gross;"Standard Delivery";"3-5 hari kerja"
+                       ;standard-net;"Standard Delivery";"3-5 hari kerja"
