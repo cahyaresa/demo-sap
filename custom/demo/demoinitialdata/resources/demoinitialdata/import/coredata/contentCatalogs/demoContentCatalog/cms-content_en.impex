@@ -13,22 +13,39 @@ $lang=en
 
 # Content Pages
 UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
- ;;account;"My Account"
- ;;add-edit-address;"Add/Edit Address"
- ;;address-book;"Address Book"
- ;;cartPage;"Your Shopping Cart"
- ;;checkout-login;"Proceed to Checkout"
- ;;faq;"Frequently Asked Questions"
- ;;homepage;"Homepage"
- ;;login;"Login"
- ;;multiStepCheckoutSummaryPage;"Checkout"
- ;;notFound;"Not Found"
- ;;order;"Order Details"
- ;;orderConfirmationPage;"Order Confirmation"
- ;;orders;"Order History"
- ;;payment-details;"Payment Details"
- ;;profile;"Profile"
- ;;searchEmpty;"No Results"
- ;;storefinderPage;"StoreFinder"
- ;;termsAndConditions;"Terms and Conditions"
- ;;updatePassword;"Update Forgotten Password"
+                  ;;add-edit-address;"Add/Edit Address"
+                  ;;address-book;"Address Book"
+                  ;;cartPage;"Your Shopping Cart"
+                  ;;checkout-login;"Proceed to Checkout"
+                  ;;close-account;"Close Account"
+                  ;;consents;"Consent Management"
+                  ;;faq;"Frequently Asked Questions"
+                  ;;homepage;"Homepage"
+                  ;;login;"Login"
+                  ;;multiStepCheckoutSummaryPage;"Checkout"
+                  ;;notFound;"Not Found"
+                  ;;order;"Order Details"
+                  ;;orderConfirmationPage;"Order Confirmation"
+                  ;;orderExpired;"Order Expired Page"
+                  ;;orders;"Order History"
+                  ;;payment-details;"Payment Details"
+                  ;;quickOrderPage;"Quick Order Page"
+                  ;;search;"Search Results Page"
+                  ;;searchEmpty;"No Results"
+                  ;;storefinderPage;"StoreFinder"
+                  ;;termsAndConditions;"Terms and Conditions"
+                  ;;update-email;"Update Email"
+                  ;;update-profile;"Update Profile"
+                  ;;updatePassword;"Update Forgotten Password"
+
+
+# Category Pages
+UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
+                   ;;category;"Default Category Page"
+                   ;;productGrid;"Product Grid"
+                   ;;productList;"Product List"
+
+
+# Product Pages
+UPDATE ProductPage;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
+                  ;;productDetails;"Product Details"
