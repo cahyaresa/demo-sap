@@ -1,28 +1,30 @@
 # -----------------------------------------------------------------------
 # Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
 # -----------------------------------------------------------------------
-$contentCatalog=electronicsContentCatalog
-$contentCatalogName=Electronics Content Catalog
+# ImpEx for Importing CMS Content
+
+# Macros / Replacement Parameter definitions
+$contentCatalog=demoContentCatalog
+$contentCatalogName=demo Content Catalog
+$productCatalog=demoProductCatalog
+$productCatalogName=demo Product Catalog
+
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
-$productCatalog=electronicsProductCatalog
-$productCatalogName=Electronics Product Catalog
 $productCV=catalogVersion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
-$picture=media(code, $contentCV);
-$image=image(code, $contentCV);
-$media=media(code, $contentCV);
-$page=page(uid, $contentCV);
+
+$medias=medias(code, $contentCV);
+$mediaContainer=media(qualifier, $contentCV);
 $contentPage=contentPage(uid, $contentCV);
 $product=product(code, $productCV)
 $category=category(code, $productCV)
-$siteResource=jar:de.hybris.platform.electronicsstore.constants.ElectronicsstoreConstants&/electronicsstore/import/sampledata/contentCatalogs/$contentCatalog
-$productResource=jar:de.hybris.platform.electronicsstore.constants.ElectronicsstoreConstants&/electronicsstore/import/sampledata/productCatalogs/$productCatalog
-$jarResourceCms=jar:de.hybris.platform.electronicsstore.constants.ElectronicsstoreConstants&/electronicsstore/import/sampledata/cockpits/cmscockpit
-
+$siteResource=jar:org.demo.initialdata.setup.InitialDataSystemSetup&/demoinitialdata/import/sampledata/contentCatalogs/$contentCatalog
+$productResource=jar:org.demo.initialdata.setup.InitialDataSystemSetup&/demoinitialdata/import/sampledata/productCatalogs/$productCatalog
+$jarResourceCms=jar:org.demo.initialdata.setup.InitialDataSystemSetup&/demoinitialdata/import/sampledata/cockpits/cmscockpit
 
 
 # CMS Site Settings
 UPDATE CMSSite;uid[unique=true];defaultPreviewCategory(code, $productCV);defaultPreviewProduct(code, $productCV);defaultPreviewCatalog(id)
-              ;electronics;575;2053367;$productCatalog
+              ;demo;575;2053367;$productCatalog
 
 # Site Logo
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];altText;folder(qualifier)[default='images']
@@ -68,7 +70,7 @@ INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url
                               ;;BlankVideotapesCategoryLink;BlankVideotapes Category Link;/Open-Catalogue/Cameras/Camera-Accessories-26-Supplies/Blank-Video-Tapes/c/604;BlankVideotapesCategoryLink;BlankVideotapesCategoryLink;;604;;
                               ;;AboutSAPCommerceLink;About SAP Commerce Cloud Link;"http://www.cx.sap.com/products/commerce";AboutSAPCommerceLink;AboutSAPCommerceLink;newWindow;;;
                               ;;DocumentationLink;Documentation Link;"https://help.hybris.com";DocumentationLink;DocumentationLink;newWindow;;;
-                              ;;VisitSAPLink;Visit SAP Link;"http://www.hcx.sap.com";VisitSAPLink;VisitSAPLink;newWindow;;;
+                              ;;VisitSAPLink;Visit SAP Link;"http://www.cx.sap.com";VisitSAPLink;VisitSAPLink;newWindow;;;
                               ;;ContactUsLink;Contact Us Link;"http://www.cx.sap.com/contact";ContactUsLink;ContactUsLink;newWindow;;;
                               ;;FacebookLink;Facebook Link;"http://www.facebook.com/sapcx/";FacebookLink;FacebookLink;newWindow;;;
                               ;;TwitterLink;Twitter Link;"http://www.twitter.com/SAP_CX";TwitterLink;TwitterLink;newWindow;;;
@@ -76,19 +78,6 @@ INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url
                               ;;LinkedInLink;Linked In Link;"http://www.linkedin.com/groups/5063400";LinkedInLink;LinkedInLink;newWindow;;;
                               ;;FAQLink;FAQ Link;/faq;FAQLink;FAQLin;;;;
                               ;;TermsAndConditionsLink;Terms and Conditions Link;/termsAndConditions;TermsAndConditionsLink;TermsAndConditionsLink;;;;
-                              ;;AccountHomeLink;Account Home Link;/my-account;AccountHomeLink;AccountHomeLink;;;;
-                              ;;AccountProfileLink;AccountProfileLink;/my-account/profile;AccountProfileLink;AccountProfileLink;;;;
-                              ;;AccountPersonalDetailsLink;AccountPersonalDetailsLink;/my-account/profile;AccountPersonalDetailsLink;AccountPersonalDetailsLink;;;;
-                              ;;AccountUpdatePasswordLink;AccountUpdatePasswordLink;/my-account/update-password;AccountUpdatePasswordLink;AccountUpdatePasswordLink;;;;
-                              ;;AccountAddressBookLink;AccountAddressBookLink;/my-account/address-book;AccountAddressBookLink;AccountAddressBookLink;;;;
-                              ;;AccountManageAddressLink;AccountManageAddressLink;/my-account/address-book;AccountManageAddressLink;AccountManageAddressLink;;;;
-                              ;;AccountPaymentDetailsLink;AccountPaymentDetailsLink;/my-account/payment-details;AccountPaymentDetailsLink;AccountPaymentDetailsLink;;;;
-                              ;;AccountManagePaymentDetailsLink;AccountManagePaymentDetailsLink;/my-account/payment-details;AccountManagePaymentDetailsLink;AccountManagePaymentDetailsLink;;;;
-                              ;;AccountOrderHistoryLink;AccountOrderHistoryLink;/my-account/orders;AccountOrderHistoryLink;AccountOrderHistoryLink;;;;
-                              ;;AccountViewOrderHistoryLink;AccountViewOrderHistoryLink;/my-account/orders;AccountViewOrderHistoryLink;AccountViewOrderHistoryLink;;;;
-
-INSERT_UPDATE BreadcrumbComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef
-                                 ;;breadcrumbComponent;Breadcrumb CMS Component;breadcrumbComponent
 
 # Lightbox Banner for Mini Cart
 INSERT_UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef;urlLink
@@ -98,49 +87,18 @@ INSERT_UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];nam
 INSERT_UPDATE MiniCartComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef;totalDisplay(code);shownProductCount;lightboxBannerComponent(&componentRef)
                                ;;MiniCart;Mini Cart;MiniCart;SUBTOTAL;3;LightboxHomeDeliveryBannerComponent
 
-# Navigation Bar Component
-INSERT_UPDATE NavigationBarComponent;$contentCV[unique=true];uid[unique=true];name;wrapAfter;link(uid, $contentCV);styleClass;&componentRef
-                                    ;;CamerasBarComponent;Cameras Bar Component;10;CamerasCategoryLink;;CamerasBarComponent
-                                    ;;ComponentsBarComponent;Components Bar Component;10;ComponentsCategoryLink;;ComponentsBarComponent
-                                    ;;DigitalCamerasBarComponent;Digital Cameras Bar Component;10;DigitalCamerasCategoryLink;;DigitalCamerasBarComponent
-                                    ;;FilmCamerasBarComponent;Film Cameras Bar Component;10;FilmCamerasCategoryLink;;FilmCamerasBarComponent
-                                    ;;CameraAccessoriesBarComponent;Camera Accessories BarComponent;10;CameraAccessoriesCategoryLink;;CameraAccessoriesBarComponent
-                                    ;;PowerSuppliesBarComponent;Power Supplies Bar Component;10;PowerSuppliesCategoryLink;;PowerSuppliesBarComponent
-                                    ;;FlashMemoryBarComponent;Flash Memory Bar Component;10;FlashMemoryCategoryLink;;FlashMemoryBarComponent
-                                    ;;HandheldCamcordersBarComponent;Handheld Camcorders Bar Component;10;HandheldCamcordersCategoryLink;;HandheldCamcordersBarComponent
-                                    ;;SpecialOffersBarComponent;Special Offers Bar Component;10;SpecialOffersLink;special_offer;SpecialOffersBarComponent
-
-
-# Navigation Bar Component
-INSERT_UPDATE AccountNavigationComponent;$contentCV[unique=true];uid[unique=true];name;navigationNode(&nodeRef);styleClass;&componentRef
-                                        ;;AccountLeftNavigationComponent;Account Left Navigation Component;AccountLeftNavNode;;AccountLeftNavigationComponent
-                                        ;;AccountProfileNavigationComponent;Account Profile Navigation Component;AccountProfileNavNode;;AccountProfileNavigationComponent
-                                        ;;AccountAddressBookNavigationComponent;Account Address Book NavigationComponent;AccountAddressBookNavNode;;AccountAddressBookNavigationComponent
-                                        ;;AccountPaymentDetailsNavigationComponent;Account Payment Details Navigation Component;AccountPaymentDetailsNavNode;;AccountPaymentDetailsNavigationComponent
-                                        ;;AccountOrderHistoryNavigationComponent;Account Order History Navigation Component;AccountOrderHistoryNavNode;;AccountOrderHistoryNavigationComponent
-
-# Account Navigation Bar Component
-INSERT_UPDATE AccountNavigationCollectionComponent;$contentCV[unique=true];uid[unique=true];name;components(uid, $contentCV);&componentRef
-                                                  ;;AccountHomepageComponent;Account Homepage Component;AccountProfileNavigationComponent,AccountAddressBookNavigationComponent,AccountPaymentDetailsNavigationComponent,AccountOrderHistoryNavigationComponent;AccountHomepageComponent
-
-# Navigation Bar Component
-INSERT_UPDATE NavigationBarCollectionComponent;$contentCV[unique=true];uid[unique=true];name;components(uid, $contentCV);&componentRef
-                                              ;;NavBarComponent;Navigation Bar Collection Componeent;BrandsBarComponent,DigitalCamerasBarComponent,FilmCamerasBarComponent,HandheldCamcordersBarComponent,PowerSuppliesBarComponent,FlashMemoryBarComponent,CameraAccessoriesBarComponent,SpecialOffersBarComponent;NavBarComponent
-
 # CMS tabs components
+INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];name;page;actions(uid,$contentCV);&componentRef
+                                 ;;ProductDetailsTabComponent;Product Details Tab;productDetailsTab.jsp;;ProductDetailsTabComponent
+                                 ;;ProductSpecsTabComponent;Product Specification Tab;productSpecsTab.jsp;;ProductSpecsTabComponent
+                                 ;;ProductReviewsTabComponent;Product Reviews Tab;productReviewsTab.jsp;;ProductReviewsTabComponent
+
 INSERT_UPDATE CMSTabParagraphComponent;$contentCV[unique=true];uid[unique=true];name;visible;&componentRef
                                       ;;deliveryTab;Delivery tab;true;deliveryTab
 
 INSERT_UPDATE CMSTabParagraphContainer;$contentCV[unique=true];uid[unique=true];name;visible;simpleCMSComponents(uid, $contentCV);&componentRef
-                                      ;;TabPanelContainer;Tab container;true;deliveryTab;TabPanelContainer
+                                      ;;TabPanelContainer;Tab container;true;ProductDetailsTabComponent,ProductSpecsTabComponent,ProductReviewsTabComponent,deliveryTab;TabPanelContainer
 
-# CMS Footer Component
-INSERT_UPDATE FooterComponent;$contentCV[unique=true];uid[unique=true];wrapAfter;&componentRef
-                             ;;FooterComponent;2;FooterComponent
-
-# CMS Paragraph Component (Contact information)
-INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef
-                                   ;;ContactInfo;Contact information;ContactInfo
 
 # CMS VariantSelector Components
 INSERT_UPDATE ProductVariantSelectorComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef
@@ -164,7 +122,7 @@ INSERT_UPDATE ListPickUpInStoreAction;$contentCV[unique=true];uid[unique=true];u
 
 # CMS Action Restrictions
 INSERT_UPDATE CMSActionRestriction;$contentCV[unique=true];uid[unique=true];name;
-                                  ;;ActionRestriction;A CMSAction restriction;s
+                                  ;;ActionRestriction;A CMSAction restriction;
 
 INSERT_UPDATE PickUpInStoreAction;$contentCV[unique=true];uid[unique=true];url;name;&actionRef
                                  ;;PickUpInStoreAction;/store-pickup/{productCode}/pointOfServices;Pickup in Store Action;PickUpInStoreAction
@@ -212,10 +170,9 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents
                          ;;SiteLogoSlot;SiteLogoComponent
                          ;;HomepageNavLinkSlot;HomepageNavLink
                          ;;MiniCartSlot;MiniCart
-                         ;;NavigationBarSlot;NavBarComponent,breadcrumbComponent
                          ;;TabsSlot;TabPanelContainer
-                         ;;FooterSlot;FooterComponent
-                         ;;HeaderLinksSlot;ContactInfo
+                         ;;FooterSlot;
+                         ;;HeaderLinksSlot;
                          ;;SearchBoxSlot;SearchBox,LangCurrencyComponent
                          ;;VariantSelectorSlot;VariantSelector
                          ;;AddToCartSlot;AddToCart
@@ -224,9 +181,9 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents
                          ;;ProductLeftRefinements;RefinementFacetComponent
 
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];folder(qualifier)[default='images']
-                   ;;CamerasPagePreview;text/png;CamerasPage.png;$jarResourceCms/preview-images/electronics/CamerasPage.png
-                   ;;DigitalCamerasPagePreview;text/png;DigitalCamerasPage.png;$jarResourceCms/preview-images/electronics/DigitalCamerasPage.png
-                   ;;CameraAccessoriesPagePreview;text/png;CameraAccessoriesPage.png;$jarResourceCms/preview-images/electronics/CameraAccessoriesPage.png
+                   ;;CamerasPagePreview;text/png;CamerasPage.png;$jarResourceCms/preview-images/demo/CamerasPage.png
+                   ;;DigitalCamerasPagePreview;text/png;DigitalCamerasPage.png;$jarResourceCms/preview-images/demo/DigitalCamerasPage.png
+                   ;;CameraAccessoriesPagePreview;text/png;CameraAccessoriesPage.png;$jarResourceCms/preview-images/demo/CameraAccessoriesPage.png
 
 # Category Pages
 INSERT_UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);defaultPage;approvalStatus(code)[default='approved'];previewImage(code, $contentCV)
@@ -250,69 +207,45 @@ INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;pa
                                ;BrandLinksNavNode;;Brand Links;BrandsNavNode;CanonBrandCategoryLink,SonyBrandCategoryLink,KodakBrandCategoryLink,SamsungBrandCategoryLink,ToshibaBrandCategoryLink,FujifilmBrandCategoryLink;BrandLinksNavNode
                                ;AccessoryBrandLinksNavNode;;Accessory Brand Links;BrandsNavNode;KingstonBrandCategoryLink,IciduBrandCategoryLink,TDKBrandCategoryLink,SweexBrandCategoryLink;AccessoryBrandLinksNavNode
                                ;DigitalCameraTypesNavNode;;Digital Camera Type Links;DigitalCamerasNavNode;DigitalCompactsCategoryLink,DigitalSLRCategoryLink;DigitalCameraTypesNavNode
-                               ;CamerasNavNode;;Cameras Category;ElectronicsNavNode;DigitalCamerasCategoryLink,FilmCamerasCategoryLink;CamerasNavNode
-                               ;DigitalCamerasNavNode;;Digital Cameras Category;CamerasNavNode;DigitalCamerasCategoryLink;DigitalCamerasNavNode
-                               ;FilmCamerasNavNode;;Film Cameras Category;CamerasNavNode;FilmCamerasCategoryLink;FilmCamerasNavNode
-                               ;WebcamsNavNode;;Webcams Category;CamerasNavNode;;WebcamsNavNode
-                               ;CameraAccessoriesNavNode;;Camera Accessories Category;CamerasNavNode;CameraAccessoriesCategoryLink;CameraAccessoriesNavNode
-                               ;HandheldCamcordersNavNode;;Hand-held Camcorders Category;CamerasNavNode;HandheldCamcordersCategoryLink;HandheldCamcordersNavNode
+                               ;DigitalCamerasNavNode;;Digital Cameras Category;;DigitalCamerasCategoryLink;DigitalCamerasNavNode
+                               ;FilmCamerasNavNode;;Film Cameras Category;;FilmCamerasCategoryLink;FilmCamerasNavNode
+                               ;WebcamsNavNode;;Webcams Category;;;WebcamsNavNode
+                               ;CameraAccessoriesNavNode;;Camera Accessories Category;;CameraAccessoriesCategoryLink;CameraAccessoriesNavNode
+                               ;HandheldCamcordersNavNode;;Hand-held Camcorders Category;;HandheldCamcordersCategoryLink;HandheldCamcordersNavNode
                                ;PowerSuppliesNavNode;;Power Supplies Category;ElectronicsNavNode;PowerSuppliesCategoryLink;PowerSuppliesNavNode
                                ;FlashMemoryNavNode;;Flash Memory Category;ElectronicsNavNode;FlashMemoryCategoryLink;FlashMemoryNavNode
                                ;AccessoriesNavNode;;Accessories Links;CameraAccessoriesNavNode;CamerasFlashesCategoryLink,TripodsCategoryLink,CameraLensesCategoryLink;AccessoriesNavNode
                                ;SuppliesNavNode;;Supplies Links;CameraAccessoriesNavNode;ColourFilmsCategoryLink,BlackAndWhiteFilmsCategoryLink,BlankVideotapesCategoryLink;SuppliesNavNode
-                               ;SAPCommerceNavNode;;SAP Commerce Cloud Pages;ElectronicsNavNode;AboutSapCommerceLink,FAQLink;SAPCommerceNavNode
+                               ;SAPCommerceNavNode;;SAP Commerce Cloud Pages;ElectronicsNavNode;AboutSAPCommerceLink,FAQLink;SAPCommerceNavNode
                                ;SAPCustomerExperienceNavNode;;SAP Customer Experience Pages;ElectronicsNavNode;VisitSAPLink,ContactUsLink;SAPCustomerExperienceNavNode
                                ;FollowUsNavNode;;Follow Us Pages;ElectronicsNavNode;AgileCommerceBlogLink,LinkedInLink,FacebookLink,TwitterLink;FollowUsNavNode
-                               ;AccountLeftNavNode;;My Account;SiteRootNode;AccountProfileLink,AccountAddressBookLink,AccountPaymentDetailsLink,AccountOrderHistoryLink;AccountLeftNavNode
-                               ;AccountProfileNavNode;;Profile;AccountLeftNavNode;AccountPersonalDetailsLink,AccountUpdatePasswordLink;AccountProfileNavNode
-                               ;AccountAddressBookNavNode;;Address Book;AccountLeftNavNode;AccountManageAddressLink;AccountAddressBookNavNode
-                               ;AccountPaymentDetailsNavNode;;Address Book;AccountLeftNavNode;AccountManagePaymentDetailsLink;AccountPaymentDetailsNavNode
-                               ;AccountOrderHistoryNavNode;;Order History;AccountLeftNavNode;AccountViewOrderHistoryLink;AccountOrderHistoryNavNode
 
-# Navigation Bar Component
-INSERT_UPDATE NavigationBarComponent;$contentCV[unique=true];uid[unique=true];navigationNode(&nodeRef);dropDownLayout(code)
-                                    ;;CamerasBarComponent;CamerasNavNode
-                                    ;;DigitalCamerasBarComponent;DigitalCamerasNavNode
-                                    ;;FilmCamerasBarComponent;FilmCamerasNavNode
-                                    ;;CameraAccessoriesBarComponent;CameraAccessoriesNavNode;AUTO
-                                    ;;PowerSuppliesBarComponent;PowerSuppliesNavNode
-                                    ;;FlashMemoryBarComponent;FlashMemoryNavNode
-                                    ;;HandheldCamcordersBarComponent;HandheldCamcordersNavNode
-
-INSERT_UPDATE NavigationBarComponent;$contentCV[unique=true];uid[unique=true];name;wrapAfter;navigationNode(&nodeRef);link(uid, $contentCV);styleClass;dropDownLayout(code);&componentRef
-                                    ;;BrandsBarComponent;All Brands;10;BrandsNavNode;AllBrandsCategoryLink;;AUTO;BrandsBarComponent
-
-# Update CMS Footer Component with Nav Nodes
-INSERT_UPDATE FooterComponent;$contentCV[unique=true];uid[unique=true];navigationNodes(&nodeRef)
-                             ;;FooterComponent;SAPCommerceNavNode,SAPCustomerExperienceNavNode,FollowUsNavNode
 
 # Preview Image for use in the CMS Cockpit for special ContentPages
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];folder(qualifier)[default='images']
-                   ;;accountPagePreview;text/png;AccountPage.png;$jarResourceCms/preview-images/electronics/AccountPage.png
-                   ;;addEditAddressPagePreview;text/png;AddEditAddressPage.png;$jarResourceCms/preview-images/electronics/AddEditAddressPage.png
-                   ;;addressBookPagePreview;text/png;AddressBook.png;$jarResourceCms/preview-images/electronics/AddressBookPage.png
-                   ;;cartPagePreview;text/png;CartPage.png;$jarResourceCms/preview-images/electronics/CartPage.png
-                   ;;checkoutLoginPagePreview;text/png;CheckoutLoginPage.png;$jarResourceCms/preview-images/electronics/CheckoutLoginPage.png
-                   ;;multiStepCheckoutSummaryPagePreview;text/png;MultiStepCheckoutSummaryPage.png;$jarResourceCms/preview-images/electronics/MultiStepCheckoutSummaryPage.png
-                   ;;frequentlyAskedQuestionsPage;text/png;FrequentlyAskedQuestionsPage.png;$jarResourceCms/preview-images/electronics/FrequentlyAskedQuestionsPage.png;;;
-                   ;;termsAndConditionsPage;text/png;TermsAndConditionsPage.png;$jarResourceCms/preview-images/electronics/TermsAndConditionsPage.png;;;
-                   ;;homepagePreview;text/png;Homepage.png;$jarResourceCms/preview-images/electronics/Homepage.png
-                   ;;loginPagePreview;text/png;LoginPage.png;$jarResourceCms/preview-images/electronics/LoginPage.png
-                   ;;notFoundPagePreview;text/png;NotFoundPage.png;$jarResourceCms/preview-images/electronics/NotFoundPage.png
-                   ;;orderConfirmationPagePreview;text/png;OrderConfirmationPage.png;$jarResourceCms/preview-images/electronics/OrderConfirmationPage.png
-                   ;;orderDetailsPagePreview;text/png;OrderDetailsPage.png;$jarResourceCms/preview-images/electronics/OrderDetailsPage.png
-                   ;;orderHistoryPagePreview;text/png;OrderHistoryPage.png;$jarResourceCms/preview-images/electronics/OrderHistoryPage.png
-                   ;;paymentDetailsPagePreview;text/png;PaymentDetailsPage.png;$jarResourceCms/preview-images/electronics/PaymentDetailsPage.png
-                   ;;productDetailsPagePreview;text/png;ProductDetailsPage.png;$jarResourceCms/preview-images/electronics/ProductDetailsPage.png
-                   ;;productListPagePreview;text/png;ProductListPage.png;$jarResourceCms/preview-images/electronics/ProductListPage.png
-                   ;;profilePagePreview;text/png;ProfilePage.png;$jarResourceCms/preview-images/electronics/ProfilePage.png
-                   ;;searchResultsEmptyPagePreview;text/png;SearchResultsEmptyPage.png;$jarResourceCms/preview-images/electronics/SearchResultsEmptyPage.png
-                   ;;searchResultsPagePreview;text/png;SearchResultsPage.png;$jarResourceCms/preview-images/electronics/SearchResultsPage.png
-                   ;;storefinderPagePreview;text/png;StoreFinderPage.png;$jarResourceCms/preview-images/electronics/StoreFinderPage.png
-                   ;;updateForgottenPasswordPagePreview;text/png;UpdateForgottenPasswordPage.png;$jarResourceCms/preview-images/electronics/UpdateForgottenPasswordPage.png
-                   ;;productGridPagePreview;text/png;ProductGridPage.png;$jarResourceCms/preview-images/electronics/ProductGridPage.png
-                   ;;defaultCategoryPagePreview;text/png;DefaultCategoryPage.png;$jarResourceCms/preview-images/electronics/DefaultCategoryPage.png
-                   ;;orderExpiredPagePreview;text/png;OrderExpiredPage.png;$jarResourceCms/preview-images/electronics/OrderExpiredPage.png;;;
+                   ;;addEditAddressPagePreview;text/png;AddEditAddressPage.png;$jarResourceCms/preview-images/demo/AddEditAddressPage.png
+                   ;;addressBookPagePreview;text/png;AddressBook.png;$jarResourceCms/preview-images/demo/AddressBookPage.png
+                   ;;cartPagePreview;text/png;CartPage.png;$jarResourceCms/preview-images/demo/CartPage.png
+                   ;;checkoutLoginPagePreview;text/png;CheckoutLoginPage.png;$jarResourceCms/preview-images/demo/CheckoutLoginPage.png
+                   ;;multiStepCheckoutSummaryPagePreview;text/png;MultiStepCheckoutSummaryPage.png;$jarResourceCms/preview-images/demo/MultiStepCheckoutSummaryPage.png
+                   ;;frequentlyAskedQuestionsPage;text/png;FrequentlyAskedQuestionsPage.png;$jarResourceCms/preview-images/demo/FrequentlyAskedQuestionsPage.png;;;
+                   ;;termsAndConditionsPage;text/png;TermsAndConditionsPage.png;$jarResourceCms/preview-images/demo/TermsAndConditionsPage.png;;;
+                   ;;homepagePreview;text/png;Homepage.png;$jarResourceCms/preview-images/demo/Homepage.png
+                   ;;loginPagePreview;text/png;LoginPage.png;$jarResourceCms/preview-images/demo/LoginPage.png
+                   ;;notFoundPagePreview;text/png;NotFoundPage.png;$jarResourceCms/preview-images/demo/NotFoundPage.png
+                   ;;orderConfirmationPagePreview;text/png;OrderConfirmationPage.png;$jarResourceCms/preview-images/demo/OrderConfirmationPage.png
+                   ;;orderDetailsPagePreview;text/png;OrderDetailsPage.png;$jarResourceCms/preview-images/demo/OrderDetailsPage.png
+                   ;;orderHistoryPagePreview;text/png;OrderHistoryPage.png;$jarResourceCms/preview-images/demo/OrderHistoryPage.png
+                   ;;paymentDetailsPagePreview;text/png;PaymentDetailsPage.png;$jarResourceCms/preview-images/demo/PaymentDetailsPage.png
+                   ;;productDetailsPagePreview;text/png;ProductDetailsPage.png;$jarResourceCms/preview-images/demo/ProductDetailsPage.png
+                   ;;productListPagePreview;text/png;ProductListPage.png;$jarResourceCms/preview-images/demo/ProductListPage.png
+                   ;;searchResultsEmptyPagePreview;text/png;SearchResultsEmptyPage.png;$jarResourceCms/preview-images/demo/SearchResultsEmptyPage.png
+                   ;;searchResultsPagePreview;text/png;SearchResultsPage.png;$jarResourceCms/preview-images/demo/SearchResultsPage.png
+                   ;;storefinderPagePreview;text/png;StoreFinderPage.png;$jarResourceCms/preview-images/demo/StoreFinderPage.png
+                   ;;updateForgottenPasswordPagePreview;text/png;UpdateForgottenPasswordPage.png;$jarResourceCms/preview-images/demo/UpdateForgottenPasswordPage.png
+                   ;;productGridPagePreview;text/png;ProductGridPage.png;$jarResourceCms/preview-images/demo/ProductGridPage.png
+                   ;;defaultCategoryPagePreview;text/png;DefaultCategoryPage.png;$jarResourceCms/preview-images/demo/DefaultCategoryPage.png
+                   ;;orderExpiredPagePreview;text/png;OrderExpiredPage.png;$jarResourceCms/preview-images/demo/OrderExpiredPage.png;;;
 
 # Site-wide Homepage
 UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];previewImage(code, $contentCV);linkComponents(&linkRef)
@@ -324,8 +257,6 @@ UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];previewImage(code, $
                   ;;orderConfirmationPage;orderConfirmationPagePreview
                   ;;cartPage;cartPagePreview
                   ;;search;searchResultsPagePreview
-                  ;;account;accountPagePreview
-                  ;;profile;profilePagePreview
                   ;;address-book;addressBookPagePreview
                   ;;add-edit-address;addEditAddressPagePreview
                   ;;payment-details;paymentDetailsPagePreview
@@ -480,7 +411,6 @@ INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];nam
                                    ;;HelpParagraphComponent;Help Paragraph Component;HelpParagraphComponent
 
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef)
-                         ;;TopContent-cartPage;Top Slot for Cart Page;true;NextDayDeliveryBanner120,CartComponent
                          ;;EmptyCartMiddleContent-cartPage;Empty Cart Middle Slot for Cart Page;true;EmptyCartParagraphComponent
                          ;;CenterLeftContentSlot-cartPage;Center Left Content Slot for Cart Page;true;PromotionsComponent,PotentialPromotionsComponent
                          ;;CenterRightContentSlot-cartPage;Center Right Content Slot for Cart Page;true;CartTotalsComponent
@@ -584,6 +514,8 @@ INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];name;
                                  ;;UpdatePasswordComponent;Update Password Component;accountChangePasswordPage.jsp;;UpdatePasswordComponent
                                  ;;UpdateProfileComponent;Update Profile Component;accountProfileEditPage.jsp;;UpdateProfileComponent
                                  ;;UpdateEmailComponent;Update Email Component;accountProfileEmailEditPage.jsp;;UpdateEmailComponent
+                                 ;;ConsentManagementComponent;Consent Management Component;accountConsentManagementPage.jsp;;ConsentManagementComponent
+                                 ;;CloseAccountComponent;Close Account Component;accountCloseAccountPage.jsp;;CloseAccountComponent
                                  ;;StoreFinderComponent;Store Finder Component;storeFinderContent.jsp;ViewStoreAction;StoreFinderComponent
                                  ;;CartComponent;Cart Display Component;cartDisplay.jsp;;CartComponent
                                  ;;CartTotalsComponent;Cart Totals Display Component;cartTotalsDisplay.jsp;;CartTotalsComponent
@@ -595,6 +527,11 @@ INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];name;
                                  ;;NewCustomerCheckoutLoginComponent;New Customer Checkout Login Component;checkoutNewCustomerLogin.jsp;;NewCustomerCheckoutLoginComponent
                                  ;;ReturningCustomerCheckoutLoginComponent;Returning Customer Checkout Login Component;checkouReturningCustomerLogin.jsp;;ReturningCustomerCheckoutLoginComponent
                                  ;;GuestCheckoutLoginComponent;Guest Checkout Login Component;checkoutGuestLogin.jsp;;GuestCheckoutLoginComponent
+                                 ;;AnonymousConsentManagementComponent;Anonymous Consent Management Component;/WEB-INF/views/responsive/pages/consent/consentmanagement.jsp;;AnonymousConsentManagementComponent
+                                 ;;CookieNotificationComponent;Cookie Notification Component;/WEB-INF/views/responsive/pages/consent/cookienotification.jsp;;CookieNotificationComponent
+
+INSERT_UPDATE BreadcrumbComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef
+                                 ;;breadcrumbComponent;Breadcrumb CMS Component;breadcrumbComponent
 
 # CMS View Order Action
 INSERT_UPDATE ViewOrderAction;$contentCV[unique=true];uid[unique=true];url;name;&actionRef
@@ -604,32 +541,15 @@ INSERT_UPDATE ViewOrderAction;$contentCV[unique=true];uid[unique=true];url;name;
 INSERT_UPDATE ViewStoreAction;$contentCV[unique=true];uid[unique=true];url;name;&actionRef
                              ;;ViewStoreAction;;View Store Action;ViewStoreAction
 
-###### Account Homepage
-# ContentSlot
-INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
-                         ;;SideContent-Account;Side Content Slot for My Account Homepage;true;AccountLeftNavigationComponent;;;
-                         ;;BodyContent-Account;Body Content Slot for My Account Homepage;true;AccountHomepageComponent;;;
+# Content Slots
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsComponents(&componentRef)[mode=append]
+                         ;;TopHeaderSlot;true;CookieNotificationComponent,AnonymousConsentManagementComponent
 
-# ContentSlotForPage
-INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='account'];contentSlot(uid,$contentCV)[unique=true];;;
-                                ;;SideContent-Account;SideContent;;SideContent-Account;;;
-                                ;;BodyContent-Account;BodyContent;;BodyContent-Account;;;
-
-###### Account Profile
-# ContentSlot
-INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
-                         ;;SideContent-profile;Side Content Slot for My Account Profile;true;AccountLeftNavigationComponent;;;
-                         ;;BodyContent-profile;Body Content Slot for My Account Profile;true;AccountProfileComponent;;;
-
-# ContentSlotForPage
-INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='profile'];contentSlot(uid,$contentCV)[unique=true];;;
-                                ;;SideContent-profile;SideContent;;SideContent-profile;;;
-                                ;;BodyContent-profile;BodyContent;;BodyContent-profile;;;
 
 ###### Account Address Book
 # ContentSlot
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
-                         ;;SideContent-address-book;Side Content Slot for Account Address Book;true;AccountLeftNavigationComponent;;;
+                         ;;SideContent-address-book;Side Content Slot for Account Address Book;true;;;;
                          ;;BodyContent-address-book;Body Content Slot for Account Address Book;true;AccountAddressBookComponent;;;
 
 # ContentSlotForPage
@@ -640,7 +560,7 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 ###### Account Add Edit Address
 # ContentSlot
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
-                         ;;SideContent-add-edit-address;Side Content Slot for Add Edit Address;true;AccountLeftNavigationComponent;;;
+                         ;;SideContent-add-edit-address;Side Content Slot for Add Edit Address;true;;;;
                          ;;BodyContent-add-edit-address;Body Content Slot for Add Edit Address;true;AccountAddEditAddressComponent;;;
 
 # ContentSlotForPage
@@ -651,7 +571,7 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 ######  Account payment detail page
 # ContentSlot
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
-                         ;;SideContent-payment-details;Side Content Slot for My Account payment-details;true;AccountLeftNavigationComponent;;;
+                         ;;SideContent-payment-details;Side Content Slot for My Account payment-details;true;;;;
                          ;;BodyContent-payment-details;Body Content Slot for My Account payment-details;true;AccountPaymentDetailsComponent;;;
 
 # ContentSlotForPage
@@ -664,7 +584,7 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 
 # ContentSlot
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
-                         ;;SideContent-orders;Side Content Slot for My Account Order History;true;AccountLeftNavigationComponent;;;
+                         ;;SideContent-orders;Side Content Slot for My Account Order History;true;;;;
                          ;;BodyContent-orders;Body Content Slot for My Account Order History;true;AccountOrderHistoryComponent;;;
 
 # ContentSlotForPage
@@ -677,7 +597,7 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 
 # ContentSlot
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
-                         ;;SideContent-orderdetail;Side Content Slot for My Account Order Details;true;AccountLeftNavigationComponent;;;
+                         ;;SideContent-orderdetail;Side Content Slot for My Account Order Details;true;;;;
                          ;;BodyContent-orderdetail;Body Content Slot for My Account Order Details;true;AccountOrderDetailsHeadlineComponent,AccountOrderDetailsTotalsComponent,AccountOrderDetailsShippingComponent,AccountOrderDetailsItemsComponent;;;
 
 # ContentSlotForPage
@@ -689,7 +609,7 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 # ContentSlot
 
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
-                         ;;SideContent-updatePassword;Side Content Slot for Update Password;true;AccountLeftNavigationComponent;;;
+                         ;;SideContent-updatePassword;Side Content Slot for Update Password;true;;;;
                          ;;BodyContent-updatePassword;Body Content Slot for Update Password;true;UpdatePasswordComponent;;;
 
 # ContentSlotForPage
@@ -701,7 +621,7 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 # ContentSlot
 
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
-                         ;;SideContent-update-profile;Side Content Slot for Update Profile;true;AccountLeftNavigationComponent;;;
+                         ;;SideContent-update-profile;Side Content Slot for Update Profile;true;;;;
                          ;;BodyContent-update-profile;Body Content Slot for Update Profile;true;UpdateProfileComponent;;;
 
 # ContentSlotForPage
@@ -713,13 +633,37 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 # ContentSlot
 
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
-                         ;;SideContent-update-email;Side Content Slot for Update Email;true;AccountLeftNavigationComponent;;;
+                         ;;SideContent-update-email;Side Content Slot for Update Email;true;;;;
                          ;;BodyContent-update-email;Body Content Slot for Update Email;true;UpdateEmailComponent;;;
 
 # ContentSlotForPage
 INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='update-email'];contentSlot(uid,$contentCV)[unique=true];;;
                                 ;;SideContent-update-email;SideContent;;SideContent-update-email;;;
                                 ;;BodyContent-update-email;BodyContent;;BodyContent-update-email;;;
+
+###### Account Consent Management
+# ContentSlot
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
+                         ;;SideContentSlot-consents;Side Content Slot for Consent Management;true;;;;
+                         ;;BodyContentSlot-consents;Body Content Slot for Consent Management;true;ConsentManagementComponent;;;
+
+# ContentSlotForPage
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='consents'];contentSlot(uid,$contentCV)[unique=true];;;
+                                ;;SideContent-consents;SideContent;;SideContentSlot-consents;;;
+                                ;;BodyContent-consents;BodyContent;;BodyContentSlot-consents;;;
+
+
+###### Close Account Page
+# ContentSlot
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
+                         ;;SideContentSlot-close-account;Side Content Slot for Close Account Page;true;;;;
+                         ;;BodyContentSlot-close-account;Body Content Slot for Close Account Page;true;CloseAccountComponent;;;
+
+# ContentSlotForPage
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='close-account'];contentSlot(uid,$contentCV)[unique=true];;;
+                                ;;SideContent-close-account;SideContent;;SideContentSlot-close-account;;;
+                                ;;BodyContent-close-account;BodyContent;;BodyContentSlot-close-account;;;
+
 
 #### ProductListPage
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
@@ -756,3 +700,560 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
                                 ;;LeftContentSlot-checkout-login;LeftContentSlot;;LeftContentSlot-checkout-login;;;
                                 ;;CenterContentSlot-checkout-login;CenterContentSlot;;CenterContentSlot-checkout-login;;;
                                 ;;RightContentSlot-checkout-login;RightContentSlot;;RightContentSlot-checkout-login;;;
+
+######################### above is the desktop data, below is the responsive data ###############################################
+
+
+##  Remove the language currency component from the search and place a tag in the footer
+# CMS SearchBox Components
+INSERT_UPDATE SearchBoxComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef
+                                ;;SearchBox;Search Box;SearchBox
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(&componentRef)
+                         ;;SearchBoxSlot;SearchBox
+
+
+#################    HOME PAGE START     #################
+
+###  Home page splash Slot 1  #######
+INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
+                                             ;;ElectronicsHompageSplashBannerComponent;Electronics Homepage Splash Banner Component;/OpenCatalogue/Cameras/Digital-Cameras/Digital-SLR/c/578;ElectronicsHompageSplashBannerComponent
+
+INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
+                                             ;;ElectronicsHompageDiscountBannerComponent;Electronics Homepage Discount Banner Component;/Open-Catalogue/Cameras/Camera-Accessories-%26-Supplies/c/585;ElectronicsHompageDiscountBannerComponent
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsComponents(&componentRef)
+                         ;;Section1Slot-Homepage;true;ElectronicsHompageSplashBannerComponent,ElectronicsHompageDiscountBannerComponent
+
+###  Home page slot 2A  ####
+INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
+                                             ;;ElectronicsHompageLightFamBannerComponent;Electronics Homepage Light Family Banner Component;/Open-Catalogue/Cameras/DigitalCameras/Digital-Compacts/c/576;ElectronicsHompageLightFamBannerComponent
+
+INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
+                                             ;;ElectronicsHompageLightFamTextBannerComponent;Electronics Homepage Light Family Text Banner Component;/Open-Catalogue/Cameras/CameraAccessories-%26-Supplies/CameraLenses/c/588;ElectronicsHompageLightFamTextBannerComponent
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsComponents(&componentRef)
+                         ;;Section2ASlot-Homepage;true;ElectronicsHompageLightFamBannerComponent,ElectronicsHompageLightFamTextBannerComponent
+
+#### Home section 2B #######
+INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
+                                             ;;ElectronicsHompageCamcordersBannerComponent;Electronics Homepage Camcorders Banner Component;/Open-Catalogue/Components/PowerSupplies/c/816;ElectronicsHompageCamcordersBannerComponent
+
+INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
+                                             ;;ElectronicsHompageCamcordersChildBannerComponent;Electronics Homepage Light Family Banner Component Child;/Open-Catalogue/Cameras/Hand-held-Camcorders/c/584;ElectronicsHompageCamcordersChildBannerComponent
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsComponents(&componentRef)
+                         ;;Section2BSlot-Homepage;true;ElectronicsHompageCamcordersChildBannerComponent,ElectronicsHompageCamcordersBannerComponent
+## Home section 2C
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(&componentRef)
+                         ;;Section2CSlot-Homepage;
+
+## Home section 3
+INSERT_UPDATE ProductCarouselComponent;$contentCV[unique=true];uid[unique=true];&componentRef
+                                      ;;ElectronicsHomepageProductCarouselComponent;ElectronicsHomepageProductCarouselComponent
+
+INSERT_UPDATE ProductCarouselComponent;$contentCV[unique=true];uid[unique=true];name;products(code,$productCV);scroll(code);popup;&componentRef
+                                      ;;NewElectronicsHomepageProductCarouselComponent;What's New Electronics Homepage Product Carousel;2278102,1992693,1981415,1934796,1776948,1641905,932577;allVisible;false;NewElectronicsHomepageProductCarouselComponent
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(&componentRef)
+                         ;;Section3Slot-Homepage;ElectronicsHomepageProductCarouselComponent,NewElectronicsHomepageProductCarouselComponent
+
+#### Section 4
+INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
+                                             ;;ElectronicsHompageSmDiscountBannerComponent;Electronics Homepage Small Discount Banner Component;/Open-Catalogue/Cameras/Webcams/Web-Camera-%28100KpixelM-CMOS%2C-640X480%2C-USB-1-1%29-Black/p/280916;ElectronicsHompageSmDiscountBannerComponent
+                                             ;;ElectronicsHompageShopBannerComponent;Electronics Homepage Shop Banner Component;/Open-Catalogue/Cameras/Webcams/QuickCam-for-Notebooks-Pro/p/479742;ElectronicsHompageShopBannerComponent
+                                             ;;ElectronicsHompageShipmentBannerComponent;Electronics Homepage Shipment Banner Component;/Open-Catalogue/Cameras/DigitalCameras/Digital-Compacts/NV10/p/553637;ElectronicsHompageShipmentBannerComponent
+                                             ;;ElectronicsHompageServiceBannerComponent;Electronics Homepage Service Banner Component;/Open-Catalogue/Cameras/CameraAccessories-%26-Supplies/CameraFlashes/Light-HVL-20DW2/p/289540;ElectronicsHompageServiceBannerComponent
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsComponents(&componentRef)
+                         ;;Section4Slot-Homepage;true;ElectronicsHompageSmDiscountBannerComponent,ElectronicsHompageShopBannerComponent,ElectronicsHompageShipmentBannerComponent,ElectronicsHompageServiceBannerComponent
+
+### Section 5
+INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
+                                             ;;ElectronicsHompageFreeDelBannerComponent;Electronics Homepage Free Delivery Banner Component;/faq;ElectronicsHompageFreeDelBannerComponent
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsComponents(&componentRef)
+                         ;;Section5Slot-Homepage;true;ElectronicsHompageFreeDelBannerComponent
+
+#################    HOME PAGE END       #################
+
+#################    MY ACCOUNT START    #################
+
+##### Add AccountOrderDetailsActionsComponent
+INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];name;page;actions(uid,$contentCV);&componentRef
+                                 ;;AccountOrderDetailsHeadlineComponent;Account Order Details Headline Component;accountOrderDetailHeadline.jsp;;AccountOrderDetailsHeadlineComponent
+                                 ;;AccountOrderDetailsTotalsComponent;Account Order Details Order Totals Component;accountOrderDetailOrderTotals.jsp;;AccountOrderDetailsTotalsComponent
+                                 ;;AccountOrderDetailsShippingComponent;Account Order Details Shipping Info Component;accountOrderDetailShippingInfo.jsp;;AccountOrderDetailsShippingComponent
+                                 ;;AccountOrderDetailsItemsComponent;Account Order Details Items Info Component;accountOrderDetailItems.jsp;;AccountOrderDetailsItemsComponent
+                                 ;;AccountOrderDetailsActionsComponent;Account Order Details Actions Component;accountOrderDetailActions.jsp;;AccountOrderDetailsActionsComponent
+                                 ;;AccountOrderDetailsOverviewComponent;Account Order Details Overview Info Component;accountOrderDetailOverview.jsp;;AccountOrderDetailsOverviewComponent
+
+###### Empty account page SideContent and BodyContent slots
+UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(&componentRef);
+                  ;;SideContent-payment-details;;
+                  ;;SideContent-address-book;;
+                  ;;SideContent-add-edit-address;;
+                  ;;SideContent-orders;;
+                  ;;SideContent-orderdetail;;
+                  ;;SideContent-updatePassword;;
+                  ;;SideContent-update-profile;;
+                  ;;SideContent-update-email;;
+                  ;;SideContentSlot-consents;;
+                  ;;SideContentSlot-close-account;;
+                  ;;BodyContent-orderdetail;AccountOrderDetailsHeadlineComponent,AccountOrderDetailsOverviewComponent,AccountOrderDetailsItemsComponent,AccountOrderDetailsShippingComponent,AccountOrderDetailsTotalsComponent,AccountOrderDetailsActionsComponent;
+
+#################    MY ACCOUNT END    #################
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(uid, $contentCV)
+                         ;;TopContent-cartPage;Top Slot for Cart Page;true;CartComponent
+
+# Site Logo
+INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/svg+xml'];altText;folder(qualifier)[default='images']
+                   ;;/images/theme/logo_hybris_responsive.svg;logo_hybris_responsive.svg;$siteResource/images/theme/logo_hybris_responsive.svg;image/svg+xml;hybris Accelerator;
+
+###  Responsive Error page #######
+
+INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef
+                                             ;;ElectronicsErrorpageBannerComponent;Electronics Error Page Banner Component;ElectronicsErrorpageBannerComponent
+
+# Create ContentSlots
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
+                         ;;MiddleContent-Errorpage;Middle Content Slot for Error Page;true;ElectronicsErrorpageBannerComponent;;;
+
+# Create Content Slots for Page
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='notFound'];contentSlot(uid,$contentCV)[unique=true]
+                                ;;MiddleContent-Errorpage;MiddleContent;;MiddleContent-Errorpage
+
+# Remove view store action from store finder component
+INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];actions(uid,$contentCV);
+                                 ;;StoreFinderComponent;;
+###### Update the Camera and Accessories Category Page #####
+INSERT_UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);defaultPage;approvalStatus(code)[default='approved'];previewImage(code, $contentCV)
+                          ;;CamerasAccessoriesAndSuppliesCategoryPage;Cameras Accessories & Supplies Category Page;ProductListPageTemplate;false;;CameraAccessoriesPagePreview
+
+
+##### End Update the Camera and Accessories Category Page #####
+
+###### Electronics SLR Category Landing Page ######
+
+INSERT_UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);defaultPage;approvalStatus(code)[default='approved'];previewImage(code, $contentCV)
+                          ;;SLRCamerasCategoryPage;SLR Cameras Category Page;CategoryPageTemplate;false;;;
+
+INSERT_UPDATE CMSCategoryRestriction;$contentCV[unique=true];uid[unique=true];name;categories(code, $productCV);pages(uid, $contentCV)
+                                    ;;SLRCameras-LandingPageRestriction;Restriction for SLR Cameras;578;SLRCamerasCategoryPage
+
+INSERT_UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef
+                                   ;;BuyOnlineBanner;Buy Online Banner;BuyOnlineBanner
+
+##### Section 1 ######
+INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
+                                             ;;ElectronicsSLRSplashBannerComponent;Electronics SLR Camera Splash Banner Component;Open-Catalogue/Cameras/Digital-Cameras/c/575;ElectronicsSLRSplashBannerComponent
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsComponents(&componentRef)
+                         ;;Section1Slot-SLRCameras;true;ElectronicsSLRSplashBannerComponent
+
+##### Section 2 ######
+INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
+                                             ;;ElectronicsCanon500DBannerComponent;Electronics Canon 500D Banner Component;Open-Catalogue/Cameras/DigitalCameras/Digital-SLR/EOS-500D-%2B-18-200mm-IS/p/2054947;ElectronicsCanon500DBannerComponent
+                                             ;;ElectronicsCanon450DBannerComponent;Electronics Canon 450D Banner Component;Open-Catalogue/Cameras/DigitalCameras/Digital-SLR/EOS450D-%2B-18-55-IS-Kit/p/1382080;ElectronicsCanon450DBannerComponent
+                                             ;;ElectronicsSonyA100HBannerComponent;Electronics Sony A100H Banner Component;Open-Catalogue/Cameras/DigitalCameras/Digital-SLR/DSLR-A100H/p/816780;ElectronicsSonyA100HBannerComponent
+                                             ;;ElectronicsSonyA330BannerComponent;Electronics Sony A330 Banner Component;Open-Catalogue/Cameras/DigitalCameras/Digital-SLR/DSLR-A330-%2BDT-18---55-mm/p/2934302;ElectronicsSonyA330BannerComponent
+                                             ;;ElectronicsSonyA200BannerComponent;Electronics Sony A200 Banner Component;Open-Catalogue/Cameras/DigitalCameras/Digital-SLR/Alpha-200/p/1391319;ElectronicsSonyA200BannerComponent
+                                             ;;ElectronicsSonyAlpha350BannerComponent;Electronics Sony Alpha 350 Banner Component;Open-Catalogue/Cameras/DigitalCameras/Digital-SLR/Alpha-350/p/1446509;ElectronicsSonyAlpha350BannerComponent
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsComponents(&componentRef)
+                         ;;Section2Slot-SLRCameras;true;ElectronicsSonyA100HBannerComponent,ElectronicsCanon500DBannerComponent,ElectronicsCanon450DBannerComponent,ElectronicsSonyA330BannerComponent,ElectronicsSonyA200BannerComponent,ElectronicsSonyAlpha350BannerComponent
+
+##### Section 3 #####
+INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
+                                             ;;ElectronicsSaveBigDLSRBannerComponent;Electronics Save Big DSLR Banner Component;/Open-Catalogue/Cameras/Camera-Accessories-%26-Supplies/c/585;ElectronicsSaveBigDLSRBannerComponent
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsComponents(&componentRef)
+                         ;;Section3Slot-SLRCameras;true;ElectronicsSaveBigDLSRBannerComponent,ElectronicsHompageFreeDelBannerComponent
+
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='SLRCamerasCategoryPage'];contentSlot(uid,$contentCV)[unique=true]
+                                ;;Section1-SLRCameras;Section1;;Section1Slot-SLRCameras
+                                ;;Section2-SLRCameras;Section2;;Section2Slot-SLRCameras
+                                ;;Section3-SLRCameras;Section3;;Section3Slot-SLRCameras
+
+###### End Electronics SLR Category Landing Page ######
+
+# Remove new customer component from the center slot of the checkout login page
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
+                         ;;CenterContentSlot-checkout-login;Center Content Slot for Checkout Login;true;;;;
+
+# create cms link components for my account pages
+INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url;&linkRef;target(code)[default='sameWindow']
+                              ;;PersonalDetailsLink;PersonalDetailsLink;/my-account/update-profile;PersonalDetailsLink;
+                              ;;UpdateEmailLink;UpdateEmailLink;/my-account/update-email;UpdateEmailLink;
+                              ;;UpdatePasswordLink;UpdatePasswordLink;/my-account/update-password;UpdatePasswordLink;
+                              ;;AddressBookLink;AddressBookLink;/my-account/address-book;AddressBookLink;
+                              ;;PaymentDetailsLink;PaymentDetailsLink;/my-account/payment-details;PaymentDetailsLink;
+                              ;;OrderHistoryLink;OrderHistoryLink;/my-account/orders;OrderHistoryLink;
+                              ;;SavedCartsLink;SavedCartsLink;/my-account/saved-carts;SavedCartsLink;
+                              ;;ConsentManagementLink;ConsentManagementLink;/my-account/consents;ConsentManagementLink;
+                              ;;CloseAccountLink;CloseAccountLink;/my-account/close-account;CloseAccountLink;
+
+# create navigation root node for my account & child nodes for the root node
+INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);links(&linkRef);&nodeRef
+                               ;MyAccountNavNode;;My Account;ElectronicsNavNode;;MyAccountNavNode
+# children for my account
+                               ;PersonalDetailsNavNode;;Personal Details;MyAccountNavNode;;PersonalDetailsNavNode
+                               ;UpdateEmailNavNode;;Update Email;MyAccountNavNode;;UpdateEmailNavNode
+                               ;PaymentDetailsNavNode;;Payment Details;MyAccountNavNode;;PaymentDetailsNavNode
+                               ;ChangePasswordNavNode;;Change Password;MyAccountNavNode;;ChangePasswordNavNode
+                               ;OrderHistoryNavNode;;Order History;MyAccountNavNode;;OrderHistoryNavNode
+                               ;AddressBookNavNode;;Address Book;MyAccountNavNode;;AddressBookNavNode
+                               ;SavedCartsNavNode;;Saved Carts;MyAccountNavNode;;SavedCartsNavNode
+                               ;ConsentManagementNavNode;;Consent Management;MyAccountNavNode;;ConsentManagementNavNode
+                               ;CloseAccountNavNode;;Close Account;MyAccountNavNode;;CloseAccountNavNode
+
+# create cms navigation entry for nvaigation child nodes
+INSERT_UPDATE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];name;navigationNode(&nodeRef);item(&linkRef);
+                                ;PersonalDetailsNavNodeEntry;;PersonalDetailsNavNodeEntry;PersonalDetailsNavNode;PersonalDetailsLink;
+                                ;UpdateEmailNavNodeEntry;;UpdateEmailNavNodeEntry;UpdateEmailNavNode;UpdateEmailLink;
+                                ;ChangePasswordNavNodeEntry;;ChangePasswordNavNodeEntry;ChangePasswordNavNode;UpdatePasswordLink;
+                                ;AddressBookNavNodeEntry;;AddressBookNavNodeEntry;AddressBookNavNode;AddressBookLink;
+                                ;PaymentDetailsNavNodeEntry;;PaymentDetailsNavNodeEntry;PaymentDetailsNavNode;PaymentDetailsLink;
+                                ;OrderHistoryNavNodeEntry;;OrderHistoryNavNodeEntry;OrderHistoryNavNode;OrderHistoryLink;
+                                ;SavedCartsNavNodeEntry;;SavedCartsNavNodeEntry;SavedCartsNavNode;SavedCartsLink;
+                                ;ConsentManagementNavNodeEntry;;ConsentManagementNavNodeEntry;ConsentManagementNavNode;ConsentManagementLink;
+                                ;CloseAccountNavNodeEntry;;CloseAccountNavNodeEntry;CloseAccountNavNode;CloseAccountLink;
+
+
+# create navigation component for my account
+INSERT_UPDATE NavigationComponent;$contentCV[unique=true];uid[unique=true];name;styleClass;&componentRef;navigationNode(&nodeRef)
+                                 ;;MyAccountComponent;My Account;accNavComponent;MyAccountComponent;MyAccountNavNode
+
+### Quick Order ###
+
+# create cms link components for quick order pages
+INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url;styleAttributes;&linkRef;target(code)[default='sameWindow']
+                              ;;QuickOrderLink;Quick Order Link;/quickOrder;;QuickOrderLink;;
+
+# create cms navigation entry for quick order
+INSERT_UPDATE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];name;navigationNode(&nodeRef);item(&linkRef);
+                                ;QuickOrderNavNodeEntry;;QuickOrderNavNodeEntry;QuickOrderNavNode;QuickOrderLink;
+
+# create navigation root node for order & child nodes for the root node
+INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);links(&linkRef);&nodeRef
+                               ;OrderNavNode;;Order;ElectronicsNavNode;;OrderNavNode
+# children for Order Nav Node
+                               ;QuickOrderNavNode;;Quick Order;OrderNavNode;;QuickOrderNavNode
+
+# create navigation component for Quick Order
+INSERT_UPDATE NavigationComponent;$contentCV[unique=true];uid[unique=true];name;styleClass;&componentRef;navigationNode(&nodeRef)
+                                 ;;OrderComponent;Order Component;nav-order-tools;OrderComponent;OrderNavNode
+
+# Content Slots
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $contentCV)
+                         ;;MiniCartSlot;OrderComponent,MiniCart
+
+# create a user restriction
+INSERT_UPDATE CMSUserRestriction;$contentCV[unique=true];&userRestriction;name;uid[unique=true];users(uid)
+                                ;;anonymousUserRestriction;Anonymous User Restriction;anonymousUserRestriction;anonymous
+
+# create a inverse restriction
+INSERT_UPDATE CMSInverseRestriction;$contentCV[unique=true];name;originalRestriction(&userRestriction)[allownull=true];uid[unique=true];components(&componentRef)
+                                   ;;Logged in User;anonymousUserRestriction;loggedInUser;MyAccountComponent
+
+# add my account navigation component to a content slot
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid,$contentCV)
+                         ;;HeaderLinksSlot;MyAccountComponent
+
+
+UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(&componentRef)
+                  ;;CrossSellingSlot;
+
+
+# CMS ListOrderForm Action
+INSERT_UPDATE ListOrderFormAction;$contentCV[unique=true];uid[unique=true];url;name;&actionRef
+                                 ;;ListOrderFormAction;/orderForm;Order Form Action;ListOrderFormAction
+
+UPDATE CMSProductListComponent;$contentCV[unique=true];uid[unique=true];actions(&actionRef)[mode=append]
+                              ;;ProductListComponent;ListOrderFormAction
+
+UPDATE ProductGridComponent;$contentCV[unique=true];uid[unique=true];actions(&actionRef)[mode=append]
+                           ;;ProductGridComponent;ListOrderFormAction
+
+UPDATE SearchResultsListComponent;$contentCV[unique=true];uid[unique=true];actions(&actionRef)[mode=append]
+                                 ;;SearchResultsList;ListOrderFormAction
+
+UPDATE SearchResultsGridComponent;$contentCV[unique=true];uid[unique=true];actions(&actionRef)[mode=append]
+                                 ;;SearchResultsGrid;ListOrderFormAction
+
+# Removing Search empty page content
+UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];&componentRef
+                            ;;NoSearchResultsParagraphComponent;NoSearchResultsParagraphComponent
+
+UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];&componentRef
+                            ;;SLRLensesBanner;SLRLensesBanner
+
+UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(&componentRef)[mode=remove]
+                  ;;SideContent-searchEmpty;SLRLensesBanner
+                  ;;MiddleContent-searchEmpty;NoSearchResultsParagraphComponent
+
+######## Order Confirmation Page Start #######
+
+INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];name;page;actions(uid,$contentCV);&componentRef
+                                 ;;OrderConfirmationThankMessageComponent;Order Confirmation Thank You Message Component;checkoutConfirmationThankMessage.jsp;;OrderConfirmationThankMessageComponent
+                                 ;;OrderConfirmationOverviewComponent;Order Confirmation Overview Info Component;/WEB-INF/views/responsive/pages/account/accountOrderDetailOverview.jsp;;OrderConfirmationOverviewComponent
+                                 ;;OrderConfirmationTotalsComponent;Order Confirmation Totals Component;/WEB-INF/views/responsive/pages/account/accountOrderDetailOrderTotals.jsp;;OrderConfirmationTotalsComponent
+                                 ;;OrderConfirmationShippingComponent;Order Confirmation Shipping Info Component;/WEB-INF/views/responsive/pages/account/accountOrderDetailShippingInfo.jsp;;OrderConfirmationShippingComponent
+                                 ;;OrderConfirmationItemsComponent;Order Confirmation Items Info Component;/WEB-INF/views/responsive/pages/account/accountOrderDetailItems.jsp;;OrderConfirmationItemsComponent
+                                 ;;OrderConfirmationContinueButtonComponent;Order Confirmation Continue Button Component;checkoutConfirmationContinueButton.jsp;;OrderConfirmationContinueButtonComponent
+
+# ContentSlotForPage
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='orderConfirmationPage'];contentSlot(uid,$contentCV)[unique=true];;;
+                                ;;SideContent-orderConfirmation;SideContent;;SideContent-orderConfirmation;;;
+                                ;;BodyContent-orderConfirmation;BodyContent;;BodyContent-orderConfirmation;;;
+
+# ContentSlot
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
+                         ;;SideContent-orderConfirmation;Side Content Slot for Order Confirmation;true;;;;
+                         ;;BodyContent-orderConfirmation;Body Content Slot for Order Confirmation;true;OrderConfirmationThankMessageComponent,OrderConfirmationOverviewComponent,OrderConfirmationItemsComponent,OrderConfirmationShippingComponent,OrderConfirmationTotalsComponent,OrderConfirmationContinueButtonComponent;;;
+
+######## Order Confirmation Page End #######
+
+###### Import CSV as Saved Cart Page Start ######
+
+# create cms link components for import csv file
+INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url;styleAttributes;&linkRef;target(code)[default='sameWindow']
+                              ;;ImportSavedCartLink;Import Saved Cart Link;/import/csv/saved-cart;;ImportSavedCartLink;;
+
+# create cms navigation entry for import csv file
+INSERT_UPDATE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];name;navigationNode(&nodeRef);item(&linkRef);
+                                ;ImportSavedCartNavNodeEntry;;ImportSavedCartNavNodeEntry;ImportSavedCartNavNode;ImportSavedCartLink;
+
+# create navigation root node for import csv file
+INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);links(&linkRef);&nodeRef
+                               ;ImportSavedCartNavNode;;Import Saved Cart;OrderNavNode;;ImportSavedCartNavNode
+
+# ContentSlotForPage
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='importCSVSavedCartPage'];contentSlot(uid,$contentCV)[unique=true];;;
+                                ;;SideContent-importCSVSavedCartPage;SideContent;;SideContent-importCSVSavedCartPage;;;
+                                ;;BodyContent-importCSVSavedCartPage;BodyContent;;BodyContent-importCSVSavedCartPage;;;
+
+# ContentSlot
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
+                         ;;SideContent-importCSVSavedCartPage;Side Content Slot for Import CSV as Saved Cart Page;true;;;;
+                         ;;BodyContent-importCSVSavedCartPage;Body Content Slot for Import CSV as Saved Cart Page;true;ImportCSVSavedCartComponent;;;
+
+INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];name;page;actions(uid,$contentCV);&componentRef
+                                 ;;ImportCSVSavedCartComponent;Import CSV as Saved Cart Component;csv/importCSVSavedCartPage.jsp;;ImportCSVSavedCartComponent
+
+INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];folder(qualifier)[default='images']
+                   ;;importCSVSavedCartPagePreview;text/png;OrderHistoryPage.png;$jarResourceCms/preview-images/demo/OrderHistoryPage.png
+
+UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];previewImage(code, $contentCV)
+                  ;;importCSVSavedCartPage;importCSVSavedCartPagePreview
+###### Import CSV as Saved Cart Page End ######
+
+###### Saved Cart Details Page Start ######
+
+# ContentSlotForPage
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='savedCartDetailsPage'];contentSlot(uid,$contentCV)[unique=true];;;
+                                ;;SideContent-savedCartDetailsPage;SideContent;;SideContent-savedCartDetailsPage;;;
+                                ;;BodyContent-savedCartDetailsPage;BodyContent;;BodyContent-savedCartDetailsPage;;;
+
+# ContentSlot
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
+                         ;;SideContent-savedCartDetailsPage;Side Content Slot for Saved Cart Details Page;true;;;;
+                         ;;BodyContent-savedCartDetailsPage;Body Content Slot for Saved Cart Details Page;true;AccountSavedCartDetailsHeadlineComponent,AccountSavedCartDetailsOverviewComponent,AccountSavedCartDetailsItemsComponent,AccountSavedCartDetailsActionComponent;;;
+
+INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];name;page;actions(uid,$contentCV);&componentRef
+                                 ;;AccountSavedCartDetailsHeadlineComponent;Account Saved Cart Details Headline Component;accountSavedCartDetailsHeadline.jsp;;AccountSavedCartDetailsHeadlineComponent
+                                 ;;AccountSavedCartDetailsOverviewComponent;Account Saved Cart Details Overview Component;accountSavedCartDetailsOverview.jsp;;AccountSavedCartDetailsOverviewComponent
+                                 ;;AccountSavedCartDetailsItemsComponent;Account Saved Cart Details Items Component;accountSavedCartDetailsItems.jsp;;AccountSavedCartDetailsItemsComponent
+                                 ;;AccountSavedCartDetailsActionComponent;Account Order Details Action Component;accountSavedCartDetailsAction.jsp;;AccountSavedCartDetailsActionComponent
+
+# Preview image
+INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];folder(qualifier)[default='images']
+                   ;;savedCartDetailsPagePreview;text/png;SavedCartDetailsPage.png;$jarResourceCms/preview-images/demo/SavedCartDetailsPage.png
+
+UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];previewImage(code, $contentCV)
+                  ;;savedCartDetailsPage;savedCartDetailsPagePreview
+
+###### Saved Cart Details Page End ######
+
+######## Account Saved Carts Page Start #######
+
+INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];folder(qualifier)[default='images']
+                   ;;savedCartsPagePreview;text/png;SavedCartsPage.png;$jarResourceCms/preview-images/demo/SavedCartsPage.png
+
+UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];previewImage(code, $contentCV)
+                  ;;saved-carts;savedCartsPagePreview
+
+INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];name;page;actions(uid,$contentCV);&componentRef
+                                 ;;SavedCartsComponent;Saved Carts Component;accountSavedCartsPage.jsp;;SavedCartsComponent
+
+# ContentSlot
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
+                         ;;SideContent-saved-carts;Side Content Slot for Saved Carts;true;;;;
+                         ;;BodyContent-saved-carts;Body Content Slot for Saved Carts;true;SavedCartsComponent;;;
+
+# ContentSlotForPage
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='saved-carts'];contentSlot(uid,$contentCV)[unique=true];;;
+                                ;;SideContent-saved-carts;SideContent;;SideContent-saved-carts;;;
+                                ;;BodyContent-saved-carts;BodyContent;;BodyContent-saved-carts;;;
+
+######## Account Saved Carts Page End #######
+
+###### Quick Order Page Start ######
+
+INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef
+                                   ;;QuickOrderInfoParagraphComponent;Quick Order Info Paragraph Component;QuickOrderInfoParagraphComponent
+
+# ContentSlotForPage
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='quickOrderPage'];contentSlot(uid,$contentCV)[unique=true];;;
+                                ;;TopContent-quickOrderPage;TopContent;;TopContent-quickOrderPage;;;
+
+# ContentSlot
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
+                         ;;TopContent-quickOrderPage;Top Content Slot for Quick Order Page;true;QuickOrderInfoParagraphComponent;;;
+
+###### Quick Order Page End ######
+
+
+INSERT_UPDATE CategoryNavigationComponent;$contentCV[unique=true];uid[unique=true];name;styleClass;&componentRef;navigationNode(&nodeRef);wrapAfter
+                                         ;;ElectronicsCategoryNavComponent;Category Navigation Component;;ElectronicsCategoryNavComponent;ElectronicsCategoryNavNode;10
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $contentCV)
+                         ;;NavigationBarSlot;ElectronicsCategoryNavComponent,breadcrumbComponent
+
+## level 1. SiteRoot ##
+## level 2. children of SiteRoot ##
+# the following order of children is the display order on the site
+INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);&nodeRef;children(uid,$contentCV)
+                               ;ElectronicsCategoryNavNode;;Categories;ElectronicsNavNode;ElectronicsCategoryNavNode;BrandsNavNode,DigitalCamerasNavNode,FilmCamerasNavNode,HandheldCamcordersNavNode,WebcamsNavNode,PowerSuppliesNavNode,FlashMemoryNavNode,CameraAccessoriesNavNode
+
+## level 3. children of Category Nav ##
+INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;&nodeRef;children(uid,$contentCV);links(&linkRef);
+                               ;BrandsNavNode;;Brand Links;BrandsNavNode;BrandLinksNavNode,AccessoryBrandLinksNavNode
+                               ;DigitalCamerasNavNode;;Digital Cameras Category;DigitalCamerasNavNode;DigitalCompactsNavNode,DigitalSLRNavNode
+                               ;FilmCamerasNavNode;;Film Cameras Category;FilmCamerasNavNode
+                               ;HandheldCamcordersNavNode;;Hand-held Camcorders Category;HandheldCamcordersNavNode
+                               ;WebcamsNavNode;;Webcams Category;WebcamsNavNode
+                               ;PowerSuppliesNavNode;;Power Supplies Category;PowerSuppliesNavNode
+                               ;FlashMemoryNavNode;;Flash Memory Category;FlashMemoryNavNode
+                               ;CameraAccessoriesNavNode;;Camera Accessories Category;CameraAccessoriesNavNode;AccessoriesNavNode,SuppliesNavNode
+
+## entries of the above navigation nodes ##
+INSERT_UPDATE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];name;navigationNode(&nodeRef);item(CMSLinkComponent.uid,CMSLinkComponent.$contentCV);
+                                ;BrandsNavNodeEntry;;Brands Navigation Node Entry;BrandsNavNode;AllBrandsCategoryLink;
+                                ;DigitalCamerasNavNodeEntry;;Digital Cameras Navigation Node Entry;DigitalCamerasNavNode;DigitalCamerasCategoryLink;
+                                ;FilmCamerasNavNodeEntry;;Film Cameras Navigation Node Entry;FilmCamerasNavNode;FilmCamerasCategoryLink;
+                                ;HandheldCamcordersNavNodeEntry;;Handheld Camcorders Navigation Node Entry;HandheldCamcordersNavNode;HandheldCamcordersCategoryLink;
+                                ;WebcamsNavNodeEntry;;Webcams Navigation Node Entry;WebcamsNavNode;WebcamsCategoryLink;
+                                ;PowerSuppliesNavNodeEntry;;Power Supplies Navigation Node Entry;PowerSuppliesNavNode;PowerSuppliesCategoryLink;
+                                ;FlashMemoryNavNodeEntry;;Flash Memory Navigation Node Entry;FlashMemoryNavNode;FlashMemoryCategoryLink;
+                                ;CameraAccessoriesNavNodeEntry;;Camera Accessories Navigation Node Entry;CameraAccessoriesNavNode;CameraAccessoriesCategoryLink;
+
+# CMS Link Components
+INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url;&linkRef;&componentRef;target(code)[default='sameWindow'];$category;$product;
+                              ;;WebcamsCategoryLink;Webcams Category Link;/Open-Catalogue/Cameras/Webcams/c/577;WebcamsCategoryLink;WebcamsCategoryLink;;577;;
+
+
+## level 4. children of NavNode (the following order of children is the display order on the site) ##
+INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;&nodeRef;children(uid,$contentCV);links(&linkRef);
+## children of BrandsNavNode
+                               ;BrandLinksNavNode;;Brand Links;BrandLinksNavNode;CanonBrandNavNode,SonyBrandNavNode,KodakBrandNavNode,SamsungBrandNavNode,ToshibaBrandNavNode,FujifilmBrandNavNode
+                               ;AccessoryBrandLinksNavNode;;Accessory Brand Links;AccessoryBrandLinksNavNode;KingstonBrandNavNode,IciduBrandNavNode,TDKBrandNavNode,SweexBrandNavNode
+## children of DigitalCamerasNavNode
+                               ;DigitalCompactsNavNode;;Digital Compacts Links;DigitalCompactsNavNode
+                               ;DigitalSLRNavNode;;Digital SLR Links;DigitalSLRNavNode
+## children of CameraAccessoriesNavNode
+                               ;AccessoriesNavNode;;Accessories Links;AccessoriesNavNode;CamerasFlashesNavNode,TripodsNavNode,CameraLensesNavNode
+                               ;SuppliesNavNode;;Supplies Links;SuppliesNavNode;ColourFilmsNavNode,BlackAndWhiteFilmsNavNode,BlankVideotapesNavNode
+
+
+## level 5. children of above (level 4) nodes ##
+INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;&nodeRef
+## Brands -- cameras
+                               ;CanonBrandNavNode;;Canon Brand Link;CanonBrandNavNode
+                               ;SonyBrandNavNode;;Sony Brand Link;SonyBrandNavNode
+                               ;KodakBrandNavNode;;Kodak Brand Link;KodakBrandNavNode
+                               ;SamsungBrandNavNode;;Samsung Brand Link;SamsungBrandNavNode
+                               ;ToshibaBrandNavNode;;Toshiba Brand Link;ToshibaBrandNavNode
+                               ;FujifilmBrandNavNode;;Fujifilm Brand Link;FujifilmBrandNavNode
+## Brands -- accessories
+                               ;KingstonBrandNavNode;;Kingston Brand Link;KingstonBrandNavNode
+                               ;IciduBrandNavNode;;Icidu Brand Link;IciduBrandNavNode
+                               ;TDKBrandNavNode;;TDK Brand Link;TDKBrandNavNode
+                               ;SweexBrandNavNode;;Sweex Brand Link;SweexBrandNavNode
+## CameraAccessories -- accessories
+                               ;CamerasFlashesNavNode;;Cameras Flashes Link;CamerasFlashesNavNode
+                               ;TripodsNavNode;;Tripods Link;TripodsNavNode
+                               ;CameraLensesNavNode;;Camera Lenses Link;CameraLensesNavNode
+## CameraAccessories -- Supplies
+                               ;ColourFilmsNavNode;;Colour Films Link;ColourFilmsNavNode
+                               ;BlackAndWhiteFilmsNavNode;;Black And White Films Link;BlackAndWhiteFilmsNavNode
+                               ;BlankVideotapesNavNode;;Blank Videotapes Link;BlankVideotapesNavNode
+
+## entries of the above navigation nodes ##
+INSERT_UPDATE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];name;navigationNode(&nodeRef);item(CMSLinkComponent.uid,CMSLinkComponent.$contentCV);
+## Brands -- cameras
+                                ;CanonBrandNavNodeEntry;;Canon Brand Navigation Node Entry;CanonBrandNavNode;CanonBrandCategoryLink;
+                                ;SonyBrandNavNodeEntry;;Sony Brand Navigation Node Entry;SonyBrandNavNode;SonyBrandCategoryLink;
+                                ;KodakBrandNavNodeEntry;;Kodak Brand Navigation Node Entry;KodakBrandNavNode;KodakBrandCategoryLink;
+                                ;SamsungBrandNavNodeEntry;;Samsung Brand Navigation Node Entry;SamsungBrandNavNode;SamsungBrandCategoryLink;
+                                ;ToshibaBrandNavNodeEntry;;Toshiba Brand Navigation Node Entry;ToshibaBrandNavNode;ToshibaBrandCategoryLink;
+                                ;FujifilmBrandNavNodeEntry;;Fujifilm Brand Navigation Node Entry;FujifilmBrandNavNode;FujifilmBrandCategoryLink;
+## Brands -- accessories
+                                ;KingstonBrandNavNodeEntry;;Kingston Brand Navigation Node Entry;KingstonBrandNavNode;KingstonBrandCategoryLink;
+                                ;IciduBrandNavNodeEntry;;Icidu Brand Navigation Node Entry;IciduBrandNavNode;IciduBrandCategoryLink;
+                                ;TDKBrandNavNodeEntry;;TDK Brand Navigation Node Entry;TDKBrandNavNode;TDKBrandCategoryLink;
+                                ;SweexBrandNavNodeEntry;;Sweex Brand Navigation Node Entry;SweexBrandNavNode;SweexBrandCategoryLink;
+## Digital Cameras
+                                ;DigitalCompactsNavNodeEntry;;Digital Compacts Navigation Node Entry;DigitalCompactsNavNode;DigitalCompactsCategoryLink;
+                                ;DigitalSLRNavNodeEntry;;Digital SLR Navigation Node Entry;DigitalSLRNavNode;DigitalSLRCategoryLink;
+## CameraAccessories -- accessories
+                                ;CamerasFlashesNavNodeEntry;;Cameras Flashes Navigation Node Entry;CamerasFlashesNavNode;CamerasFlashesCategoryLink;
+                                ;TripodsNavNodeEntry;;Tripods Navigation Node Entry;TripodsNavNode;TripodsCategoryLink;
+                                ;CameraLensesNavNodeEntry;;Camera Lenses Navigation Node Entry;CameraLensesNavNode;CameraLensesCategoryLink;
+## CameraAccessories -- Supplies
+                                ;ColourFilmsNavNodeEntry;;Colour Films Navigation Node Entry;ColourFilmsNavNode;ColourFilmsCategoryLink;
+                                ;BlackAndWhiteFilmsNavNodeEntry;;Black And White Films Navigation Node Entry;BlackAndWhiteFilmsNavNode;BlackAndWhiteFilmsCategoryLink;
+                                ;BlankVideotapesNavNodeEntry;;Blank Videotapes Navigation Node Entry;BlankVideotapesNavNode;BlankVideotapesCategoryLink;
+###### Navigation Component Refactor End ######
+
+
+###### Footer Component Refactor Start ######
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid,$contentCV)
+                         ;;FooterSlot;FooterNavigationComponent
+
+INSERT_UPDATE FooterNavigationComponent;$contentCV[unique=true];uid[unique=true];wrapAfter;&componentRef;showLanguageCurrency;navigationNode(&nodeRef)
+                                       ;;FooterNavigationComponent;4;FooterNavigationComponent;true;FooterNavNode;
+
+# the order of children is the same as the display order on the site
+INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);&nodeRef;children(uid,$contentCV)
+                               ;FooterNavNode;;Footer Pages;ElectronicsNavNode;FooterNavNode;SAPCommerceNavNode,SAPCustomerExperienceNavNode,FollowUsNavNode
+
+# children of FooterNavNode #
+INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;&nodeRef;children(uid,$contentCV);links(&linkRef)
+                               ;SAPCommerceNavNode;;SAP Commerce Cloud Pages;SAPCommerceNavNode;AboutSAPCommerceNavNode,FAQNavNode
+                               ;SAPCustomerExperienceNavNode;;SAP Customer Experience Pages;SAPCustomerExperienceNavNode;AboutSAPCustomerExperienceNavNode,ContactUsNavNode
+                               ;FollowUsNavNode;;Follow Us Pages;FollowUsNavNode;AgileCommerceBlogNavNode,LinkedInNavNode,FacebookNavNode,TwitterNavNode
+
+# children of above navigation nodes #
+INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;&nodeRef;children(uid,$contentCV);links(&linkRef);
+                               ;AboutSAPCommerceNavNode;;About SAP Commerce Cloud Page;AboutSAPCommerceNavNode
+                               ;FAQNavNode;;FAQ Page;FAQNavNode
+                               ;AboutSAPCustomerExperienceNavNode;;About Hybris Page;AboutSAPCustomerExperienceNavNode
+                               ;ContactUsNavNode;;Contact Us Page;ContactUsNavNode
+                               ;AgileCommerceBlogNavNode;;Agile Commerce Blog Page;AgileCommerceBlogNavNode
+                               ;LinkedInNavNode;;LinkedIn Page;LinkedInNavNode
+                               ;FacebookNavNode;;Facebook Page;FacebookNavNode
+                               ;TwitterNavNode;;Twitter Page;TwitterNavNode
+
+# entries of the above navigation nodes ##
+INSERT_UPDATE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];name;navigationNode(&nodeRef);item(CMSLinkComponent.uid,CMSLinkComponent.$contentCV);
+                                ;AboutSAPCommerceNavNodeEntry;;About SAP Commerce Cloud Navigation Node Entry;AboutSAPCommerceNavNode;AboutSAPCommerceLink;
+                                ;FAQNavNodeEntry;;FAQ Navigation Node Entry;FAQNavNode;FAQLink;
+                                ;AboutSAPCustomerExperienceNavNodeEntry;;About Hybris Navigation Node Entry;AboutSAPCustomerExperienceNavNode;VisitSAPLink;
+                                ;ContactUsNavNodeEntry;;Contact Us Navigation Node Entry;ContactUsNavNode;ContactUsLink;
+                                ;AgileCommerceBlogNavNodeEntry;;Agile Commerce Blog Navigation Node Entry;AgileCommerceBlogNavNode;AgileCommerceBlogLink;
+                                ;LinkedInNavNodeEntry;;LinkedIn Navigation Node Entry;LinkedInNavNode;LinkedInLink;
+                                ;FacebookNavNodeEntry;;Facebook Navigation Node Entry;FacebookNavNode;FacebookLink;
+                                ;TwitterNavNodeEntry;;Twitter Navigation Node Entry;TwitterNavNode;TwitterLink;
+###### Footer Component Refactor End ######
