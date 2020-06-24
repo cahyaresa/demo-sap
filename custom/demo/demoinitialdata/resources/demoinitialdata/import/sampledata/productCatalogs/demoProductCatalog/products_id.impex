@@ -1,0 +1,44 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+# ImpEx for Importing Product Localisations
+ 
+# Macros / Replacement Parameter definitions
+$productCatalog=demoProductCatalog
+$productCatalogName=demo Product Catalog
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+
+# Language
+$lang=id
+
+# Update allProducts with localisations
+UPDATE BedProduct;code[unique=true];name[lang=$lang]
+                 ; INTHEBOXX          ; INTHEBOX X
+                 ; INTHEBOX           ; INTHEBOX
+                 ; INTHEBOXHYBRID     ; INTHEBOX HYBRID
+                 ; SOFABED            ; SOFA BED
+
+
+UPDATE BedSizeVariantProduct;code[unique=true];name[lang=$lang]
+                            ; SUPERKINGX         ; Super King
+                            ; KINGX              ; King
+                            ; QUEENSIZEX         ; Queen Size
+                            ; FULLSIZEX          ; Full Size
+                            ; SUPERSINGLEX       ; Super Single
+                            ; SINGLESIZEX        ; Single Size
+                            ; SUPERKING          ; Super King
+                            ; KING               ; King
+                            ; QUEENSIZE          ; Queen Size
+                            ; FULLSIZE           ; Full Size
+                            ; SUPERSINGLE        ; Super Single
+                            ; SINGLESIZE         ; Single Size
+                            ; SUPERKINGHYBRID    ; Super King
+                            ; KINGHYBRID         ; King
+                            ; QUEENSIZEHYBRID    ; Queen Size
+                            ; FULLSIZEHYBRID     ; Full Size
+                            ; SUPERSINGLEHYBRID  ; Super Single
+                            ; SINGLESIZEHYBRID   ; Single Size
+                            ; HYBRID140X200      ; Hybrid 140 x 200
+                            ; SUPERSINGLESOFA    ; Super Single
+

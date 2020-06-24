@@ -1,0 +1,43 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+# ImpEx for Importing Products
+
+# Macros / Replacement Parameter definitions
+$productCatalog = demoProductCatalog
+$productCatalogName = demo Product Catalog
+
+$catalogVersion = catalogversion(catalog(id[default=$productCatalog]), version[default='Staged'])[unique=true, default=$productCatalog:Staged]
+$supercategories = supercategories(code, $catalogVersion)
+$baseProduct = baseProduct(code, $catalogVersion)
+$approved = approvalstatus(code)[default='approved']
+$syncJobCode = sync $productCatalog:Staged->Online
+
+# Insert Products
+INSERT_UPDATE BedProduct; code[unique = true]; name           ; $supercategories; varianttype(code)[default = 'BedSizeVariantProduct']; $approved; unit(code)[default = pieces]; $catalogVersion
+                        ; INTHEBOXX          ; INTHEBOXX      ; "SPRINGBED"     ;                                                     ;          ;                             ;
+                        ; INTHEBOX           ; INTHEBOX       ; "SPRINGBED"     ;                                                     ;          ;                             ;
+                        ; INTHEBOXHYBRID     ; INTHEBOXHYBRID ; "SPRINGBED"     ;                                                     ;          ;                             ;
+                        ; SOFABED            ; SOFABED        ; "SOFA"          ;                                                     ;          ;                             ;
+
+INSERT_UPDATE BedSizeVariantProduct; $baseProduct   ; code[unique = true]; length; width; height; unit(code)[default = pieces]; $approved; $catalogVersion; $supercategories; description
+                                   ; INTHEBOXX      ; SUPERKINGX         ; 200   ; 200  ; 20    ;                             ;          ;                ; "SPRINGBED"     ; In The Box X Super King
+                                   ; INTHEBOXX      ; KINGX              ; 200   ; 200  ; 20    ;                             ;          ;                ; "SPRINGBED"     ; In The Box X King
+                                   ; INTHEBOXX      ; QUEENSIZEX         ; 200   ; 200  ; 20    ;                             ;          ;                ; "SPRINGBED"     ; In The Box X King
+                                   ; INTHEBOXX      ; FULLSIZEX          ; 200   ; 200  ; 20    ;                             ;          ;                ; "SPRINGBED"     ; In The Box X King
+                                   ; INTHEBOXX      ; SUPERSINGLEX       ; 200   ; 200  ; 20    ;                             ;          ;                ; "SPRINGBED"     ; In The Box X King
+                                   ; INTHEBOXX      ; SINGLESIZEX        ; 200   ; 200  ; 20    ;                             ;          ;                ; "SPRINGBED"     ; In The Box X King
+                                   ; INTHEBOX       ; SUPERKING          ; 200   ; 200  ; 20    ;                             ;          ;                ; "SPRINGBED"     ; In The Box X Super King
+                                   ; INTHEBOX       ; KING               ; 200   ; 200  ; 20    ;                             ;          ;                ; "SPRINGBED"     ; In The Box X King
+                                   ; INTHEBOX       ; QUEENSIZE          ; 200   ; 200  ; 20    ;                             ;          ;                ; "SPRINGBED"     ; In The Box X King
+                                   ; INTHEBOX       ; FULLSIZE           ; 200   ; 200  ; 20    ;                             ;          ;                ; "SPRINGBED"     ; In The Box X King
+                                   ; INTHEBOX       ; SUPERSINGLE        ; 200   ; 200  ; 20    ;                             ;          ;                ; "SPRINGBED"     ; In The Box X King
+                                   ; INTHEBOX       ; SINGLESIZE         ; 200   ; 200  ; 20    ;                             ;          ;                ; "SPRINGBED"     ; In The Box X King
+                                   ; INTHEBOXHYBRID ; SUPERKINGHYBRID    ; 200   ; 200  ; 20    ;                             ;          ;                ; "SPRINGBED"     ; In The Box X Super King
+                                   ; INTHEBOXHYBRID ; KINGHYBRID         ; 200   ; 200  ; 20    ;                             ;          ;                ; "SPRINGBED"     ; In The Box X King
+                                   ; INTHEBOXHYBRID ; QUEENSIZEHYBRID    ; 200   ; 200  ; 20    ;                             ;          ;                ; "SPRINGBED"     ; In The Box X King
+                                   ; INTHEBOXHYBRID ; FULLSIZEHYBRID     ; 200   ; 200  ; 20    ;                             ;          ;                ; "SPRINGBED"     ; In The Box X King
+                                   ; INTHEBOXHYBRID ; SUPERSINGLEHYBRID  ; 200   ; 200  ; 20    ;                             ;          ;                ; "SPRINGBED"     ; In The Box X King
+                                   ; INTHEBOXHYBRID ; SINGLESIZEHYBRID   ; 200   ; 200  ; 20    ;                             ;          ;                ; "SPRINGBED"     ; In The Box X King
+                                   ; INTHEBOXHYBRID ; HYBRID140X200      ; 200   ; 200  ; 20    ;                             ;          ;                ; "SPRINGBED"     ; In The Box X King
+                                   ; SOFABED        ; SUPERSINGLESOFA    ; 200   ; 200  ; 20    ;                             ;          ;                ; "SOFA"          ; Sofa Single
