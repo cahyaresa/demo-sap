@@ -16,6 +16,12 @@ $lang=en
 
 # Insert Classifications
 UPDATE ClassificationClass;code[unique=true];$classCatalogVersion;name[lang=$lang]
+;Garansi;"Waranty"
+;Dimensi;"Dimension"
+;AntiJamur;"Anti Jamur"
 
 # Insert Classification Attributes
 UPDATE ClassificationAttribute;code[unique=true];$classSystemVersion;name[lang=$lang]
+;SeumurHidup, Garansi;"lifetime waranty"
+;120x200, Dimensi;"cozy size"
+;Certified, AntiJamur;"license free spor"

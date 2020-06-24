@@ -14,5 +14,10 @@ $siteResource=jar:org.demo.initialdata.setup.InitialDataSystemSetup&/demoinitial
 
 # Import Category Media
 INSERT_UPDATE Media;code[unique=true];realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];$catalogVersion
+;/img/low_pic/574-4346.jpg;574-4346.jpg;$siteResource/images/img/low_pic/574-4346.jpg;
+;/thumbs/CAT574.jpg;CAT574.jpg;$siteResource/images/thumbs/CAT574.jpg;
+
 
 UPDATE Category;code[unique=true];$thumbnail;$picture;allowedPrincipals(uid)[default='customergroup'];$catalogVersion
+;SPRINGBED;/thumbs/CAT574.jpg;/img/low_pic/574-4346.jpg
+;SOFA;/thumbs/CAT575.jpg;/img/low_pic/575-8480.jpg

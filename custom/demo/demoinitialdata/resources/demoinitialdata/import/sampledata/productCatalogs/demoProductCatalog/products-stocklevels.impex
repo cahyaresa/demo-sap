@@ -15,7 +15,50 @@ INSERT_UPDATE Vendor;code[unique=true]
 #;$vendor
 
 INSERT_UPDATE Warehouse;code[unique=true];vendor(code);default[default=true]
+;warehouse_s;Warehouse South;Warehouse South
+;warehouse_e;Warehouse East;Warehouse East
+;warehouse_w;Warehouse West;Warehouse West
+;warehouse_n;Warehouse North;Warehouse North
 
 INSERT_UPDATE StockLevel;available;warehouse(code)[unique=true];inStockStatus(code);maxPreOrder;maxStockLevelHistoryCount;overSelling;preOrder;productCode[unique=true];reserved
+;10;warehouse_s;forceInStock;0;0;0;0;SUPERKINGX;0
+;10;warehouse_e;notSpecified;0;0;0;0;KINGX;0
+;12;warehouse_w;forceOutOfStock;1;0;0;0;QUEENSIZEX;0
+;14;warehouse_n;notSpecified;1;0;0;0;FULLSIZEX;0
+;10;warehouse_s;forceInStock;0;0;0;0;SUPERSINGLEX;0
+;10;warehouse_e;notSpecified;0;0;0;0;SINGLESIZEX;0
+;12;warehouse_w;forceOutOfStock;1;0;0;0;SUPERKING;0
+;14;warehouse_n;notSpecified;1;0;0;0;KING;0
+;10;warehouse_s;forceInStock;0;0;0;0;QUEENSIZE;0
+;10;warehouse_e;notSpecified;0;0;0;0;FULLSIZE;0
+;12;warehouse_w;forceOutOfStock;1;0;0;0;SUPERSINGLE;0
+;14;warehouse_n;notSpecified;1;0;0;0;SINGLESIZE;0
+;10;warehouse_s;forceInStock;0;0;0;0;SUPERKINGHYBRID;0
+;10;warehouse_e;notSpecified;0;0;0;0;QUEENSIZEHYBRID;0
+;12;warehouse_w;forceOutOfStock;1;0;0;0;FULLSIZEHYBRID;0
+;14;warehouse_n;notSpecified;1;0;0;0;SUPERSINGLEHYBRID;0
+;10;warehouse_e;notSpecified;0;0;0;0;SINGLESIZEHYBRID;0
+;12;warehouse_w;forceOutOfStock;1;0;0;0;HYBRID140X200;0
+;14;warehouse_n;notSpecified;1;0;0;0;SUPERSINGLESOFA;0
+
 
 UPDATE Product;code[unique=true];$catalogVersion;stockLevels(productCode,warehouse(code));vendors(code)
+;SUPERKINGX;;SUPERKINGX:warehouse_s;
+;KINGX;;KINGX:warehouse_e;
+;QUEENSIZEX;;QUEENSIZEX:warehouse_w;
+;FULLSIZEX;;FULLSIZEX_warehouse_n;
+;SUPERSINGLEX;;SUPERSINGLEX:warehouse_s;
+;SINGLESIZEX;;SINGLESIZEX:warehouse_e;
+;SUPERKING;;SUPERKING:warehouse_w;
+;KING;;KING:warehouse_n;
+;QUEENSIZE;;QUEENSIZE:warehouse_s;
+;FULLSIZE;;FULLSIZE:warehouse_w;
+;SUPERSINGLE;;SUPERSINGLE:warehouse_e;
+;SINGLESIZE;;SINGLESIZE:warehouse_n;
+;SUPERKINGHYBRID;;SUPERKINGHYBRID:warehouse_s;
+;QUEENSIZEHYBRID;;QUEENSIZEHYBRID:warehouse_w;
+;FULLSIZEHYBRID;;FULLSIZEHYBRID:warehouse_e;
+;SUPERSINGLEHYBRID;;SUPERSINGLEHYBRID:warehouse_n;
+;SINGLESIZEHYBRID;;SINGLESIZEHYBRID:warehouse_w;
+;HYBRID140X200;;HYBRID140X200:warehouse_e;
+;SUPERSINGLESOFA;;SUPERSINGLESOFA:warehouse_n;

@@ -17,3 +17,12 @@ INSERT_UPDATE Category; code[unique = true]    ; $catalogVersion; supercategorie
                       ; BED                    ;                ;                                       ;                                                  ; NONVISIBLE                     ;
                       ; SPRINGBED              ;                ; BED                                   ;                                                  ; SELLABLE                       ; 1
                       ; SOFA                   ;                ; BED                                   ;                                                  ; SELLABLE                       ; 2
+
+
+# Insert Categories
+INSERT_UPDATE Category;code[unique=true];allowedPrincipals(uid)[default='customergroup'];$catalogVersion
+                      ;BUNDLE
+                      ;BED
+                      ;SPRINGBED
+                      ;SOFA
+

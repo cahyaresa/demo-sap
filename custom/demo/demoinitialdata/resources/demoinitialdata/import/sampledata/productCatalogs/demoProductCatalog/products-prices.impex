@@ -12,4 +12,63 @@ $prices=Europe1prices[translator=de.hybris.platform.europe1.jalo.impex.Europe1Pr
 # Set product approval status to Approved only for those products that have prices.
 $approved=approvalstatus(code)[default='approved']
 
-UPDATE Product;code[unique=true];$prices;$approved;$catalogVersion;Europe1PriceFactory_PTG(code)
+UPDATE Product;code[unique=true];$approved;$catalogVersion
+;SUPERKINGX
+;KINGX
+;QUEENSIZEX
+;FULLSIZEX
+;SUPERSINGLEX
+;SINGLESIZEX
+;SUPERKING
+;KING
+;QUEENSIZE
+;FULLSIZE
+;SUPERSINGLE
+;SINGLESIZE
+;SUPERKINGHYBRID
+;QUEENSIZEHYBRID
+;FULLSIZEHYBRID
+;SUPERSINGLEHYBRID
+;SINGLESIZEHYBRID
+;HYBRID140X200
+;SUPERSINGLESOFA
+
+INSERT_UPDATE PriceRow;productId[unique=true];unit(code[unique=true,default=pieces]);currency(isocode)[unique=true];price;minqtd;unitFactor;net
+                ;SUPERKINGX;;USD;179,93;1;1;false
+                ;SUPERKINGX;;IDR;1500000;1;1;false
+;KINGX;;USD;179,93;1;1;false
+;KINGX;;IDR;1500000;1;1;false
+;QUEENSIZEX;;USD;179,93;1;1;false
+;QUEENSIZEX;;IDR;1500000;1;1;false
+;FULLSIZEX;;USD;179,93;1;1;false
+;FULLSIZEX;;IDR;1500000;1;1;false
+;SUPERSINGLEX;;USD;179,93;1;1;false
+;SUPERSINGLEX;;IDR;1500000;1;1;false
+;SUPERKING;;USD;179,93;1;1;false
+;SUPERKING;;IDR;1500000;1;1;false
+;KING;;USD;179,93;1;1;false
+;KING;;IDR;1500000;1;1;false
+;QUEENSIZE;;USD;179,93;1;1;false
+;QUEENSIZE;;IDR;1500000;1;1;false
+;FULLSIZE;;USD;179,93;1;1;false
+;FULLSIZE;;IDR;1500000;1;1;false
+;SUPERSINGLE;;USD;179,93;1;1;false
+;SUPERSINGLE;;IDR;1500000;1;1;false
+;SINGLESIZE;;USD;179,93;1;1;false
+;SINGLESIZE;;IDR;1500000;1;1;false
+;SUPERKINGHYBRID;;USD;179,93;1;1;false
+;SUPERKINGHYBRID;;IDR;1500000;1;1;false
+;QUEENSIZEHYBRID;;USD;179,93;1;1;false
+;QUEENSIZEHYBRID;;IDR;1500000;1;1;false
+;FULLSIZEHYBRID;;USD;179,93;1;1;false
+;FULLSIZEHYBRID;;IDR;1500000;1;1;false
+;SUPERSINGLEHYBRID;;USD;179,93;1;1;false
+;SUPERSINGLEHYBRID;;IDR;1500000;1;1;false
+;SINGLESIZEHYBRID;;USD;179,93;1;1;false
+;SINGLESIZEHYBRID;;IDR;1500000;1;1;false
+;HYBRID140X200;;USD;179,93;1;1;false
+;HYBRID140X200;;IDR;1500000;1;1;false
+;SUPERSINGLESOFA;;USD;179,93;1;1;false
+;SUPERSINGLESOFA;;IDR;1500000;1;1;false
+
+
