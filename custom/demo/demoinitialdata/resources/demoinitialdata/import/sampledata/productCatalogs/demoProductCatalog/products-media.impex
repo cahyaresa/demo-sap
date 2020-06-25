@@ -17,38 +17,41 @@ $others=others(code, $catalogVersion)
 $data_sheet=data_sheet(code, $catalogVersion)
 $medias=medias(code, $catalogVersion)
 $galleryImages=galleryImages(qualifier, $catalogVersion)
-$productResource=jar:org.demo.initialdata.setup.InitialDataSystemSetup&/demoinitialdata/import/sampledata/productCatalogs/$productCatalog
+$siteResource=jar:org.demo.initialdata.setup.InitialDataSystemSetup&/demoinitialdata/import/sampledata/productCatalogs/$productCatalog
 
 # Create Media
 INSERT_UPDATE Media;mediaFormat(qualifier);code[unique=true];$media;mime[default='image/jpeg'];$catalogVersion;folder(qualifier)
-                   ;picture-x;media-x-picture;$productResource/images/product/X.png;;;images
-#                   ;thumbnail-x;media-x-thumbnail;$siteResource/images/product/X.png;;;images;
-#                   ;detail-x;media-x-detail;$siteResource/images/product/X.png;;;images;
-#                   ;other-x;media-x-other;$siteResource/images/product/X.png;;;images;
-#                   ;normal-x;media-x-normal;$siteResource/images/product/X.png;;;images;
-#                   ;thumbnails-x;media-x-thumbnails;$siteResource/images/product/X.png;;;images;
-#                   ;picture-normal;media-normal-picture;$siteResource/images/product/normal.png;;;images;
-#                   ;thumbnail-normal;media-normal-thumbnail;$siteResource/images/product/normal.png;;;images;
-#                   ;detail-normal;media-normal-detail;$siteResource/images/product/normal.png;;;images;
-#                   ;other-normal;media-normal-other;$siteResource/images/product/normal.png;;;images;
-#                   ;normal-normal;media-normal-normal;$siteResource/images/product/normal.png;;;images;
-#                   ;thumbnails-normal;media-normal-thumbnails;$siteResource/images/product/normal.png;;;images;
-#                   ;picture-hybrid;media-hybrid-picture;$siteResource/images/product/hybrid.png;;;images;
-#                   ;thumbnail-hybrid;media-hybrid-thumbnail;$siteResource/images/product/hybrid.png;;;images;
-#                   ;detail-hybrid;media-hybrid-detail;$siteResource/images/product/hybrid.png;;;images;
-#                   ;other-hybrid;media-hybrid-other;$siteResource/images/product/hybrid.png;;;images;
-#                   ;normal-hybrid;media-hybrid-normal;$siteResource/images/product/hybrid.png;;;images;
-#                   ;thumbnails-hybrid;media-hybrid-thumbnails;$siteResource/images/product/hybrid.png;;;images;
+                   ;1200Wx1200H;media-x-picture;$siteResource/images/product/X.png;;;images
+                   ;515Wx515H;media-x-thumbnail;$siteResource/images/product/X.png;;;images;
+                   ;300Wx300H;media-x-detail;$siteResource/images/product/X.png;;;images;
+                   ;96Wx96H;media-x-other;$siteResource/images/product/X.png;;;images;
+                   ;65Wx65H;media-x-normal;$siteResource/images/product/X.png;;;images;
+                   ;30Wx30H;media-x-thumbnails;$siteResource/images/product/X.png;;;images;
+                   ;1200Wx1200H;media-normal-picture;$siteResource/images/product/normal.png;;;images
+                   ;515Wx515H;media-normal-thumbnail;$siteResource/images/product/normal.png;;;images;
+                   ;300Wx300H;media-normal-detail;$siteResource/images/product/normal.png;;;images;
+                   ;96Wx96H;media-normal-other;$siteResource/images/product/normal.png;;;images;
+                   ;65Wx65H;media-normal-normal;$siteResource/images/product/normal.png;;;images;
+                   ;30Wx30H;media-normal-thumbnails;$siteResource/images/product/normal.png;;;images;
+                   ;1200Wx1200H;media-hybrid-picture;$siteResource/images/product/hybrid.jpg;;;images
+                   ;515Wx515H;media-hybrid-thumbnail;$siteResource/images/product/hybrid.jpg;;;images;
+                   ;300Wx300H;media-hybrid-detail;$siteResource/images/product/hybrid.jpg;;;images;
+                   ;96Wx96H;media-hybrid-other;$siteResource/images/product/hybrid.jpg;;;images;
+                   ;65Wx65H;media-hybrid-normal;$siteResource/images/product/hybrid.jpg;;;images;
+                   ;30Wx30H;media-hybrid-thumbnails;$siteResource/images/product/hybrid.jpg;;;images;
+
 
 # Create Media Containers
 INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$catalogVersion
-#                            ;X-medias;media-x-picture,media-x-picture,media-x-thumbnail,media-x-detail,media-x-other,media-x-normal,media-x-thumbnails;;
-#                            ;normal-medias;media-normal-picture,media-normal-picture,media-normal-thumbnail,media-normal-detail,media-normal-other,media-normal-normal,media-normal-thumbnails;;
-#                            ;hybrid-medias;media-hybrid-picture,media-hybrid-picture,media-hybrid-thumbnail,media-hybrid-detail,media-hybrid-other,media-hybrid-normal,media-hybrid-thumbnails;;
+                            ;X-medias;media-x-picture,media-x-picture,media-x-thumbnail,media-x-detail,media-x-other,media-x-normal,media-x-thumbnails;;
+                            ;normal-medias;media-normal-picture,media-normal-picture,media-normal-thumbnail,media-normal-detail,media-normal-other,media-normal-normal,media-normal-thumbnails;;
+                            ;hybrid-medias;media-hybrid-picture,media-hybrid-picture,media-hybrid-thumbnail,media-hybrid-detail,media-hybrid-other,media-hybrid-normal,media-hybrid-thumbnails;;
 
 # Update Products with Media and Media Containers
 UPDATE Product;code[unique=true];$picture;$thumbnail;$detail;$others;$normal;$thumbnails;$galleryImages;$catalogVersion
-#            ;SUPERKINGX;picture-x;thumbnail-x;detail-x;other-x;normal-x;thumbnails-x;;
+              ;2336004;/300Wx300H/2336004_1841.jpg;/96Wx96H/2336004_1841.jpg;/1200Wx1200H/2336004_1841.jpg,/1200Wx1200H/2336004_4687.jpg;/515Wx515H/2336004_1841.jpg,/515Wx515H/2336004_4687.jpg,/65Wx65H/2336004_1841.jpg,/65Wx65H/2336004_4687.jpg,/30Wx30H/2336004_1841.jpg,/30Wx30H/2336004_4687.jpg;/300Wx300H/2336004_1841.jpg,/300Wx300H/2336004_4687.jpg;/96Wx96H/2336004_1841.jpg,/96Wx96H/2336004_4687.jpg;2336004_1841,2336004_4687;
+
+            ;SUPERKINGX;X-medias
 #            ;KINGX;picture-x;thumbnail-x;detail-x;other-x;normal-x;thumbnails-x;;
 #            ;QUEENSIZEX;picture-x;thumbnail-x;detail-x;other-x;normal-x;thumbnails-x;;
 #            ;FULLSIZEX;picture-x;thumbnail-x;detail-x;other-x;normal-x;thumbnails-x;;
