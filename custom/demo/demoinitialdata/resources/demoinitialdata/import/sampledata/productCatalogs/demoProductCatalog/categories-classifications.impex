@@ -19,11 +19,26 @@ $unit=unit(code,$classSystemVersion)
 
 # Insert Classifications
 INSERT_UPDATE ClassificationClass;$classCatalogVersion;code[unique=true];allowedPrincipals(uid)[default='customergroup']
+;;Garansi;
+;;Dimensi;
+;;AntiJamur;
 
 # Insert Classification Attributes
 INSERT_UPDATE ClassificationAttribute;$classSystemVersion;code[unique=true]
+;;SeumurHidup, Garansi
+;;120x200, Dimensi
+;;Certified, AntiJamur
 
 # Links ClassificationClasses to Categories
 INSERT_UPDATE CategoryCategoryRelation;$categories;$supercategories
+;SPRINGBED;Garansi
+;SPRINGBED;Dimensi
+;SPRINGBED;AntiJamur
+;SOFA;Garansi
+;SOFA;Dimensi
+;SOFA;AntiJamur
 
 INSERT_UPDATE ClassAttributeAssignment;$class;$attribute;position;$unit;attributeType(code[default=string]);multiValued[default=false];range[default=false];localized[default=true]
+;Garansi;SeumurHidup, Garansi;1;1;number;true;true
+;Dimensi;120x200, Dimensi;2;1;number;true;true
+;AntiJamur;Certified, AntiJamur;3;1;number;true;true

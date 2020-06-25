@@ -22,5 +22,6 @@ $feature3=@<string>, <int>[$clAttrModifiers];
 $feature4=@<string>, <int>[$clAttrModifiers];  
 $feature6=@<string>, <int>[$clAttrModifiers];  
 $feature7=@<string>, <int>[$clAttrModifiers];  
-$feature8=@<string>, <int>[$clAttrModifiers];  
+$feature8=@<string>, <int>[$clAttrModifiers];
+
 INSERT_UPDATE Product;code[unique=true];$feature1;$feature2;$feature3;$feature4;$feature6;$feature7;$feature8;$catalogVersion;

@@ -31,6 +31,9 @@ UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];linkName[lang=$
                        ;;AboutSAPCommerceLink;"About SAP Commerce Cloud"
                        ;;AgileCommerceBlogLink;"Agile Commerce Blog"
                        ;;AllBrandsCategoryLink;"Brands"
+                       ;;AllBedsCategoryLink;"All Beds"
+                       ;;SpringBedCategoryLink;"Springbed"
+                       ;;SofaBedCategoryLink;"Sofa"
                        ;;BlackAndWhiteFilmsCategoryLink;"Black & White Films"
                        ;;BlankVideotapesCategoryLink;"Blank Videotapes"
                        ;;CameraAccessoriesCategoryLink;"Camera Accessories & Supplies"
@@ -114,9 +117,11 @@ UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=$la
                         ;;AccessoryBrandLinksNavNode;"Accessories"
                         ;;BrandLinksNavNode;"Cameras"
                         ;;BrandsNavNode;"Brands"
+                        ;;AllBedsNavNode;"All Beds"
+                        ;;BedsNavNode;"Beds"
                         ;;CameraAccessoriesNavNode;"Camera Accessories & Supplies"
                         ;;DigitalCamerasNavNode;"Digital Cameras"
-                        ;;ElectronicsNavNode;"Electronics Site"
+                        ;;DemoNavNode;"Demo Site"
                         ;;FilmCamerasNavNode;"Film Cameras"
                         ;;FlashMemoryNavNode;"Flash Memory"
                         ;;FollowUsNavNode;"Follow Us"
@@ -249,59 +254,59 @@ UPDATE ProductCarouselComponent;$contentCV[unique=true];uid[unique=true];title[l
 
 # Media Content
 INSERT_UPDATE Media;mediaFormat(qualifier);$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];mime[default='image/jpeg'];realfilename;folder(qualifier)[default='images'];altText
-                   ;widescreen;;Elec_1400x440_HomeSpeed_EN_01_1400W.jpg;$siteResource/images/banners/homepage/responsive/Elec_1400x440_HomeSpeed_EN_01_1400W.jpg;;Elec_1400x440_HomeSpeed_EN_01_1400W.jpg;;"Save Big On Select SLR & DSLR Cameras"
-                   ;widescreen;;Elec_1400x80_HomeDiscount_EN_01_1400W.jpg;$siteResource/images/banners/homepage/responsive/Elec_1400x80_HomeDiscount_EN_01_1400W.jpg;;Elec_1400x80_HomeDiscount_EN_01_1400W.jpg;;"Save Big on Select Camera Accessories & Supplies"
-                   ;mobile;;Elec_480x118_HomeDiscount_EN_01_480W.jpg;$siteResource/images/banners/homepage/responsive/Elec_480x118_HomeDiscount_EN_01_480W.jpg;;Elec_480x118_HomeDiscount_EN_01_480W.jpg;;"Save Big on Select Camera Accessories & Supplies"
-                   ;mobile;;Elec_480x320_HomeSpeed_EN_01_480W.jpg;$siteResource/images/banners/homepage/responsive/Elec_480x320_HomeSpeed_EN_01_480W.jpg;;Elec_480x320_HomeSpeed_EN_01_480W.jpg;;"Save Big On Select SLR & DSLR Cameras"
-                   ;tablet;;Elec_770x350_HomeSpeed_EN_01_770W.jpg;$siteResource/images/banners/homepage/responsive/Elec_770x350_HomeSpeed_EN_01_770W.jpg;;Elec_770x350_HomeSpeed_EN_01_770W.jpg;;"Save Big On Select SLR & DSLR Cameras"
-                   ;tablet;;Elec_770x80_HomeDiscount_EN_01_770W.jpg;$siteResource/images/banners/homepage/responsive/Elec_770x80_HomeDiscount_EN_01_770W.jpg;;Elec_770x80_HomeDiscount_EN_01_770W.jpg;;"Save Big on Select Camera Accessories & Supplies"
-                   ;desktop;;Elec_960x330_HomeSpeed_EN_01_960W.jpg;$siteResource/images/banners/homepage/responsive/Elec_960x330_HomeSpeed_EN_01_960W.jpg;;Elec_960x330_HomeSpeed_EN_01_960W.jpg;;"Save Big On Select SLR & DSLR Cameras"
-                   ;desktop;;Elec_960x80_HomeDiscount_EN_01_960W.jpg;$siteResource/images/banners/homepage/responsive/Elec_960x80_HomeDiscount_EN_01_960W.jpg;;Elec_960x80_HomeDiscount_EN_01_960W.jpg;;"Save Big on Select Camera Accessories & Supplies"
+                   ;widescreen;;banner-demo-1400x440.jpg;$siteResource/images/banners/homepage/responsive/banner-demo-1400x440.jpg;;banner-demo-1400x440.jpg;;"Save Big On Select SLR & DSLR Cameras"
+                   ;widescreen;;discount-banner-1400.png;$siteResource/images/banners/homepage/responsive/discount-banner-1400.png;;discount-banner-1400.png;;"Save Big on Select Camera Accessories & Supplies"
+                   ;mobile;;banner-demo-480x320.jpg;$siteResource/images/banners/homepage/responsive/banner-demo-480x320.jpg;;banner-demo-480x320.jpg;;"Save Big on Select Camera Accessories & Supplies"
+                   ;mobile;;discount-banner-480.png;$siteResource/images/banners/homepage/responsive/discount-banner-480.png;;discount-banner-480.png;;"Save Big On Select SLR & DSLR Cameras"
+                   ;tablet;;banner-demo-770x350.jpg;$siteResource/images/banners/homepage/responsive/banner-demo-770x350.jpg;;banner-demo-770x350.jpg;;"Save Big On Select SLR & DSLR Cameras"
+                   ;tablet;;discount-banner-770.png;$siteResource/images/banners/homepage/responsive/discount-banner-770.png;;discount-banner-770.png;;"Save Big on Select Camera Accessories & Supplies"
+                   ;desktop;;banner-demo-960x330.png;$siteResource/images/banners/homepage/responsive/banner-demo-960x330.png;;banner-demo-960x330.png;;"Save Big On Select SLR & DSLR Cameras"
+                   ;desktop;;discount-banner-960.png;$siteResource/images/banners/homepage/responsive/discount-banner-960.png;;discount-banner-960.png;;"Save Big on Select Camera Accessories & Supplies"
 
 INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$contentCV[unique=true]
-                            ;electronics-homepage-discount-en;Elec_480x118_HomeDiscount_EN_01_480W.jpg,Elec_770x80_HomeDiscount_EN_01_770W.jpg,Elec_960x80_HomeDiscount_EN_01_960W.jpg,Elec_1400x80_HomeDiscount_EN_01_1400W.jpg
-                            ;electronics-homepage-spalsh-en;Elec_480x320_HomeSpeed_EN_01_480W.jpg,Elec_770x350_HomeSpeed_EN_01_770W.jpg,Elec_960x330_HomeSpeed_EN_01_960W.jpg,Elec_1400x440_HomeSpeed_EN_01_1400W.jpg
+                            ;demo-homepage-discount-en;discount-banner-1400.png,discount-banner-960.png,discount-banner-770.png,discount-banner-480.png
+                            ;demo-homepage-spalsh-en;banner-demo-1400x440.jpg,banner-demo-480x320.jpg,banner-demo-770x350.jpg,banner-demo-960x330.png
 
 INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];$mediaContainer
-                                             ;;ElectronicsHompageDiscountBannerComponent;electronics-homepage-discount-en
-                                             ;;ElectronicsHompageSplashBannerComponent;electronics-homepage-spalsh-en
+                                             ;;DemoHompageDiscountBannerComponent;demo-homepage-discount-en
+                                             ;;DemoHompageSplashBannerComponent;demo-homepage-spalsh-en
 
 # Home page slot 2A
 # Media Content
 INSERT_UPDATE Media;mediaFormat(qualifier);$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];mime[default='image/jpeg'];realfilename;folder(qualifier)[default='images'];altText
-                   ;tablet;;Elec_200x150_HomeFamLight_EN_01_200W.jpg;$siteResource/images/banners/homepage/responsive/Elec_200x150_HomeFamLight_EN_01_200W.jpg;;Elec_200x150_HomeFamLight_EN_01_200W.jpg;;"Camera Lenses"
-                   ;tablet;;Elec_200x150_HomeFam_EN_01_200W.jpg;$siteResource/images/banners/homepage/responsive/Elec_200x150_HomeFam_EN_01_200W.jpg;;Elec_200x150_HomeFam_EN_01_200W.jpg;;"Compact Cameras"
-                   ;desktop;;Elec_240x180_HomeFamLight_EN_01_240W.jpg;$siteResource/images/banners/homepage/responsive/Elec_240x180_HomeFamLight_EN_01_240W.jpg;;Elec_240x180_HomeFamLight_EN_01_240W.jpg;;"Camera Lenses"
-                   ;desktop;;Elec_240x180_HomeFam_EN_01_240W.jpg;$siteResource/images/banners/homepage/responsive/Elec_240x180_HomeFam_EN_01_240W.jpg;;Elec_240x180_HomeFam_EN_01_240W.jpg;;"Compact Cameras"
-                   ;widescreen;;Elec_350x262_HomeFamLight_EN_01_350W.jpg;$siteResource/images/banners/homepage/responsive/Elec_350x262_HomeFamLight_EN_01_350W.jpg;;Elec_350x262_HomeFamLight_EN_01_350W.jpg;;"Camera Lenses"
-                   ;widescreen;;Elec_350x262_HomeFam_EN_01_350W.jpg;$siteResource/images/banners/homepage/responsive/Elec_350x262_HomeFam_EN_01_350W.jpg;;Elec_350x262_HomeFam_EN_01_350W.jpg;;"Compact Cameras"
+                   ;tablet;;demo-test-200.jpg;$siteResource/images/banners/homepage/responsive/demo-test-200.jpg;;demo-test-200.jpg;;"In the Box"
+                   ;tablet;;demo-test1-200.png;$siteResource/images/banners/homepage/responsive/demo-test1-200.png;;demo-test1-200.png;;"In the Box"
+                   ;desktop;;demo-test-240.jpg;$siteResource/images/banners/homepage/responsive/demo-test-240.jpg;;demo-test-240.jpg;;"In the Box"
+                   ;desktop;;demo-test1-240.png;$siteResource/images/banners/homepage/responsive/demo-test1-240.png;;demo-test1-240.png;;"In the Box"
+                   ;widescreen;;demo-test-350.jpg;$siteResource/images/banners/homepage/responsive/demo-test-350.jpg;;demo-test-350.jpg;;"In the Box"
+                   ;widescreen;;demo-test1-350.png;$siteResource/images/banners/homepage/responsive/demo-test1-350.png;;demo-test1-350.png;;"In the Box"
 
 INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$contentCV[unique=true]
-                            ;electronics-homepage-light-fam-en;Elec_200x150_HomeFam_EN_01_200W.jpg,Elec_240x180_HomeFam_EN_01_240W.jpg,Elec_350x262_HomeFam_EN_01_350W.jpg
-                            ;electronics-homepage-light-text-en;Elec_200x150_HomeFamLight_EN_01_200W.jpg,Elec_240x180_HomeFamLight_EN_01_240W.jpg,Elec_350x262_HomeFamLight_EN_01_350W.jpg
+                            ;demo-homepage-light-fam-en;demo-test-350.jpg,demo-test-240.jpg,demo-test-200.jpg
+                            ;demo-homepage-light-text-en;demo-test1-350.png,demo-test1-240.png,demo-test1-200.png
 
 INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];$mediaContainer
-                                             ;;ElectronicsHompageLightFamBannerComponent;electronics-homepage-light-fam-en
-                                             ;;ElectronicsHompageLightFamTextBannerComponent;electronics-homepage-light-text-en
+                                             ;;DemoHompageLightFamBannerComponent;demo-homepage-light-fam-en
+                                             ;;DemoHompageLightFamTextBannerComponent;demo-homepage-light-text-en
 
 # Home section 2B
 
 # Media Content
 INSERT_UPDATE Media;mediaFormat(qualifier);$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];mime[default='image/jpeg'];realfilename;folder(qualifier)[default='images'];altText
-                   ;tablet;;Elec_200x150_HomeCaptureFirst_EN_01_200W.jpg;$siteResource/images/banners/homepage/responsive/Elec_200x150_HomeCaptureFirst_EN_01_200W.jpg;;Elec_200x150_HomeCaptureFirst_EN_01_200W.jpg;;"Camcorders"
-                   ;tablet;;Elec_200x150_HomeKid_EN_01_200W.jpg;$siteResource/images/banners/homepage/responsive/Elec_200x150_HomeKid_EN_01_200W.jpg;;Elec_200x150_HomeKid_EN_01_200W.jpg;;"Power Supplies"
-                   ;desktop;;Elec_240x180_HomeCaptureFirst_EN_01_240W.jpg;$siteResource/images/banners/homepage/responsive/Elec_240x180_HomeCaptureFirst_EN_01_240W.jpg;;Elec_240x180_HomeCaptureFirst_EN_01_240W.jpg;;"Camcorders"
-                   ;desktop;;Elec_240x180_HomeKid_EN_01_240W.jpg;$siteResource/images/banners/homepage/responsive/Elec_240x180_HomeKid_EN_01_240W.jpg;;Elec_240x180_HomeKid_EN_01_240W.jpg;;"Power Supplies"
-                   ;widescreen;;Elec_350x262_HomeCaptureFirst_EN_01_350W.jpg;$siteResource/images/banners/homepage/responsive/Elec_350x262_HomeCaptureFirst_EN_01_350W.jpg;;Elec_350x262_HomeCaptureFirst_EN_01_350W.jpg;;"Camcorders"
-                   ;widescreen;;Elec_350x262_HomeKid_EN_01_350W.jpg;$siteResource/images/banners/homepage/responsive/Elec_350x262_HomeKid_EN_01_350W.jpg;;Elec_350x262_HomeKid_EN_01_350W.jpg;;"Power Supplies"
+                   ;tablet;;demo-test2-200.png;$siteResource/images/banners/homepage/responsive/demo-test2-200.png;;demo-test2-200.png;;"In the Box"
+                   ;tablet;;demo-test3-200.png;$siteResource/images/banners/homepage/responsive/demo-test3-200.png;;demo-test3-200.png;;"In the Box"
+                   ;desktop;;demo-tes2-240.png;$siteResource/images/banners/homepage/responsive/demo-test2-240.png;;demo-test2-240.png;;"In the Box"
+                   ;desktop;;demo-test3-240.png;$siteResource/images/banners/homepage/responsive/demo-test3-240.png;;demo-test3-240.png;;"In the Box"
+                   ;widescreen;;demo-test2-350.png;$siteResource/images/banners/homepage/responsive/demo-test2-350.png;;demo-test2-350.png;;"In the Box"
+                   ;widescreen;;demo-test3-350.png;$siteResource/images/banners/homepage/responsive/demo-test3-350.png;;demo-test3-350.png;;"In the Box"
 
 INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$contentCV[unique=true]
-                            ;electronics-homepage-camcorders-02-en;Elec_200x150_HomeCaptureFirst_EN_01_200W.jpg,Elec_240x180_HomeCaptureFirst_EN_01_240W.jpg,Elec_350x262_HomeCaptureFirst_EN_01_350W.jpg
-                            ;electronics-homepage-camcorders-en;Elec_200x150_HomeKid_EN_01_200W.jpg,Elec_240x180_HomeKid_EN_01_240W.jpg,Elec_350x262_HomeKid_EN_01_350W.jpg
+                            ;demo-homepage-springbed-02-en;demo-test2-350.png,demo-test2-240.png,demo-test2-200.png
+                            ;demo-homepage-springbed-en;demo-test3-350.png,demo-test3-240.png,demo-test3-200.png
 
 INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];$mediaContainer
-                                             ;;ElectronicsHompageCamcordersBannerComponent;electronics-homepage-camcorders-en
-                                             ;;ElectronicsHompageCamcordersChildBannerComponent;electronics-homepage-camcorders-02-en
+                                             ;;DemoHompageSpringbedBannerComponent;demo-homepage-springbed-en
+                                             ;;DemoHompageSpringbedChildBannerComponent;demo-homepage-springbed-02-en
 
 # Section 4
 
@@ -353,7 +358,7 @@ UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[la
 
 # Site Logo Component
 UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];$picture[lang=$lang]
-                            ;;SiteLogoComponent;/images/theme/logo_hybris_responsive.svg
+                            ;;SiteLogoComponent;/images/theme/logo-demo.png
 
 # DSLR Category Page
 # Section 1
