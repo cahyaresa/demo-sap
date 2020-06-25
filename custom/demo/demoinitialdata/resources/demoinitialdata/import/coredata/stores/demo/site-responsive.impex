@@ -9,7 +9,7 @@ $siteUid=demo
 
 # CMS Site - Update the theme to be responsive
 INSERT_UPDATE CMSSite;uid[unique=true];theme(code);
-;$siteUid;alpha;
+;$siteUid;demo;
 
 # Remove black and blue themes for responsive
 REMOVE SiteTheme;code[unique=true]

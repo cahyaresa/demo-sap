@@ -10,3 +10,4 @@ $lang=id
 
 # Create CMS Site
 UPDATE CMSSite;uid[unique=true];name[lang=$lang];locale[lang=$lang]
+;demo;demo;"Demo Site"
