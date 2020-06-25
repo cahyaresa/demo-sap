@@ -49,24 +49,22 @@ INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$catalogVersion
 
 # Update Products with Media and Media Containers
 UPDATE Product;code[unique=true];$picture;$thumbnail;$detail;$others;$normal;$thumbnails;$galleryImages;$catalogVersion
-              ;2336004;/300Wx300H/2336004_1841.jpg;/96Wx96H/2336004_1841.jpg;/1200Wx1200H/2336004_1841.jpg,/1200Wx1200H/2336004_4687.jpg;/515Wx515H/2336004_1841.jpg,/515Wx515H/2336004_4687.jpg,/65Wx65H/2336004_1841.jpg,/65Wx65H/2336004_4687.jpg,/30Wx30H/2336004_1841.jpg,/30Wx30H/2336004_4687.jpg;/300Wx300H/2336004_1841.jpg,/300Wx300H/2336004_4687.jpg;/96Wx96H/2336004_1841.jpg,/96Wx96H/2336004_4687.jpg;2336004_1841,2336004_4687;
-
-            ;SUPERKINGX;X-medias
-#            ;KINGX;picture-x;thumbnail-x;detail-x;other-x;normal-x;thumbnails-x;;
-#            ;QUEENSIZEX;picture-x;thumbnail-x;detail-x;other-x;normal-x;thumbnails-x;;
-#            ;FULLSIZEX;picture-x;thumbnail-x;detail-x;other-x;normal-x;thumbnails-x;;
-#            ;SUPERSINGLEX;picture-x;thumbnail-x;detail-x;other-x;normal-x;thumbnails-x;;
-#            ;SINGLESIZEX;picture-x;thumbnail-x;detail-x;other-x;normal-x;thumbnails-x;;
-#            ;SUPERKING;picture-normal;thumbnail-normal;detail-normal;other-normal;normal-normal;thumbnails-normal;;
-#            ;KING;picture-normal;thumbnail-normal;detail-normal;other-normal;normal-normal;thumbnails-normal;;
-#            ;QUEENSIZE;picture-normal;thumbnail-normal;detail-normal;other-normal;normal-normal;thumbnails-normal;;
-#            ;FULLSIZE;picture-normal;thumbnail-normal;detail-normal;other-normal;normal-normal;thumbnails-normal;;
-#            ;SUPERSINGLE;picture-normal;thumbnail-normal;detail-normal;other-normal;normal-normal;thumbnails-normal;;
-#            ;SINGLESIZE;picture-normal;thumbnail-normal;detail-normal;other-normal;normal-normal;thumbnails-normal;;
-#            ;SUPERKINGHYBRID;picture-hybrid;thumbnail-hybrid;detail-hybrid;other-hybrid;normal-hybird;thumbnails-hybird;;
-#            ;QUEENSIZEHYBRID;picture-hybrid;thumbnail-hybrid;detail-hybrid;other-hybrid;normal-hybird;thumbnails-hybird;;
-#            ;FULLSIZEHYBRID;picture-hybrid;thumbnail-hybrid;detail-hybrid;other-hybrid;normal-hybird;thumbnails-hybird;;
-#            ;SUPERSINGLEHYBRID;picture-hybrid;thumbnail-hybrid;detail-hybrid;other-hybrid;normal-hybird;thumbnails-hybird;;
-#            ;SINGLESIZEHYBRID;picture-hybrid;thumbnail-hybrid;detail-hybrid;other-hybrid;normal-hybird;thumbnails-hybird;;
-#            ;HYBRID140X200;picture-hybrid;thumbnail-hybrid;detail-hybrid;other-hybrid;normal-hybird;thumbnails-hybird;;
-#            ;SUPERSINGLESOFA;picture-hybrid;thumbnail-hybrid;detail-hybrid;other-hybrid;normal-hybird;thumbnails-hybird;;
+            ;SUPERKINGX;media-x-picture;media-x-thumbnail;media-x-detail;media-x-other;media-x-normal;media-x-thumbnails;
+            ;KINGX;media-x-picture;media-x-thumbnail;media-x-detail;media-x-other;media-x-normal;media-x-thumbnails;
+            ;QUEENSIZEX;media-x-picture;media-x-thumbnail;media-x-detail;media-x-other;media-x-normal;media-x-thumbnails;
+            ;FULLSIZEX;media-x-picture;media-x-thumbnail;media-x-detail;media-x-other;media-x-normal;media-x-thumbnails;
+            ;SUPERSINGLEX;media-x-picture;media-x-thumbnail;media-x-detail;media-x-other;media-x-normal;media-x-thumbnails;
+            ;SINGLESIZEX;media-x-picture;media-x-thumbnail;media-x-detail;media-x-other;media-x-normal;media-x-thumbnails;
+            ;SUPERKING;media-normal-picture;media-normal-thumbnail;media-normal-detail;media-normal-other;media-normal-normal;media-normal-thumbnails;
+            ;KING;media-normal-picture;media-normal-thumbnail;media-normal-detail;media-normal-other;media-normal-normal;media-normal-thumbnails;
+            ;QUEENSIZE;media-normal-picture;media-normal-thumbnail;media-normal-detail;media-normal-other;media-normal-normal;media-normal-thumbnails;
+            ;FULLSIZE;media-normal-picture;media-normal-thumbnail;media-normal-detail;media-normal-other;media-normal-normal;media-normal-thumbnails;
+            ;SUPERSINGLE;media-normal-picture;media-normal-thumbnail;media-normal-detail;media-normal-other;media-normal-normal;media-normal-thumbnails;
+            ;SINGLESIZE;media-normal-picture;media-normal-thumbnail;media-normal-detail;media-normal-other;media-normal-normal;media-normal-thumbnails;
+            ;SUPERKINGHYBRID;media-hybrid-picture;media-hybrid-thumbnail;media-hybrid-detail;media-hybrid-other;media-hybrid-normal;media-hybrid-thumbnails;
+            ;QUEENSIZEHYBRID;media-hybrid-picture;media-hybrid-thumbnail;media-hybrid-detail;media-hybrid-other;media-hybrid-normal;media-hybrid-thumbnails;
+            ;FULLSIZEHYBRID;media-hybrid-picture;media-hybrid-thumbnail;media-hybrid-detail;media-hybrid-other;media-hybrid-normal;media-hybrid-thumbnails;
+            ;SUPERSINGLEHYBRID;media-hybrid-picture;media-hybrid-thumbnail;media-hybrid-detail;media-hybrid-other;media-hybrid-normal;media-hybrid-thumbnails;
+            ;SINGLESIZEHYBRID;media-hybrid-picture;media-hybrid-thumbnail;media-hybrid-detail;media-hybrid-other;media-hybrid-normal;media-hybrid-thumbnails;
+            ;HYBRID140X200;media-hybrid-picture;media-hybrid-thumbnail;media-hybrid-detail;media-hybrid-other;media-hybrid-normal;media-hybrid-thumbnails;
+            ;SUPERSINGLESOFA;media-hybrid-picture;media-hybrid-thumbnail;media-hybrid-detail;media-hybrid-other;media-hybrid-normal;media-hybrid-thumbnails;
