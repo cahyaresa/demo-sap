@@ -4,61 +4,59 @@
 # ImpEx for Importing Products Stock Levels and Warehouses
 
 # Macros / Replacement Parameter definitions
-$productCatalog=demoProductCatalog
-$productCatalogName=demo Product Catalog
-$vendor=default
+$productCatalog = demoProductCatalog
+$productCatalogName = demo Product Catalog
+$vendor = demo
 
-$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
-
-
-INSERT_UPDATE Vendor;code[unique=true]
-#;$vendor
-
-INSERT_UPDATE Warehouse;code[unique=true];vendor(code);default[default=true]
-;warehouse_s;Warehouse South;Warehouse South
-;warehouse_e;Warehouse East;Warehouse East
-;warehouse_w;Warehouse West;Warehouse West
-;warehouse_n;Warehouse North;Warehouse North
-
-INSERT_UPDATE StockLevel;available;warehouse(code)[unique=true];inStockStatus(code);maxPreOrder;maxStockLevelHistoryCount;overSelling;preOrder;productCode[unique=true];reserved
-;10;warehouse_s;forceInStock;0;0;0;0;SUPERKINGX;0
-;10;warehouse_e;notSpecified;0;0;0;0;KINGX;0
-;12;warehouse_w;forceOutOfStock;1;0;0;0;QUEENSIZEX;0
-;14;warehouse_n;notSpecified;1;0;0;0;FULLSIZEX;0
-;10;warehouse_s;forceInStock;0;0;0;0;SUPERSINGLEX;0
-;10;warehouse_e;notSpecified;0;0;0;0;SINGLESIZEX;0
-;12;warehouse_w;forceOutOfStock;1;0;0;0;SUPERKING;0
-;14;warehouse_n;notSpecified;1;0;0;0;KING;0
-;10;warehouse_s;forceInStock;0;0;0;0;QUEENSIZE;0
-;10;warehouse_e;notSpecified;0;0;0;0;FULLSIZE;0
-;12;warehouse_w;forceOutOfStock;1;0;0;0;SUPERSINGLE;0
-;14;warehouse_n;notSpecified;1;0;0;0;SINGLESIZE;0
-;10;warehouse_s;forceInStock;0;0;0;0;SUPERKINGHYBRID;0
-;10;warehouse_e;notSpecified;0;0;0;0;QUEENSIZEHYBRID;0
-;12;warehouse_w;forceOutOfStock;1;0;0;0;FULLSIZEHYBRID;0
-;14;warehouse_n;notSpecified;1;0;0;0;SUPERSINGLEHYBRID;0
-;10;warehouse_e;notSpecified;0;0;0;0;SINGLESIZEHYBRID;0
-;12;warehouse_w;forceOutOfStock;1;0;0;0;HYBRID140X200;0
-;14;warehouse_n;notSpecified;1;0;0;0;SUPERSINGLESOFA;0
+$catalogVersion = catalogversion(catalog(id[default=$productCatalog]), version[default='Staged'])[unique=true, default=$productCatalog:Staged]
 
 
-UPDATE Product;code[unique=true];$catalogVersion;stockLevels(productCode,warehouse(code));vendors(code)
-;SUPERKINGX;;SUPERKINGX:warehouse_s;
-;KINGX;;KINGX:warehouse_e;
-;QUEENSIZEX;;QUEENSIZEX:warehouse_w;
-;FULLSIZEX;;FULLSIZEX_warehouse_n;
-;SUPERSINGLEX;;SUPERSINGLEX:warehouse_s;
-;SINGLESIZEX;;SINGLESIZEX:warehouse_e;
-;SUPERKING;;SUPERKING:warehouse_w;
-;KING;;KING:warehouse_n;
-;QUEENSIZE;;QUEENSIZE:warehouse_s;
-;FULLSIZE;;FULLSIZE:warehouse_w;
-;SUPERSINGLE;;SUPERSINGLE:warehouse_e;
-;SINGLESIZE;;SINGLESIZE:warehouse_n;
-;SUPERKINGHYBRID;;SUPERKINGHYBRID:warehouse_s;
-;QUEENSIZEHYBRID;;QUEENSIZEHYBRID:warehouse_w;
-;FULLSIZEHYBRID;;FULLSIZEHYBRID:warehouse_e;
-;SUPERSINGLEHYBRID;;SUPERSINGLEHYBRID:warehouse_n;
-;SINGLESIZEHYBRID;;SINGLESIZEHYBRID:warehouse_w;
-;HYBRID140X200;;HYBRID140X200:warehouse_e;
-;SUPERSINGLESOFA;;SUPERSINGLESOFA:warehouse_n;
+INSERT_UPDATE Vendor; code[unique = true]
+                    ; $vendor
+
+INSERT_UPDATE Warehouse; code[unique = true]; vendor(code); default[default = true]; baseStores(uid)
+                       ; warehouse_demo     ; $vendor     ;                        ; demo
+
+INSERT_UPDATE StockLevel; available; warehouse(code)[unique = true]; inStockStatus(code); maxPreOrder; maxStockLevelHistoryCount; overSelling; preOrder; productCode[unique = true]; reserved
+                        ; 1000000  ; warehouse_demo                ; forceInStock       ; 0          ; 0                        ; 0          ; 0       ; SUPERKINGX                ; 0
+                        ; 1000000  ; warehouse_demo                ; forceInStock       ; 0          ; 0                        ; 0          ; 0       ; KINGX                     ; 0
+                        ; 1000000  ; warehouse_demo                ; forceInStock       ; 0          ; 0                        ; 0          ; 0       ; QUEENSIZEX                ; 0
+                        ; 1000000  ; warehouse_demo                ; forceInStock       ; 0          ; 0                        ; 0          ; 0       ; FULLSIZEX                 ; 0
+                        ; 1000000  ; warehouse_demo                ; forceInStock       ; 0          ; 0                        ; 0          ; 0       ; SUPERSINGLEX              ; 0
+                        ; 1000000  ; warehouse_demo                ; forceInStock       ; 0          ; 0                        ; 0          ; 0       ; SINGLESIZEX               ; 0
+                        ; 1000000  ; warehouse_demo                ; forceInStock       ; 0          ; 0                        ; 0          ; 0       ; SUPERKING                 ; 0
+                        ; 1000000  ; warehouse_demo                ; forceInStock       ; 0          ; 0                        ; 0          ; 0       ; KING                      ; 0
+                        ; 1000000  ; warehouse_demo                ; forceInStock       ; 0          ; 0                        ; 0          ; 0       ; QUEENSIZE                 ; 0
+                        ; 1000000  ; warehouse_demo                ; forceInStock       ; 0          ; 0                        ; 0          ; 0       ; FULLSIZE                  ; 0
+                        ; 1000000  ; warehouse_demo                ; forceInStock       ; 0          ; 0                        ; 0          ; 0       ; SUPERSINGLE               ; 0
+                        ; 1000000  ; warehouse_demo                ; forceInStock       ; 0          ; 0                        ; 0          ; 0       ; SINGLESIZE                ; 0
+                        ; 1000000  ; warehouse_demo                ; forceInStock       ; 0          ; 0                        ; 0          ; 0       ; SUPERKINGHYBRID           ; 0
+                        ; 1000000  ; warehouse_demo                ; forceInStock       ; 0          ; 0                        ; 0          ; 0       ; KINGHYBRID                ; 0
+                        ; 1000000  ; warehouse_demo                ; forceInStock       ; 0          ; 0                        ; 0          ; 0       ; QUEENSIZEHYBRID           ; 0
+                        ; 1000000  ; warehouse_demo                ; forceInStock       ; 0          ; 0                        ; 0          ; 0       ; FULLSIZEHYBRID            ; 0
+                        ; 1000000  ; warehouse_demo                ; forceInStock       ; 0          ; 0                        ; 0          ; 0       ; SUPERSINGLEHYBRID         ; 0
+                        ; 1000000  ; warehouse_demo                ; forceInStock       ; 0          ; 0                        ; 0          ; 0       ; SINGLESIZEHYBRID          ; 0
+                        ; 1000000  ; warehouse_demo                ; forceInStock       ; 0          ; 0                        ; 0          ; 0       ; HYBRID140X200             ; 0
+                        ; 1000000  ; warehouse_demo                ; forceInStock       ; 0          ; 0                        ; 0          ; 0       ; SUPERSINGLESOFA           ; 0
+
+UPDATE Product; code[unique = true]; $catalogVersion; stockLevels(productCode, warehouse(code)); vendors(code)
+              ; SUPERKINGX         ;                ; SUPERKINGX:warehouse_demo                ; $vendor
+              ; KINGX              ;                ; KINGX:warehouse_demo                     ; $vendor
+              ; QUEENSIZEX         ;                ; QUEENSIZEX:warehouse_demo                ; $vendor
+              ; FULLSIZEX          ;                ; FULLSIZEX:warehouse_demo                 ; $vendor
+              ; SUPERSINGLEX       ;                ; SUPERSINGLEX:warehouse_demo              ; $vendor
+              ; SINGLESIZEX        ;                ; SINGLESIZEX:warehouse_demo               ; $vendor
+              ; SUPERKING          ;                ; SUPERKING:warehouse_demo                 ; $vendor
+              ; KING               ;                ; KING:warehouse_demo                      ; $vendor
+              ; QUEENSIZE          ;                ; QUEENSIZE:warehouse_demo                 ; $vendor
+              ; FULLSIZE           ;                ; FULLSIZE:warehouse_demo                  ; $vendor
+              ; SUPERSINGLE        ;                ; SUPERSINGLE:warehouse_demo               ; $vendor
+              ; SINGLESIZE         ;                ; SINGLESIZE:warehouse_demo                ; $vendor
+              ; SUPERKINGHYBRID    ;                ; SUPERKINGHYBRID:warehouse_demo           ; $vendor
+              ; KINGHYBRID         ;                ; KINGHYBRID:warehouse_demo                ; $vendor
+              ; QUEENSIZEHYBRID    ;                ; QUEENSIZEHYBRID:warehouse_demo           ; $vendor
+              ; FULLSIZEHYBRID     ;                ; FULLSIZEHYBRID:warehouse_demo            ; $vendor
+              ; SUPERSINGLEHYBRID  ;                ; SUPERSINGLEHYBRID:warehouse_demo         ; $vendor
+              ; SINGLESIZEHYBRID   ;                ; SINGLESIZEHYBRID:warehouse_demo          ; $vendor
+              ; HYBRID140X200      ;                ; HYBRID140X200:warehouse_demo             ; $vendor
+              ; SUPERSINGLESOFA    ;                ; SUPERSINGLESOFA:warehouse_demo           ; $vendor
