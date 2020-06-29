@@ -1,6 +1,31 @@
 <hybrisconfig xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='../bin/platform/resources/schemas/extensions.xsd'>
   <extensions>
     <path dir='${HYBRIS_BIN_DIR}' autoload='false' />
+    <path dir='${HYBRIS_BIN_DIR}/modules' autoload='false' />
+    <!--CPI Integration-->
+    <!--<path dir='${HYBRIS_BIN_DIR}/modules/integration-apis/integrationbackoffice' />
+    <path dir='${HYBRIS_BIN_DIR}/modules/sap-framework-core/sapcoreaddon' />
+    <path dir='${HYBRIS_BIN_DIR}/modules/sap-framework-core/sapcoreconfigurationbackoffice' />
+    <path dir='${HYBRIS_BIN_DIR}/modules/scpi' autoload="true" depth="1" />
+    <path dir='${HYBRIS_BIN_DIR}/modules/sap-customer/sapcustomerb2bbackoffice' />
+    <path dir='${HYBRIS_BIN_DIR}/modules/sap-asynchronous-order-management-system/ysapomsfulfillment' />
+    <path dir='${HYBRIS_BIN_DIR}/modules/scpi' autoload="true" depth="1" />
+    <path dir='${HYBRIS_BIN_DIR}/modules/sap-framework-core/sapcoretest' />
+    <path dir='${HYBRIS_BIN_DIR}/modules/scpi' autoload="true" depth="1" />-->
+
+    <extension name="sapcoreaddon"/>
+    <extension name="sapmodelbackoffice"/>
+    <extension name="sapcoreconfigurationbackoffice"/>
+    <extension name="sapcustomerb2bbackoffice"/>
+    <extension name="ysapomsfulfillment"/>
+    <extension name="sapcpiadapter"/>
+    <extension name="sapcpiproductexchange"/>
+    <extension name="sapcpicustomerexchange"/>
+    <extension name="sapcpiorderexchangeoms"/>
+    <extension name="saporderexchangeomsb2b"/>
+    <extension name="saporderexchangebackoffice"/>
+    <extension name="sapcoretest"/>
+
     <extension name='adaptivesearchsolr' />
     <extension name='adaptivesearchbackoffice' />
     <extension name='adaptivesearchsamplesaddon' />
