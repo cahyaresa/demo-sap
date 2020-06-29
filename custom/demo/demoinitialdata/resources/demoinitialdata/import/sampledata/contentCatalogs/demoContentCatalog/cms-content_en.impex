@@ -293,19 +293,19 @@ INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique
 
 # Media Content
 INSERT_UPDATE Media;mediaFormat(qualifier);$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];mime[default='image/jpeg'];realfilename;folder(qualifier)[default='images'];altText
-                   ;tablet;;demo-test2-200.png;$siteResource/images/banners/homepage/responsive/demo-test2-200.png;;demo-test2-200.png;;"In the Box"
+                   ;tablet;;demo-test-2-200.png;$siteResource/images/banners/homepage/responsive/demo-test2-200.png;;demo-tes-200.png;;"In the Box"
                    ;tablet;;demo-test3-200.png;$siteResource/images/banners/homepage/responsive/demo-test3-200.png;;demo-test3-200.png;;"In the Box"
-                   ;desktop;;demo-tes2-240.png;$siteResource/images/banners/homepage/responsive/demo-test2-240.png;;demo-test2-240.png;;"In the Box"
+                   ;desktop;;demo-tes-2-240.png;$siteResource/images/banners/homepage/responsive/demo-test2-240.png;;demo-tes-2-240.png;;"In the Box"
                    ;desktop;;demo-test3-240.png;$siteResource/images/banners/homepage/responsive/demo-test3-240.png;;demo-test3-240.png;;"In the Box"
-                   ;widescreen;;demo-test2-350.png;$siteResource/images/banners/homepage/responsive/demo-test2-350.png;;demo-test2-350.png;;"In the Box"
+                   ;widescreen;;demo-test-2-350.png;$siteResource/images/banners/homepage/responsive/demo-test2-350.png;;demo-tes-2-350.png;;"In the Box"
                    ;widescreen;;demo-test3-350.png;$siteResource/images/banners/homepage/responsive/demo-test3-350.png;;demo-test3-350.png;;"In the Box"
 
 INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$contentCV[unique=true]
-                            ;demo-homepage-springbed-02-en;demo-test2-350.png,demo-test2-240.png,demo-test2-200.png
-                            ;demo-homepage-springbed-en;demo-test3-350.png,demo-test3-240.png,demo-test3-200.png
+                            ;demo-homepage-springbed-01-en;demo-test-2-200.png,demo-tes-2-240.png,demo-tes-2-350.png;
+                            ;demo-homepage-springbed-02-en;demo-test3-350.png,demo-test3-240.png,demo-test3-200.png;
 
 INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];$mediaContainer
-                                             ;;DemoHompageSpringbedBannerComponent;demo-homepage-springbed-en
+                                             ;;DemoHompageSpringbedBannerComponent;demo-homepage-springbed-01-en
                                              ;;DemoHompageSpringbedChildBannerComponent;demo-homepage-springbed-02-en
 
 # Section 4

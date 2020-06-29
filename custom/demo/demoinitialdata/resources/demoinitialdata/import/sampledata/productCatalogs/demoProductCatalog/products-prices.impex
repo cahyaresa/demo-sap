@@ -10,29 +10,6 @@ $catalogVersion = catalogversion(catalog(id[default=$productCatalog]), version[d
 $prices = Europe1prices[translator=de.hybris.platform.europe1.jalo.impex.Europe1PricesTranslator]
 $taxGroup = Europe1PriceFactory_PTG(code)[default = eu-vat-full]
 
-# Set product approval status to Approved only for those products that have prices.
-$approved = approvalstatus(code)[default='approved']
-
-UPDATE Product;code[unique=true];$approved;$catalogVersion
-;SUPERKINGX
-;KINGX
-;QUEENSIZEX
-;FULLSIZEX
-;SUPERSINGLEX
-;SINGLESIZEX
-;SUPERKING
-;KING
-;QUEENSIZE
-;FULLSIZE
-;SUPERSINGLE
-;SINGLESIZE
-;SUPERKINGHYBRID
-;QUEENSIZEHYBRID
-;FULLSIZEHYBRID
-;SUPERSINGLEHYBRID
-;SINGLESIZEHYBRID
-;HYBRID140X200
-;SUPERSINGLESOFA
 
 INSERT_UPDATE PriceRow; product(code, $catalogVersion)[unique = true]; unit(code[unique = true, default = pieces]); currency(isocode)[unique = true][default = IDR]; price[translator = de.hybris.platform.acceleratorservices.dataimport.batch.converter.PriceTranslator]; startTime[dateformat = dd-MMM-yyyy]; endTime[dateformat = dd-MMM-yyyy]; channel(code)[unique = true]; net[default = false]; unitFactor[default = 1]; minqtd[default = 1]; $catalogVersion;
                       ; SUPERKINGX                                   ;                                            ; IDR                                            ; 2606000                                                                                              ;                                    ;
@@ -55,3 +32,25 @@ INSERT_UPDATE PriceRow; product(code, $catalogVersion)[unique = true]; unit(code
                       ; SINGLESIZEHYBRID                             ;                                            ; IDR                                            ; 2606000                                                                                              ;                                    ;
                       ; HYBRID140X200                                ;                                            ; IDR                                            ; 2606000                                                                                              ;                                    ;
                       ; SUPERSINGLESOFA                              ;                                            ; IDR                                            ; 2606000                                                                                              ;                                    ;
+                    ; SUPERKINGX                                   ;                                            ; USD                                            ; 260                                                                                              ;                                    ;
+                    ; KINGX                                        ;                                            ; USD                                            ; 260                                                                                              ;                                    ;
+                    ; QUEENSIZEX                                   ;                                            ; USD                                            ; 260                                                                                              ;                                    ;
+                    ; FULLSIZEX                                    ;                                            ; USD                                            ; 260                                                                                              ;                                    ;
+                    ; SUPERSINGLEX                                 ;                                            ; USD                                            ; 260                                                                                              ;                                    ;
+                    ; SINGLESIZEX                                  ;                                            ; USD                                            ; 260                                                                                              ;                                    ;
+                    ; SUPERKING                                    ;                                            ; USD                                            ; 260                                                                                              ;                                    ;
+                    ; KING                                         ;                                            ; USD                                            ; 260                                                                                              ;                                    ;
+                    ; QUEENSIZE                                    ;                                            ; USD                                            ; 260                                                                                              ;                                    ;
+                    ; FULLSIZE                                     ;                                            ; USD                                            ; 260                                                                                              ;                                    ;
+                    ; SUPERSINGLE                                  ;                                            ; USD                                            ; 260                                                                                              ;                                    ;
+                    ; SINGLESIZE                                   ;                                            ; USD                                            ; 260                                                                                              ;                                    ;
+                    ; SUPERKINGHYBRID                              ;                                            ; USD                                            ; 260                                                                                              ;                                    ;
+                    ; KINGHYBRID                                   ;                                            ; USD                                            ; 260                                                                                              ;                                    ;
+                    ; QUEENSIZEHYBRID                              ;                                            ; USD                                            ; 260                                                                                              ;                                    ;
+                    ; FULLSIZEHYBRID                               ;                                            ; USD                                            ; 260                                                                                              ;                                    ;
+                    ; SUPERSINGLEHYBRID                            ;                                            ; USD                                            ; 260                                                                                              ;                                    ;
+                    ; SINGLESIZEHYBRID                             ;                                            ; USD                                            ; 260                                                                                              ;                                    ;
+                    ; HYBRID140X200                                ;                                            ; USD                                            ; 260                                                                                              ;                                    ;
+                    ; SUPERSINGLESOFA                              ;                                            ; USD                                            ; 260                                                                                              ;                                    ;
+
+
