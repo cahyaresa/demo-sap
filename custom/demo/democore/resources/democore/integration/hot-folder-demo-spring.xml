@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ [y] hybris Platform
+
+ Copyright (c) 2017 SAP SE or an SAP affiliate company.  All rights reserved.
+
+ This software is the confidential and proprietary information of SAP
+ ("Confidential Information"). You shall not disclose such Confidential
+ Information and shall use it only in accordance with the terms of the
+ license agreement you entered into with SAP.
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:int="http://www.springframework.org/schema/integration"
+	xmlns:file="http://www.springframework.org/schema/integration/file"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/integration 
+	http://www.springframework.org/schema/integration/spring-integration.xsd
+	http://www.springframework.org/schema/integration/file 
+	http://www.springframework.org/schema/integration/file/spring-integration-file.xsd
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+
+	<bean id="baseDirectoryDemo" class="java.lang.String">
+		<constructor-arg value="#{baseDirectory}/${tenantId}/demo" />
+	</bean>
+	<!-- 1) Scan for files -->
+	<file:inbound-channel-adapter id="batchFilesDemo" directory="#{baseDirectoryDemo}"
+		comparator="fileOrderComparator" filename-regex="^([demo].*)-(\d+)\.csv">
+		<int:poller fixed-rate="1000" />
+	</file:inbound-channel-adapter>
+	
+	<!-- 2) move the file to processing and create header -->
+	<file:outbound-gateway request-channel="batchFilesDemo" reply-channel="batchFilesDemoProc"
+		directory="#{baseDirectoryDemo}/processing" delete-source-files="true" />
+	<int:service-activator input-channel="batchFilesDemoProc" output-channel="batchFilesHeaderInit" ref="demoHeaderSetupTask"
+		method="execute" />
+	<bean id="demoHeaderSetupTask" class="org.demo.core.tasks.DemoHeaderTask">
+		<!-- Just a place holder value for property catalog... This Will be derived dynamically runtime -->
+		<property name="catalog" value="volatileCatalog" />
+		<property name="net" value="false" />
+		<property name="storeBaseDirectory" ref="baseDirectoryDemo" />
+	</bean>
+	
+	<bean id="batchRunnerTask" class="org.demo.core.tasks.DemoAbstractImpexRunnerTask">
+		<property name="sessionService" ref="sessionService" />
+		<property name="importService" ref="importService" />
+		<lookup-method name="getImportConfig" bean="importConfig" /> 
+	</bean>
+	
+		<bean id="batchTransformerTask" 
+		  class="org.demo.core.tasks.DemoImpexTransformerTask"
+		  init-method="initConvertersMap">
+		<property name="fieldSeparator" value=";" />
+		<property name="encoding" value="UTF-8" />
+		<property name="linesToSkip" value="1"/>
+		<property name="cleanupHelper" ref="cleanupHelper" />
+	</bean>
+	
+	<!-- Transformer converters mappings -->
+		  		  
+	<bean id="batchDemoProductConverterMapping"
+		  class="de.hybris.platform.acceleratorservices.dataimport.batch.converter.mapping.impl.DefaultConverterMapping" 
+		  p:mapping="demo-product"
+		  p:converter-ref="batchDemoProductConverter"/>
+	
+	<bean id="batchDemoVariantProductConverterMapping"
+		  class="de.hybris.platform.acceleratorservices.dataimport.batch.converter.mapping.impl.DefaultConverterMapping" 
+		  p:mapping="demo-variant"
+		  p:converter-ref="batchDemoVariantProductConverter"/>
+
+	<bean id="batchDemoPriceConverterMapping"
+		  class="de.hybris.platform.acceleratorservices.dataimport.batch.converter.mapping.impl.DefaultConverterMapping"
+		  p:mapping="demo-price"
+		  p:converter-ref="batchDemoPriceConverter"/>
+
+	
+	<alias name="astraPropertyFileOrderComparator" alias="fileOrderComparator" />
+	<bean id="astraPropertyFileOrderComparator" class="de.hybris.platform.acceleratorservices.dataimport.batch.FileOrderComparator">
+		<property name="prefixPriority">
+			<map>
+				<!-- default priority is 0 -->
+				<entry key="demo-product" value="100" />
+				<entry key="demo-variant" value="95" />
+				<entry key="demo-price" value="90" />
+			</map>
+		</property>
+	</bean>	   
+
+	<!-- Astra Property Product specific converters -->
+	
+	<bean id="batchDemoProductConverter" class="de.hybris.platform.acceleratorservices.dataimport.batch.converter.impl.DefaultImpexConverter">
+		<property name="header">
+			<value>#{defaultImpexProductHeader}
+				# Insert Demo Products
+				$supercategories=supercategories(code, $catalogVersion)
+				$lang=en
+				$langid=id
+				$variantType=BedSizeVariantProduct
+				INSERT_UPDATE BedProduct;code[unique=true];name[lang=$lang];name[lang=$langid];$supercategories;varianttype(code);unit(code)[default=pieces];approvalstatus(code)[default = 'approved'];$catalogVersion
+			</value>
+		</property>
+		<property name="impexRow">
+			<value>;{+0};{+1};{+1};{+2};$variantType;</value>
+		</property>
+		<property name="rowFilter">
+			<bean class="de.hybris.platform.acceleratorservices.dataimport.batch.converter.impl.DefaultImpexRowFilter">
+				<property name="expression" value="row[1]"/>
+			</bean>
+		</property>
+		<property name="type" value="BedProduct"/>
+	</bean>
+	
+	<bean id="batchDemoVariantProductConverter" class="de.hybris.platform.acceleratorservices.dataimport.batch.converter.impl.DefaultImpexConverter">
+		<property name="header">
+			<value>#{defaultImpexProductHeader}
+				# Insert Demo Variant Products
+				$baseProduct=baseProduct(code,$catalogVersion)
+				$lang=en
+				$langid=id
+				INSERT_UPDATE BedSizeVariantProduct;$baseProduct;code[unique=true];name[lang=$lang];name[lang=$langid];length; width; height;description;unit(code)[default = pieces];approvalstatus(code)[default = 'approved'];$catalogVersion
+			</value>
+		</property>
+		<property name="impexRow">
+			<value>;{+0};{+1};{+2};{+2};{3};{4};{5};{6};</value>
+		</property>
+	</bean>
+
+	<bean id="batchDemoPriceConverter" class="de.hybris.platform.acceleratorservices.dataimport.batch.converter.impl.DefaultImpexConverter">
+		<property name="header">
+			<value># ImpEx for Importing Prices into $CATALOG$
+				<!-- $catalog=$CATALOG$ -->
+				#% impex.setLocale(Locale.ENGLISH);
+				$catalogVersion=catalogversion(catalog(id[default=$CATALOG$]),version[default='Staged'])[unique=true]
+				INSERT_UPDATE PriceRow;product(code,$catalogVersion)[unique=true];price[translator=de.hybris.platform.acceleratorservices.dataimport.batch.converter.PriceTranslator];startTime[dateformat=dd-MMM-yy];endTime[dateformat=dd-MMM-yy];channel(code)[unique=true];currency(isocode)[unique=true][default=IDR];net[default=$NET$];unit(code)[default=pieces];unitFactor[default=1];minqtd[default=1];$catalogVersion;sequenceId[translator=de.hybris.platform.acceleratorservices.dataimport.batch.converter.SequenceIdTranslator]
+			</value>
+		</property>
+		<property name="impexRow">
+			<value>;{+0};{+1};{2};{3};{4};{5};;;;;;{S}</value>
+		</property>
+	</bean>
+
+</beans>
