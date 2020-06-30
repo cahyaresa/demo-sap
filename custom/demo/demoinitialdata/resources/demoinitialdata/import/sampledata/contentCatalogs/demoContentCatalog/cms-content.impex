@@ -762,20 +762,20 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents
 
 #### Section 4
 INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
-                                             ;;ElectronicsHompageSmDiscountBannerComponent;Electronics Homepage Small Discount Banner Component;/Open-Catalogue/Cameras/Webcams/Web-Camera-%28100KpixelM-CMOS%2C-640X480%2C-USB-1-1%29-Black/p/280916;ElectronicsHompageSmDiscountBannerComponent
-                                             ;;ElectronicsHompageShopBannerComponent;Electronics Homepage Shop Banner Component;/Open-Catalogue/Cameras/Webcams/QuickCam-for-Notebooks-Pro/p/479742;ElectronicsHompageShopBannerComponent
-                                             ;;ElectronicsHompageShipmentBannerComponent;Electronics Homepage Shipment Banner Component;/Open-Catalogue/Cameras/DigitalCameras/Digital-Compacts/NV10/p/553637;ElectronicsHompageShipmentBannerComponent
-                                             ;;ElectronicsHompageServiceBannerComponent;Electronics Homepage Service Banner Component;/Open-Catalogue/Cameras/CameraAccessories-%26-Supplies/CameraFlashes/Light-HVL-20DW2/p/289540;ElectronicsHompageServiceBannerComponent
+#                                             ;;ElectronicsHompageSmDiscountBannerComponent;Electronics Homepage Small Discount Banner Component;/Open-Catalogue/Cameras/Webcams/Web-Camera-%28100KpixelM-CMOS%2C-640X480%2C-USB-1-1%29-Black/p/280916;ElectronicsHompageSmDiscountBannerComponent
+#                                             ;;ElectronicsHompageShopBannerComponent;Electronics Homepage Shop Banner Component;/Open-Catalogue/Cameras/Webcams/QuickCam-for-Notebooks-Pro/p/479742;ElectronicsHompageShopBannerComponent
+#                                             ;;ElectronicsHompageShipmentBannerComponent;Electronics Homepage Shipment Banner Component;/Open-Catalogue/Cameras/DigitalCameras/Digital-Compacts/NV10/p/553637;ElectronicsHompageShipmentBannerComponent
+#                                             ;;ElectronicsHompageServiceBannerComponent;Electronics Homepage Service Banner Component;/Open-Catalogue/Cameras/CameraAccessories-%26-Supplies/CameraFlashes/Light-HVL-20DW2/p/289540;ElectronicsHompageServiceBannerComponent
 
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsComponents(&componentRef)
-                         ;;Section4Slot-Homepage;true;ElectronicsHompageSmDiscountBannerComponent,ElectronicsHompageShopBannerComponent,ElectronicsHompageShipmentBannerComponent,ElectronicsHompageServiceBannerComponent
+#                         ;;Section4Slot-Homepage;true;ElectronicsHompageSmDiscountBannerComponent,ElectronicsHompageShopBannerComponent,ElectronicsHompageShipmentBannerComponent,ElectronicsHompageServiceBannerComponent
 
 ### Section 5
 INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
-                                             ;;ElectronicsHompageFreeDelBannerComponent;Electronics Homepage Free Delivery Banner Component;/faq;ElectronicsHompageFreeDelBannerComponent
+#                                             ;;ElectronicsHompageFreeDelBannerComponent;Electronics Homepage Free Delivery Banner Component;/faq;ElectronicsHompageFreeDelBannerComponent
 
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsComponents(&componentRef)
-                         ;;Section5Slot-Homepage;true;ElectronicsHompageFreeDelBannerComponent
+#                         ;;Section5Slot-Homepage;true;ElectronicsHompageFreeDelBannerComponent
 
 #################    HOME PAGE END       #################
 
