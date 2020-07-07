@@ -34,6 +34,10 @@ UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];linkName[lang=$
                        ;;AllBedsCategoryLink;"All Beds"
                        ;;SpringBedCategoryLink;"Springbed"
                        ;;SofaBedCategoryLink;"Sofa"
+                       ;;AboutUsLink;"About Us"
+                       ;;BlogsLink;"Blogs"
+                       ;;GuaranteeLink;"Garansi"
+                       ;;ConfirmationLink;"Konfirmasi"
                        ;;BlackAndWhiteFilmsCategoryLink;"Black & White Films"
                        ;;BlankVideotapesCategoryLink;"Blank Videotapes"
                        ;;CameraAccessoriesCategoryLink;"Camera Accessories & Supplies"
@@ -132,6 +136,18 @@ UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=$la
                         ;;SiteRootNode;"SiteRoot"
                         ;;SuppliesNavNode;"Supplies"
                         ;;WebcamsNavNode;"Webcams"
+#
+                        ;;AboutUsNavNode;"About Us"
+                        ;;BlogsNavNode;"Blogs"
+                        ;;GuaranteeNavNode;"Garansi"
+                        ;;ConfirmationNavNode;"Konfirmasi"
+
+#Bottom Header Slot
+UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[lang=en];
+;;GuaranteeParagraphComponent;"<span>Garansi 10 Tahun</span>"
+;;FreeShippingParagraphComponent;"<span>Pengiriman Gratis ke Kota Besar di Pulau Jawa, Bali, Sumatera, dan Sulawesi*</span>"
+;;MediaCenterParagraphComponent;"<span>WhatsApp: +62 819 234 659</span>"
+
 
 # Electronics FAQ Page
 
@@ -513,4 +529,5 @@ INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique
 # CMS Footer Navigation Component
 UPDATE FooterNavigationComponent;$contentCV[unique=true];uid[unique=true];notice[lang=en][translator=de.hybris.platform.acceleratorservices.dataimport.batch.converter.CopyrightTranslator,dateFormat=yyyy]
                                 ;;FooterNavigationComponent;"Copyright © {0} SAP SE or an SAP affiliate company. All rights reserved."
+
 
