@@ -101,6 +101,7 @@ INSERT_UPDATE MediaFormat;qualifier[unique=true]
 ;96Wx96H
 ;65Wx65H
 ;30Wx30H
+;custom-media-format
 
 # Tax & Tax Groups
 INSERT_UPDATE UserTaxGroup;code[unique=true]
