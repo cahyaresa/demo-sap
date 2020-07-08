@@ -8463,7 +8463,8 @@ ul.nav__links::after {
 }
 .navigation--top .nav__left .simple-banner-component img,
 .navigation--top .nav__left .banner__component img {
-  width: auto;
+  width: 50%;
+  padding: 20px 0;
 }
 .miniCartSlot > div[data-ng-transclude] {
   display: inline-block;
