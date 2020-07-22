@@ -1164,39 +1164,24 @@ INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;pa
 ## level 2. children of SiteRoot ##
 # the following order of children is the display order on the site
 INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);&nodeRef;children(uid,$contentCV)
-                               ;DemoCategoryNavNode;;Categories;DemoNavNode;DemoCategoryNavNode;AllBedsNavNode,BrandsNavNode,AboutUsNavNode,BlogsNavNode,GuaranteeNavNode,ConfirmationNavNode
+                               ;DemoCategoryNavNode;;Categories;DemoNavNode;DemoCategoryNavNode;AllBedsNavNode,AboutUsNavNode,BlogsNavNode,GuaranteeNavNode,ConfirmationNavNode
 
 ## level 3. children of Category Nav ##
 INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;&nodeRef;children(uid,$contentCV);links(&linkRef);
                                ;AllBedsNavNode;;All Bed Links;AllBedsNavNode;BedLinksNavNode
-                               ;BrandsNavNode;;Brand Links;BrandsNavNode;BedLinksNavNode
                                 ;AboutUsNavNode;;About Us Links;AboutUsNavNode;;
                                 ;BlogsNavNode;;Blogs Links;BlogsNavNode;;
                                 ;GuaranteeNavNode;;Guarantee Links;GuaranteeNavNode;;
                                 ;ConfirmationNavNode;;Confirmation Links;ConfirmationNavNode;;
 
-#                               ;DigitalCamerasNavNode;;Digital Cameras Category;DigitalCamerasNavNode;DigitalCompactsNavNode,DigitalSLRNavNode
-#                               ;FilmCamerasNavNode;;Film Cameras Category;FilmCamerasNavNode
-#                               ;HandheldCamcordersNavNode;;Hand-held Camcorders Category;HandheldCamcordersNavNode
-#                               ;WebcamsNavNode;;Webcams Category;WebcamsNavNode
-#                               ;PowerSuppliesNavNode;;Power Supplies Category;PowerSuppliesNavNode
-#                               ;FlashMemoryNavNode;;Flash Memory Category;FlashMemoryNavNode
-#                               ;CameraAccessoriesNavNode;;Camera Accessories Category;CameraAccessoriesNavNode;AccessoriesNavNode,SuppliesNavNode
-
 ## entries of the above navigation nodes ##
 INSERT_UPDATE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];name;navigationNode(&nodeRef);item(CMSLinkComponent.uid,CMSLinkComponent.$contentCV);
 # BEd -- entry
+                                ;AllBedsNavNodeEntry;;All Beds Category NavgaitionNode Entry;AllBedsNavNode;AllBedsCategoryLink
                                 ;AboutUsNavNodeEntry;;About Us Navigation Node Entry;AboutUsNavNode;AboutUsLink;
                                 ;BlogsNavNodeEntry;;Blogs Navigation Node Entry;BlogsNavNode;BlogsLink;
                                 ;GuaranteeNavNodeEntry;;Quarantee Navigation Node Entry;GuaranteeNavNode;GuaranteeLink;
                                 ;ConfirmationNavNodeEntry;;Confirmation Navigation Node Entry;ConfirmationNavNode;ConfirmationLink;
-#                                ;DigitalCamerasNavNodeEntry;;Digital Cameras Navigation Node Entry;DigitalCamerasNavNode;DigitalCamerasCategoryLink;
-#                                ;FilmCamerasNavNodeEntry;;Film Cameras Navigation Node Entry;FilmCamerasNavNode;FilmCamerasCategoryLink;
-#                                ;HandheldCamcordersNavNodeEntry;;Handheld Camcorders Navigation Node Entry;HandheldCamcordersNavNode;HandheldCamcordersCategoryLink;
-#                                ;WebcamsNavNodeEntry;;Webcams Navigation Node Entry;WebcamsNavNode;WebcamsCategoryLink;
-#                                ;PowerSuppliesNavNodeEntry;;Power Supplies Navigation Node Entry;PowerSuppliesNavNode;PowerSuppliesCategoryLink;
-#                                ;FlashMemoryNavNodeEntry;;Flash Memory Navigation Node Entry;FlashMemoryNavNode;FlashMemoryCategoryLink;
-#                                ;CameraAccessoriesNavNodeEntry;;Camera Accessories Navigation Node Entry;CameraAccessoriesNavNode;CameraAccessoriesCategoryLink;
 
 # CMS Link Components
 INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url;&linkRef;&componentRef;target(code)[default='sameWindow'];$category;$product;
@@ -1206,69 +1191,17 @@ INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url
 ## level 4. children of NavNode (the following order of children is the display order on the site) ##
 INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;&nodeRef;children(uid,$contentCV);links(&linkRef);
                                ;BedLinksNavNode;;Beds links;BedLinksNavNode;SpringbedNavNode,SofabedNavNode;
-# children of BrandsNavNode
-#                               ;BrandLinksNavNode;;Brand Links;BrandLinksNavNode;CanonBrandNavNode,SonyBrandNavNode,KodakBrandNavNode,SamsungBrandNavNode,ToshibaBrandNavNode,FujifilmBrandNavNode
-#                               ;AccessoryBrandLinksNavNode;;Accessory Brand Links;AccessoryBrandLinksNavNode;KingstonBrandNavNode,IciduBrandNavNode,TDKBrandNavNode,SweexBrandNavNode
-## children of DigitalCamerasNavNode
-#                               ;DigitalCompactsNavNode;;Digital Compacts Links;DigitalCompactsNavNode
-#                               ;DigitalSLRNavNode;;Digital SLR Links;DigitalSLRNavNode
-## children of CameraAccessoriesNavNode
-#                               ;AccessoriesNavNode;;Accessories Links;AccessoriesNavNode;CamerasFlashesNavNode,TripodsNavNode,CameraLensesNavNode
-#                               ;SuppliesNavNode;;Supplies Links;SuppliesNavNode;ColourFilmsNavNode,BlackAndWhiteFilmsNavNode,BlankVideotapesNavNode
 
 
 ## level 5. children of above (level 4) nodes ##
 INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;&nodeRef
                                 ;SpringbedNavNode;;SpringBed Link;SpringbedNavNode
                                 ;SofabedNavNode;;Sofabed Link;SofabedNavNode
-# Brands -- cameras
-#                               ;CanonBrandNavNode;;Canon Brand Link;CanonBrandNavNode
-#                               ;SonyBrandNavNode;;Sony Brand Link;SonyBrandNavNode
-#                               ;KodakBrandNavNode;;Kodak Brand Link;KodakBrandNavNode
-#                               ;SamsungBrandNavNode;;Samsung Brand Link;SamsungBrandNavNode
-#                               ;ToshibaBrandNavNode;;Toshiba Brand Link;ToshibaBrandNavNode
-#                               ;FujifilmBrandNavNode;;Fujifilm Brand Link;FujifilmBrandNavNode
-## Brands -- accessories
-#                               ;KingstonBrandNavNode;;Kingston Brand Link;KingstonBrandNavNode
-#                               ;IciduBrandNavNode;;Icidu Brand Link;IciduBrandNavNode
-#                               ;TDKBrandNavNode;;TDK Brand Link;TDKBrandNavNode
-#                               ;SweexBrandNavNode;;Sweex Brand Link;SweexBrandNavNode
-## CameraAccessories -- accessories
-#                               ;CamerasFlashesNavNode;;Cameras Flashes Link;CamerasFlashesNavNode
-#                               ;TripodsNavNode;;Tripods Link;TripodsNavNode
-#                               ;CameraLensesNavNode;;Camera Lenses Link;CameraLensesNavNode
-## CameraAccessories -- Supplies
-#                               ;ColourFilmsNavNode;;Colour Films Link;ColourFilmsNavNode
-#                               ;BlackAndWhiteFilmsNavNode;;Black And White Films Link;BlackAndWhiteFilmsNavNode
-#                               ;BlankVideotapesNavNode;;Blank Videotapes Link;BlankVideotapesNavNode
 
 ## entries of the above navigation nodes ##
 INSERT_UPDATE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];name;navigationNode(&nodeRef);item(CMSLinkComponent.uid,CMSLinkComponent.$contentCV);
                                 ;SpringbedNavNodeEntry;;Springbed Navigation Node Entry;SpringbedNavNode;SpringBedCategoryLink;
                                 ;SofabedNavNodeEntry;;Sofabed Brand Navigation Node Entry;SofabedNavNode;SofaBedCategoryLink;
-# Brands -- cameras
-#                                ;CanonBrandNavNodeEntry;;Canon Brand Navigation Node Entry;CanonBrandNavNode;CanonBrandCategoryLink;
-#                                ;SonyBrandNavNodeEntry;;Sony Brand Navigation Node Entry;SonyBrandNavNode;SonyBrandCategoryLink;
-#                                ;KodakBrandNavNodeEntry;;Kodak Brand Navigation Node Entry;KodakBrandNavNode;KodakBrandCategoryLink;
-#                                ;SamsungBrandNavNodeEntry;;Samsung Brand Navigation Node Entry;SamsungBrandNavNode;SamsungBrandCategoryLink;
-#                                ;ToshibaBrandNavNodeEntry;;Toshiba Brand Navigation Node Entry;ToshibaBrandNavNode;ToshibaBrandCategoryLink;
-#                                ;FujifilmBrandNavNodeEntry;;Fujifilm Brand Navigation Node Entry;FujifilmBrandNavNode;FujifilmBrandCategoryLink;
-## Brands -- accessories
-#                                ;KingstonBrandNavNodeEntry;;Kingston Brand Navigation Node Entry;KingstonBrandNavNode;KingstonBrandCategoryLink;
-#                                ;IciduBrandNavNodeEntry;;Icidu Brand Navigation Node Entry;IciduBrandNavNode;IciduBrandCategoryLink;
-#                                ;TDKBrandNavNodeEntry;;TDK Brand Navigation Node Entry;TDKBrandNavNode;TDKBrandCategoryLink;
-#                                ;SweexBrandNavNodeEntry;;Sweex Brand Navigation Node Entry;SweexBrandNavNode;SweexBrandCategoryLink;
-### Digital Cameras
-#                                ;DigitalCompactsNavNodeEntry;;Digital Compacts Navigation Node Entry;DigitalCompactsNavNode;DigitalCompactsCategoryLink;
-#                                ;DigitalSLRNavNodeEntry;;Digital SLR Navigation Node Entry;DigitalSLRNavNode;DigitalSLRCategoryLink;
-### CameraAccessories -- accessories
-#                                ;CamerasFlashesNavNodeEntry;;Cameras Flashes Navigation Node Entry;CamerasFlashesNavNode;CamerasFlashesCategoryLink;
-#                                ;TripodsNavNodeEntry;;Tripods Navigation Node Entry;TripodsNavNode;TripodsCategoryLink;
-#                                ;CameraLensesNavNodeEntry;;Camera Lenses Navigation Node Entry;CameraLensesNavNode;CameraLensesCategoryLink;
-### CameraAccessories -- Supplies
-#                                ;ColourFilmsNavNodeEntry;;Colour Films Navigation Node Entry;ColourFilmsNavNode;ColourFilmsCategoryLink;
-#                                ;BlackAndWhiteFilmsNavNodeEntry;;Black And White Films Navigation Node Entry;BlackAndWhiteFilmsNavNode;BlackAndWhiteFilmsCategoryLink;
-#                                ;BlankVideotapesNavNodeEntry;;Blank Videotapes Navigation Node Entry;BlankVideotapesNavNode;BlankVideotapesCategoryLink;
 ##### Navigation Component Refactor End ######
 
 
