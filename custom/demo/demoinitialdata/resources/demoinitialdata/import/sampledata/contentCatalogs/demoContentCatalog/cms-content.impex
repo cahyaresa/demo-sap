@@ -311,8 +311,7 @@ UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];previewImage(code, 
                    ;;productGrid;productGridPagePreview
                    ;;category;defaultCategoryPagePreview
 
-###### Electronics Homepage ######
-
+###### DemoSite Homepage ######
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];altText;&imageRef;folder(qualifier)[default='images']
                    ;;1934793_1719.jpg;$productResource/images/96Wx96H/1934793_1719.jpg;;"Canon PowerShot A480";1934793_1719.jpg
                    ;;1992695-Sony-DSC-S930P-11441.jpg;$productResource/images/96Wx96H/1992695-Sony-DSC-S930P-11441.jpg;;"Sony Cybershot DSC-S930";1992695-Sony-DSC-S930P-11441.jpg
@@ -346,10 +345,11 @@ INSERT_UPDATE ProductCarouselComponent;$contentCV[unique=true];uid[unique=true];
 
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef)
                          ;;Section1Slot-Homepage;Section1 Slot for Homepage;true;BrandsGaloreBanner
-                         ;;Section2ASlot-Homepage;Section2A Slot for Homepage;true;CanonPowershotBannerComponent,SonyCybershotBannerComponent,KodakEasyshareBannerComponent,SonyDSCBannerComponent
-                         ;;Section2BSlot-Homepage;Section2B Slot for Homepage;true;CamcordersBanner,LensesBanner
-                         ;;Section2CSlot-Homepage;Section2C Slot for Homepage;true;ElectronicsHomepageCarouselComponent
-                         ;;Section3Slot-Homepage;Section3 Slot for Homepage;true;ElectronicsHomepageProductCarouselComponent,PurchasedCategorySuggestions
+                         ;;Section2ASlot-Homepage;Section2A Slot for Homepage;true;ElectronicsHomepageProductCarouselComponent,PurchasedCategorySuggestions
+                         ;;Section2BSlot-Homepage;Section2B Slot for Homepage;true;ElectronicsHomepageProductCarouselComponent,PurchasedCategorySuggestions
+                         ;;Section3ASlot-Homepage;Section3A Slot for Homepage;true;CanonPowershotBannerComponent,SonyCybershotBannerComponent,KodakEasyshareBannerComponent,SonyDSCBannerComponent
+                         ;;Section3BSlot-Homepage;Section3B Slot for Homepage;true;CamcordersBanner,LensesBanner
+                         ;;Section3CSlot-Homepage;Section3C Slot for Homepage;true;ElectronicsHomepageCarouselComponent
                          ;;Section4Slot-Homepage;Section4 Slot for Homepage;true;DigitalCompactCamerasBannerComponent,DigitalSLRCamerasBannerComponent,MemoryBannerComponent,AccessoriesBannerComponent
                          ;;Section5Slot-Homepage;Section5 Slot for Homepage;true;NextDayDeliveryBanner
 
@@ -357,8 +357,9 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
                                 ;;Section1-Homepage;Section1;;Section1Slot-Homepage
                                 ;;Section2A-Homepage;Section2A;;Section2ASlot-Homepage
                                 ;;Section2B-Homepage;Section2B;;Section2BSlot-Homepage
-                                ;;Section2C-Homepage;Section2C;;Section2CSlot-Homepage
-                                ;;Section3-Homepage;Section3;;Section3Slot-Homepage
+                                ;;Section3A-Homepage;Section3A;;Section3ASlot-Homepage
+                                ;;Section3B-Homepage;Section3B;;Section3BSlot-Homepage
+                                ;;Section3C-Homepage;Section3C;;Section3CSlot-Homepage
                                 ;;Section4-Homepage;Section4;;Section4Slot-Homepage
                                 ;;Section5-Homepage;Section5;;Section5Slot-Homepage
 
@@ -745,38 +746,27 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents
 
 ###  Home page splash Slot 1  #######
 INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
-                                             ;;DemoHompageSplashBannerComponent;Electronics Homepage Splash Banner Component;/Bed/Sofa/c/SOFA;DemoHompageSplashBannerComponent
+                                             ;;DemoHompageSplashBannerComponent-1;Electronics Homepage Splash Banner Component 1;/Bed/Sofa/c/SOFA;DemoHompageSplashBannerComponent-1
+                                             ;;DemoHompageSplashBannerComponent-2;Electronics Homepage Splash Banner Component 2;/Bed/Sofa/c/SOFA;DemoHompageSplashBannerComponent-2
+                                             ;;DemoHompageSplashBannerComponent-3;Electronics Homepage Splash Banner Component 3;/Bed/Sofa/c/SOFA;DemoHompageSplashBannerComponent-3
+                                             ;;DemoHompageSplashBannerComponent-4;Electronics Homepage Splash Banner Component 4;/Bed/Sofa/c/SOFA;DemoHompageSplashBannerComponent-4
 
 INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
                                              ;;DemoHompageDiscountBannerComponent;Electronics Homepage Discount Banner Component;/Bed/Springbed/c/SPRINGBED;DemoHompageDiscountBannerComponent
 
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsComponents(&componentRef)
-                         ;;Section1Slot-Homepage;true;DemoHompageSplashBannerComponent,DemoHompageDiscountBannerComponent
+                         ;;Section1Slot-Homepage;true;DemoHompageSplashBannerComponent-1,DemoHompageSplashBannerComponent-2,DemoHompageSplashBannerComponent-3,DemoHompageSplashBannerComponent-4
+#                         ;;Section1Slot-Homepage;true;DemoHompageDiscountBannerComponent
 
-###  Home page slot 2A  ####
-INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
-                                             ;;DemoHompageLightFamBannerComponent;Demo Homepage Light Family Banner Component;/p/SUPERKINGX;DemoHompageLightFamBannerComponent
 
-INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
-                                             ;;DemoHompageLightFamTextBannerComponent;Demo Homepage Light Family Text Banner Component;/Open-Catalogue/Cameras/CameraAccessories-%26-Supplies/CameraLenses/c/588;DemoHompageLightFamTextBannerComponent
+## Home section 2A
+INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef
+                                   ;;IntheBoxTagParagraphComponent;IntheBox Tag Paragraph Component;IntheBoxTagParagraphComponent
 
-INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsComponents(&componentRef)
-                         ;;Section2ASlot-Homepage;true;DemoHompageLightFamBannerComponent,DemoHompageLightFamTextBannerComponent
-
-#### Home section 2B #######
-INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
-                                             ;;DemoHompageSpringbedBannerComponent;Electronics Homepage Camcorders Banner Component;/p/SUPERKINGX;DemoHompageSpringbedBannerComponent
-
-INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
-                                             ;;DemoHompageSpringbedChildBannerComponent;Electronics Homepage Light Family Banner Component Child;/Open-Catalogue/Cameras/Hand-held-Camcorders/c/584;DemoHompageSpringbedChildBannerComponent
-
-INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsComponents(&componentRef)
-                         ;;Section2BSlot-Homepage;true;DemoHompageSpringbedChildBannerComponent,DemoHompageSpringbedBannerComponent
-## Home section 2C
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(&componentRef)
-                         ;;Section2CSlot-Homepage;
+                         ;;Section2ASlot-Homepage;IntheBoxTagParagraphComponent
 
-## Home section 3
+## Home section 2B
 INSERT_UPDATE ProductCarouselComponent;$contentCV[unique=true];uid[unique=true];&componentRef
                                       ;;ElectronicsHomepageProductCarouselComponent;ElectronicsHomepageProductCarouselComponent
 
@@ -784,17 +774,62 @@ INSERT_UPDATE ProductCarouselComponent;$contentCV[unique=true];uid[unique=true];
                                       ;;NewElectronicsHomepageProductCarouselComponent;What's New Electronics Homepage Product Carousel;SUPERKING,KING,QUEENSIZE,FULLSIZE,SUPERSINGLE,SINGLESIZE;allVisible;false;NewElectronicsHomepageProductCarouselComponent
 
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(&componentRef)
-                         ;;Section3Slot-Homepage;ElectronicsHomepageProductCarouselComponent,NewElectronicsHomepageProductCarouselComponent
+                         ;;Section2BSlot-Homepage;ElectronicsHomepageProductCarouselComponent,NewElectronicsHomepageProductCarouselComponent
 
-#### Section 4
+
+###  Home page slot 3A  ####
 INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
-#                                             ;;ElectronicsHompageSmDiscountBannerComponent;Electronics Homepage Small Discount Banner Component;/Open-Catalogue/Cameras/Webcams/Web-Camera-%28100KpixelM-CMOS%2C-640X480%2C-USB-1-1%29-Black/p/280916;ElectronicsHompageSmDiscountBannerComponent
-#                                             ;;ElectronicsHompageShopBannerComponent;Electronics Homepage Shop Banner Component;/Open-Catalogue/Cameras/Webcams/QuickCam-for-Notebooks-Pro/p/479742;ElectronicsHompageShopBannerComponent
-#                                             ;;ElectronicsHompageShipmentBannerComponent;Electronics Homepage Shipment Banner Component;/Open-Catalogue/Cameras/DigitalCameras/Digital-Compacts/NV10/p/553637;ElectronicsHompageShipmentBannerComponent
-#                                             ;;ElectronicsHompageServiceBannerComponent;Electronics Homepage Service Banner Component;/Open-Catalogue/Cameras/CameraAccessories-%26-Supplies/CameraFlashes/Light-HVL-20DW2/p/289540;ElectronicsHompageServiceBannerComponent
+                                             ;;DemoHompageLightFamBannerComponent;Demo Homepage Light Family Banner Component;/p/SUPERKINGX;DemoHompageLightFamBannerComponent
+
+INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
+                                             ;;DemoHompageLightFamTextBannerComponent;Demo Homepage Light Family Text Banner Component;/Open-Catalogue/Cameras/CameraAccessories-%26-Supplies/CameraLenses/c/588;DemoHompageLightFamTextBannerComponent
 
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsComponents(&componentRef)
-#                         ;;Section4Slot-Homepage;true;ElectronicsHompageSmDiscountBannerComponent,ElectronicsHompageShopBannerComponent,ElectronicsHompageShipmentBannerComponent,ElectronicsHompageServiceBannerComponent
+                         ;;Section3ASlot-Homepage;true;DemoHompageLightFamBannerComponent,DemoHompageLightFamTextBannerComponent
+
+#### Home section 3B #######
+INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
+                                             ;;DemoHompageSpringbedBannerComponent;Electronics Homepage Camcorders Banner Component;/p/SUPERKINGX;DemoHompageSpringbedBannerComponent
+
+INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
+                                             ;;DemoHompageSpringbedChildBannerComponent;Electronics Homepage Light Family Banner Component Child;/Open-Catalogue/Cameras/Hand-held-Camcorders/c/584;DemoHompageSpringbedChildBannerComponent
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsComponents(&componentRef)
+                         ;;Section3BSlot-Homepage;true;DemoHompageSpringbedChildBannerComponent,DemoHompageSpringbedBannerComponent
+## Home section 3C
+
+INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef
+                                   ;;CollapseParagraghComponent;Collapse Paragraph Component;CollapseParagraghComponent
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(&componentRef)
+                         ;;Section3CSlot-Homepage;CollapseParagraghComponent
+
+
+#### Section 4
+
+###  Home page slot 4A  ####
+INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef
+                                   ;;IntheBoxTagParagraphComponent;IntheBox Tag Paragraph Component;IntheBoxTagParagraphComponent
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(&componentRef)
+                         ;;Section2ASlot-Homepage;IntheBoxTagParagraphComponent
+
+#### Home section 4B #######
+INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
+                                             ;;DemoHompageLightFamTextBannerComponent;Demo Homepage Light Family Text Banner Component;/Open-Catalogue/Cameras/CameraAccessories-%26-Supplies/CameraLenses/c/588;DemoHompageLightFamTextBannerComponent
+
+INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
+                                             ;;DemoHompageSpringbedBannerComponent;Electronics Homepage Camcorders Banner Component;/p/SUPERKINGX;DemoHompageSpringbedBannerComponent
+
+INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
+                                             ;;DemoHompageSpringbedChildBannerComponent;Electronics Homepage Light Family Banner Component Child;/Open-Catalogue/Cameras/Hand-held-Camcorders/c/584;DemoHompageSpringbedChildBannerComponent
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsComponents(&componentRef)
+                         ;;Section3BSlot-Homepage;true;DemoHompageSpringbedChildBannerComponent,DemoHompageSpringbedBannerComponent
+## Home section 3C
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(&componentRef)
+                         ;;Section3CSlot-Homepage;
+
 
 ### Section 5
 INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
@@ -802,6 +837,8 @@ INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique
 
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsComponents(&componentRef)
 #                         ;;Section5Slot-Homepage;true;ElectronicsHompageFreeDelBannerComponent
+
+
 
 #################    HOME PAGE END       #################
 

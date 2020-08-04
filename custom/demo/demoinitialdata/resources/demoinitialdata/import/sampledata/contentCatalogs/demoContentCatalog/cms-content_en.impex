@@ -38,39 +38,39 @@ UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];linkName[lang=$
                        ;;BlogsLink;"Blogs"
                        ;;GuaranteeLink;"Garansi"
                        ;;ConfirmationLink;"Konfirmasi"
-                       ;;BlackAndWhiteFilmsCategoryLink;"Black & White Films"
-                       ;;BlankVideotapesCategoryLink;"Blank Videotapes"
-                       ;;CameraAccessoriesCategoryLink;"Camera Accessories & Supplies"
-                       ;;CameraLensesCategoryLink;"Camera Lenses"
-                       ;;CamerasCategoryLink;"Cameras"
-                       ;;CamerasFlashesCategoryLink;"Camera Flashes"
-                       ;;CanonBrandCategoryLink;"Canon"
-                       ;;ColourFilmsCategoryLink;"Color Films"
-                       ;;ComponentsCategoryLink;"Components"
+#                       ;;BlackAndWhiteFilmsCategoryLink;"Black & White Films"
+#                       ;;BlankVideotapesCategoryLink;"Blank Videotapes"
+#                       ;;CameraAccessoriesCategoryLink;"Camera Accessories & Supplies"
+#                       ;;CameraLensesCategoryLink;"Camera Lenses"
+#                       ;;CamerasCategoryLink;"Cameras"
+#                       ;;CamerasFlashesCategoryLink;"Camera Flashes"
+#                       ;;CanonBrandCategoryLink;"Canon"
+#                       ;;ColourFilmsCategoryLink;"Color Films"
+#                       ;;ComponentsCategoryLink;"Components"
                        ;;ContactUsLink;"Contact Us"
-                       ;;DigitalCamerasCategoryLink;"Digital Cameras"
-                       ;;DigitalCompactsCategoryLink;"Compact Cameras"
-                       ;;DigitalSLRCategoryLink;"SLR Cameras"
+#                       ;;DigitalCamerasCategoryLink;"Digital Cameras"
+#                       ;;DigitalCompactsCategoryLink;"Compact Cameras"
+#                       ;;DigitalSLRCategoryLink;"SLR Cameras"
                        ;;DocumentationLink;"Documentation"
                        ;;FAQLink;"FAQ"
                        ;;FacebookLink;"Facebook"
-                       ;;FilmCamerasCategoryLink;"Film Cameras"
-                       ;;FlashMemoryCategoryLink;"Flash Memory"
-                       ;;FujifilmBrandCategoryLink;"Fujifilm"
-                       ;;HandheldCamcordersCategoryLink;"Hand Held Camcorders"
+#                       ;;FilmCamerasCategoryLink;"Film Cameras"
+#                       ;;FlashMemoryCategoryLink;"Flash Memory"
+#                       ;;FujifilmBrandCategoryLink;"Fujifilm"
+#                       ;;HandheldCamcordersCategoryLink;"Hand Held Camcorders"
                        ;;HomepageNavLink;"Home"
-                       ;;IciduBrandCategoryLink;"Icidu"
-                       ;;KingstonBrandCategoryLink;"Kingston"
-                       ;;KodakBrandCategoryLink;"Kodak"
+#                       ;;IciduBrandCategoryLink;"Icidu"
+#                       ;;KingstonBrandCategoryLink;"Kingston"
+#                       ;;KodakBrandCategoryLink;"Kodak"
                        ;;LinkedInLink;"Linked In"
-                       ;;PowerSuppliesCategoryLink;"Power Supplies"
-                       ;;SamsungBrandCategoryLink;"Samsung"
-                       ;;SonyBrandCategoryLink;"Sony"
-                       ;;SpecialOffersLink;"Special Offers"
-                       ;;SweexBrandCategoryLink;"Sweex"
-                       ;;TDKBrandCategoryLink;"TDK"
-                       ;;ToshibaBrandCategoryLink;"Toshiba"
-                       ;;TripodsCategoryLink;"Tripods"
+#                       ;;PowerSuppliesCategoryLink;"Power Supplies"
+#                       ;;SamsungBrandCategoryLink;"Samsung"
+#                       ;;SonyBrandCategoryLink;"Sony"
+#                       ;;SpecialOffersLink;"Special Offers"
+#                       ;;SweexBrandCategoryLink;"Sweex"
+#                       ;;TDKBrandCategoryLink;"TDK"
+#                       ;;ToshibaBrandCategoryLink;"Toshiba"
+#                       ;;TripodsCategoryLink;"Tripods"
                        ;;TwitterLink;"Twitter"
                        ;;VisitSAPLink;"Visit SAP"
 
@@ -112,30 +112,29 @@ UPDATE CartSuggestionComponent;$contentCV[unique=true];uid[unique=true];title[la
 
 # Category Pages
 UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
-                   ;;Cameras;"Cameras"
-                   ;;DigitalCameras;"Digital Cameras"
+#                   ;;Cameras;"Cameras"
+#                   ;;DigitalCameras;"Digital Cameras"
 
 # CMS Navigation Nodes
 UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
-                        ;;AccessoriesNavNode;"Accessories"
-                        ;;AccessoryBrandLinksNavNode;"Accessories"
-                        ;;BrandLinksNavNode;"Cameras"
+#                        ;;AccessoriesNavNode;"Accessories"
+#                        ;;AccessoryBrandLinksNavNode;"Accessories"
+#                        ;;BrandLinksNavNode;"Cameras"
                         ;;BrandsNavNode;"Brands"
                         ;;AllBedsNavNode;"All Beds"
-                        ;;BedsNavNode;"Beds"
-                        ;;CameraAccessoriesNavNode;"Camera Accessories & Supplies"
-                        ;;DigitalCamerasNavNode;"Digital Cameras"
+#                        ;;CameraAccessoriesNavNode;"Camera Accessories & Supplies"
+#                        ;;DigitalCamerasNavNode;"Digital Cameras"
                         ;;DemoNavNode;"Demo Site"
-                        ;;FilmCamerasNavNode;"Film Cameras"
-                        ;;FlashMemoryNavNode;"Flash Memory"
+#                        ;;FilmCamerasNavNode;"Film Cameras"
+#                        ;;FlashMemoryNavNode;"Flash Memory"
                         ;;FollowUsNavNode;"Follow Us"
-                        ;;HandheldCamcordersNavNode;"Hand Held Camcorders"
-                        ;;PowerSuppliesNavNode;"Power Supplies"
+#                        ;;HandheldCamcordersNavNode;"Hand Held Camcorders"
+#                        ;;PowerSuppliesNavNode;"Power Supplies"
                         ;;SAPCommerceNavNode;"SAP Commerce Cloud"
                         ;;SAPCustomerExperienceNavNode;"SAP Customer Experience"
                         ;;SiteRootNode;"SiteRoot"
-                        ;;SuppliesNavNode;"Supplies"
-                        ;;WebcamsNavNode;"Webcams"
+#                        ;;SuppliesNavNode;"Supplies"
+#                        ;;WebcamsNavNode;"Webcams"
 #
                         ;;AboutUsNavNode;"About Us"
                         ;;BlogsNavNode;"Blogs"
@@ -146,7 +145,7 @@ UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=$la
 UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[lang=en];
 ;;GuaranteeParagraphComponent;"<span>Garansi 10 Tahun</span>"
 ;;FreeShippingParagraphComponent;"<span>Pengiriman Gratis ke Kota Besar di Pulau Jawa, Bali, Sumatera, dan Sulawesi*</span>"
-;;MediaCenterParagraphComponent;"<span>WhatsApp: +62 819 234 659</span>"
+;;MediaCenterParagraphComponent;"<span><a href='tel:+62 819 234 659'>WhatsApp: +62 819 234 659</a></span>"
 
 
 # Electronics FAQ Page
@@ -222,15 +221,15 @@ INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=
                    ;;Elec_96x96_CatVTapes_EN_01.jpg;$siteResource/images/banners/homepage/Elec_96x96_CatVTapes_EN_01.jpg;;;""
 
 UPDATE CategoryFeatureComponent;$contentCV[unique=true];uid[unique=true];title[lang=$lang];$picture[lang=$lang];description[lang=$lang]
-                               ;;BlackAndWhiteFilmsFeatureComponent;Black & White Films;Elec_96x96_CatBWFilm_EN_01.jpg;"Find the right film for authentic photo art"
-                               ;;BlankVideoTapesFeatureComponent;Blank Video Tapes;Elec_96x96_CatVTapes_EN_01.jpg;"High quality VHS and 8mm Camcorder Tapes"
-                               ;;CameraFlashesFeatureComponent;Camera Flashes;Elec_96x96_CatFlash_EN_01.jpg;"Bring extra quality to your pictures with a Flashgun..."
-                               ;;CameraLensesFeatureComponent;Camera Lenses;Elec_96x96_CatLenses_EN_01.jpg;"Change lenses to suit a huge range of scenes & situations"
-                               ;;ColourFilmsFeatureComponent;Colour Films;Elec_96x96_CatColFilm_EN_01.jpg;"Colour film to make you feel like a true photo hero"
-                               ;;TripodFeatureComponent;Tripods;Elec_96x96_CatTripod_EN_01.jpg;"The photo and film enthusiasts 3-legged friend"
+#                               ;;BlackAndWhiteFilmsFeatureComponent;Black & White Films;Elec_96x96_CatBWFilm_EN_01.jpg;"Find the right film for authentic photo art"
+#                               ;;BlankVideoTapesFeatureComponent;Blank Video Tapes;Elec_96x96_CatVTapes_EN_01.jpg;"High quality VHS and 8mm Camcorder Tapes"
+#                               ;;CameraFlashesFeatureComponent;Camera Flashes;Elec_96x96_CatFlash_EN_01.jpg;"Bring extra quality to your pictures with a Flashgun..."
+#                               ;;CameraLensesFeatureComponent;Camera Lenses;Elec_96x96_CatLenses_EN_01.jpg;"Change lenses to suit a huge range of scenes & situations"
+#                               ;;ColourFilmsFeatureComponent;Colour Films;Elec_96x96_CatColFilm_EN_01.jpg;"Colour film to make you feel like a true photo hero"
+#                               ;;TripodFeatureComponent;Tripods;Elec_96x96_CatTripod_EN_01.jpg;"The photo and film enthusiasts 3-legged friend"
 
 UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];$picture[lang=$lang]
-                            ;;BuyOnlineBanner;Elec_788x120_Save_EN_01.jpg
+#                            ;;BuyOnlineBanner;Elec_788x120_Save_EN_01.jpg
 
 # Electronics Search Results Page
 
@@ -271,23 +270,50 @@ UPDATE ProductCarouselComponent;$contentCV[unique=true];uid[unique=true];title[l
 # Media Content
 INSERT_UPDATE Media;mediaFormat(qualifier);$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];mime[default='image/jpeg'];realfilename;folder(qualifier)[default='images'];altText
                    ;widescreen;;banner-demo-1400x440.jpg;$siteResource/images/banners/homepage/responsive/banner-demo-1400x440.jpg;;banner-demo-1400x440.jpg;;"Save Big On Select SLR & DSLR Cameras"
+                   ;widescreen;;banner-2-demo-1400x440.jpg;$siteResource/images/banners/homepage/responsive/banner-demo-1400x440.jpg;;banner-demo-1400x440.jpg;;"Save Big On Select SLR & DSLR Cameras"
+                   ;widescreen;;banner-3-demo-1400x440.jpg;$siteResource/images/banners/homepage/responsive/banner-demo-1400x440.jpg;;banner-demo-1400x440.jpg;;"Save Big On Select SLR & DSLR Cameras"
+                   ;widescreen;;banner-4-demo-1400x440.jpg;$siteResource/images/banners/homepage/responsive/banner-demo-1400x440.jpg;;banner-demo-1400x440.jpg;;"Save Big On Select SLR & DSLR Cameras"
                    ;widescreen;;discount-banner-1400.png;$siteResource/images/banners/homepage/responsive/discount-banner-1400.png;;discount-banner-1400.png;;"Save Big on Select Camera Accessories & Supplies"
                    ;mobile;;banner-demo-480x320.jpg;$siteResource/images/banners/homepage/responsive/banner-demo-480x320.jpg;;banner-demo-480x320.jpg;;"Save Big on Select Camera Accessories & Supplies"
+                   ;mobile;;banner-2-demo-480x320.jpg;$siteResource/images/banners/homepage/responsive/banner-demo-480x320.jpg;;banner-demo-480x320.jpg;;"Save Big on Select Camera Accessories & Supplies"
+                   ;mobile;;banner-3-demo-480x320.jpg;$siteResource/images/banners/homepage/responsive/banner-demo-480x320.jpg;;banner-demo-480x320.jpg;;"Save Big on Select Camera Accessories & Supplies"
+                   ;mobile;;banner-4-demo-480x320.jpg;$siteResource/images/banners/homepage/responsive/banner-demo-480x320.jpg;;banner-demo-480x320.jpg;;"Save Big on Select Camera Accessories & Supplies"
                    ;mobile;;discount-banner-480.png;$siteResource/images/banners/homepage/responsive/discount-banner-480.png;;discount-banner-480.png;;"Save Big On Select SLR & DSLR Cameras"
                    ;tablet;;banner-demo-770x350.jpg;$siteResource/images/banners/homepage/responsive/banner-demo-770x350.jpg;;banner-demo-770x350.jpg;;"Save Big On Select SLR & DSLR Cameras"
+                   ;tablet;;banner-2-demo-770x350.jpg;$siteResource/images/banners/homepage/responsive/banner-demo-770x350.jpg;;banner-demo-770x350.jpg;;"Save Big On Select SLR & DSLR Cameras"
+                   ;tablet;;banner-3-demo-770x350.jpg;$siteResource/images/banners/homepage/responsive/banner-demo-770x350.jpg;;banner-demo-770x350.jpg;;"Save Big On Select SLR & DSLR Cameras"
+                   ;tablet;;banner-4-demo-770x350.jpg;$siteResource/images/banners/homepage/responsive/banner-demo-770x350.jpg;;banner-demo-770x350.jpg;;"Save Big On Select SLR & DSLR Cameras"
                    ;tablet;;discount-banner-770.png;$siteResource/images/banners/homepage/responsive/discount-banner-770.png;;discount-banner-770.png;;"Save Big on Select Camera Accessories & Supplies"
                    ;desktop;;banner-demo-960x330.png;$siteResource/images/banners/homepage/responsive/banner-demo-960x330.png;;banner-demo-960x330.png;;"Save Big On Select SLR & DSLR Cameras"
+                   ;desktop;;banner-2-demo-960x330.png;$siteResource/images/banners/homepage/responsive/banner-demo-960x330.png;;banner-demo-960x330.png;;"Save Big On Select SLR & DSLR Cameras"
+                   ;desktop;;banner-3-demo-960x330.png;$siteResource/images/banners/homepage/responsive/banner-demo-960x330.png;;banner-demo-960x330.png;;"Save Big On Select SLR & DSLR Cameras"
+                   ;desktop;;banner-4-demo-960x330.png;$siteResource/images/banners/homepage/responsive/banner-demo-960x330.png;;banner-demo-960x330.png;;"Save Big On Select SLR & DSLR Cameras"
                    ;desktop;;discount-banner-960.png;$siteResource/images/banners/homepage/responsive/discount-banner-960.png;;discount-banner-960.png;;"Save Big on Select Camera Accessories & Supplies"
 
 INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$contentCV[unique=true]
                             ;demo-homepage-discount-en;discount-banner-1400.png,discount-banner-960.png,discount-banner-770.png,discount-banner-480.png
-                            ;demo-homepage-spalsh-en;banner-demo-1400x440.jpg,banner-demo-480x320.jpg,banner-demo-770x350.jpg,banner-demo-960x330.png
+                            ;demo-homepage-spalsh-1-en;banner-demo-1400x440.jpg,banner-demo-480x320.jpg,banner-demo-770x350.jpg,banner-demo-960x330.png
+                            ;demo-homepage-spalsh-2-en;banner-2-demo-1400x440.jpg,banner-2-demo-480x320.jpg,banner-2-demo-770x350.jpg,banner-2-demo-960x330.png
+                            ;demo-homepage-spalsh-3-en;banner-3-demo-1400x440.jpg,banner-3-demo-480x320.jpg,banner-3-demo-770x350.jpg,banner-3-demo-960x330.png
+                            ;demo-homepage-spalsh-4-en;banner-4-demo-1400x440.jpg,banner-4-demo-480x320.jpg,banner-4-demo-770x350.jpg,banner-4-demo-960x330.png
 
 INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];$mediaContainer
                                              ;;DemoHompageDiscountBannerComponent;demo-homepage-discount-en
-                                             ;;DemoHompageSplashBannerComponent;demo-homepage-spalsh-en
-
+                                             ;;DemoHompageSplashBannerComponent-1;demo-homepage-spalsh-1-en
+                                             ;;DemoHompageSplashBannerComponent-2;demo-homepage-spalsh-2-en
+                                             ;;DemoHompageSplashBannerComponent-3;demo-homepage-spalsh-3-en
+                                             ;;DemoHompageSplashBannerComponent-4;demo-homepage-spalsh-4-en
 # Home page slot 2A
+
+INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[lang=en];
+                                   ;;IntheBoxTagParagraphComponent;"<h1 class='section-header'>SENYAMAN KASUR INTHEBOX</h1><div class='row'>
+                <div class='offset-md-1 col-md-10 section-desc'>
+                    Kasur INTHEBOX mampu memberikan kenyamanan tidur yang maksimal. Tersedia berbagai pilihan kasur spring bed INTHEBOX berkualitas untuk memenuhi kebutuhan perlengkapan tidur kamu.
+                </div>
+            </div>"
+
+# Home page slot 3A
+
 # Media Content
 INSERT_UPDATE Media;mediaFormat(qualifier);$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];mime[default='image/jpeg'];realfilename;folder(qualifier)[default='images'];altText
                    ;tablet;;demo-test-200.jpg;$siteResource/images/banners/homepage/responsive/demo-test-200.jpg;;demo-test-200.jpg;;"In the Box"
@@ -305,11 +331,11 @@ INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique
                                              ;;DemoHompageLightFamBannerComponent;demo-homepage-light-fam-en
                                              ;;DemoHompageLightFamTextBannerComponent;demo-homepage-light-text-en
 
-# Home section 2B
+# Home section 3B
 
 # Media Content
 INSERT_UPDATE Media;mediaFormat(qualifier);$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];mime[default='image/jpeg'];realfilename;folder(qualifier)[default='images'];altText
-                   ;tablet;;demo-test-2-200.png;$siteResource/images/banners/homepage/responsive/demo-test2-200.png;;demo-tes-200.png;;"In the Box"
+                   ;tablet;;demo-test-2-200.png;$siteResource/images/banners/homepage/responsive/demo-test2-200.png;;demo-tes-2-200.png;;"In the Box"
                    ;tablet;;demo-test3-200.png;$siteResource/images/banners/homepage/responsive/demo-test3-200.png;;demo-test3-200.png;;"In the Box"
                    ;desktop;;demo-tes-2-240.png;$siteResource/images/banners/homepage/responsive/demo-test2-240.png;;demo-tes-2-240.png;;"In the Box"
                    ;desktop;;demo-test3-240.png;$siteResource/images/banners/homepage/responsive/demo-test3-240.png;;demo-test3-240.png;;"In the Box"
@@ -317,12 +343,72 @@ INSERT_UPDATE Media;mediaFormat(qualifier);$contentCV[unique=true];code[unique=t
                    ;widescreen;;demo-test3-350.png;$siteResource/images/banners/homepage/responsive/demo-test3-350.png;;demo-test3-350.png;;"In the Box"
 
 INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$contentCV[unique=true]
-                            ;demo-homepage-springbed-01-en;demo-test-2-200.png,demo-tes-2-240.png,demo-tes-2-350.png;
-                            ;demo-homepage-springbed-02-en;demo-test3-350.png,demo-test3-240.png,demo-test3-200.png;
+                            ;demo-homepage-springbed-03-en;demo-test-2-200.png,demo-tes-2-240.png,demo-tes-2-350.png;
+                            ;demo-homepage-springbed-04-en;demo-test3-350.png,demo-test3-240.png,demo-test3-200.png;
 
 INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];$mediaContainer
-                                             ;;DemoHompageSpringbedBannerComponent;demo-homepage-springbed-01-en
-                                             ;;DemoHompageSpringbedChildBannerComponent;demo-homepage-springbed-02-en
+                                             ;;DemoHompageSpringbedBannerComponent;demo-homepage-springbed-03-en
+                                             ;;DemoHompageSpringbedChildBannerComponent;demo-homepage-springbed-04-en
+
+
+# Home Section 3c
+INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[lang=en];
+                                   ;;CollapseParagraghComponent;"<section class='experience section'>
+                                   <div class='container'>
+                                    <h2 class='section-header'>
+                                        UNBOXING INTHEBOX
+                                        <span class='placeholder-animation d-none d-md-inline ml-3'>
+                                            <picture>
+                                                <source type='image/webp' data-srcset='https://inthebox.id/images/exp-title.webp' srcset='https://inthebox.id/images/exp-title.webp'>
+                                                <img src='https://inthebox.id/images/exp-title.png' data-src='https://inthebox.id/images/exp-title.png' class=' lazyloaded' alt='Unboxing experience'>
+                                            </picture>
+                                        </span>
+                                    </h2>
+                                    <div class='row'>
+                                        <div class='offset-md-1 col-md-10 section-desc'>
+                                            Kombinasi teknologi modern dan desain elegan terbukti mampu menghasilkan produk berkualitas. Berbeda dengan spring bed pada umumnya, kasur INTHEBOX dikemas di dalam box praktis. Pengemasan yang unik akan memberikan Anda pengalaman unik saat membuka kemasannya.
+                                            <a data-toggle='collapse' href='#home_desc_extend' role='button' aria-expanded='true' aria-controls='home_desc_extend' class=''>
+                                                SELENGKAPNYA...
+                                            </a>
+                                            <div class='collapse show' id='home_desc_extend' style=''>
+                                                <br>Ukuran kasur spring bed yang jadi lebih kecil saat dikemas, membuat INTHEBOX mudah untuk dibawa ketika kamu membelinya. Ukuran spring bed sebesar apapun bisa kamu bawa dan masukkan ke dalam mobil berukuran kecil karena dikemas dalam box unik. Kini membeli kasur bisa lebih praktis!<br>
+                                                <br>
+                                                Meski dikemas berbeda dari spring bed pada umumnya, hal ini tidak mengurangi kualitas INTHEBOX sebagai spring bed terbaik di kelasnya. Material kasur dan khususnya pegas dijamin berkualitas dan bergaransi. Bukan hanya kasur, pengalaman unboxing INTHEBOX juga bisa kamu rasakan saat saat membuka produk bantal guling.<br>
+                                                <br>
+                                                Spring bed INTHEBOX akan memberikan pengalaman tidak terlupakan mulai dari melihat kemasan hingga Anda membukanya. Tentu saja ada beberapa tahapan unboxing INTHEBOX yang tidak boleh Anda lewatkan. Lakukan tahapannya satu per satu dengan benar agar kasur bisa mengembang sempurna.
+                                            </div>
+                                        </div>
+                                    </div>
+            <div class='experience-slider-container'>
+                <div class='owl-carousel owl-theme owl-loaded owl-drag' id='experience-slider'>
+                <div class='owl-stage-outer'><div class='owl-stage' style='transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1170px;'><div class='owl-item active' style='width: 242.5px; margin-right: 50px;'><div class='slide-item'>
+                        <div class='image'>
+                            <img class='owl-lazy' data-src='/images/exp-1.webp' alt='Page - Home - KELUARKAN' src='/images/exp-1.webp' style='opacity: 1;'></img>
+                        </div>
+                        <h3 class='title'>KELUARKAN</h3>
+                        <div class='desc'>Keluarkan kasur INTHEBOX dari kemasannya secara perlahan-lahan</div>
+                    </div></div><div class='owl-item active' style='width: 242.5px; margin-right: 50px;'><div class='slide-item'>
+                        <div class='image'>
+                            <img class='owl-lazy' data-src='/images/exp-2.webp' alt='Page - Home - POSISIKAN' src='/images/exp-2.webp' style='opacity: 1;'></img>
+                        </div>
+                        <h3 class='title'>POSISIKAN</h3>
+                        <div class='desc'>Posisikan kasur INTHEBOX di atas permukaan tempat tidur atau divan</div>
+                    </div></div><div class='owl-item active' style='width: 242.5px; margin-right: 50px;'><div class='slide-item'>
+                        <div class='image'>
+                            <img class='owl-lazy' data-src='/images/exp-3.webp' alt='Page - Home - BUKALAH' src='/images/exp-3.webp' style='opacity: 1;'></img>
+                        </div>
+                        <h3 class='title'>BUKA PLASTIK</h3>
+                        <div class='desc'>Lepaskan plastik pembungkus dan pastikan logo INTHEBOX ada di bawah</div>
+                    </div></div><div class='owl-item active' style='width: 242.5px; margin-right: 50px;'><div class='slide-item'>
+                        <div class='image'>
+                            <img class='owl-lazy' data-src='/images/exp-4.webp' alt='' src='/images/exp-4.webp' style='opacity: 1;'></img>
+                        </div>
+                        <h3 class='title'>TUNGGU MENGEMBANG</h3>
+                        <div class='desc'>Kasur INTHEBOX akan langsung mengembang. Tunggu 60 menit untuk digunakan.</div>
+                    </div></div></div></div><div class='owl-nav disabled'><button type='button' role='presentation' class='owl-prev disabled'><i class='la la-chevron-circle-left'></i></button><button type='button' role='presentation' class='owl-next disabled'><i class='la la-chevron-circle-right'></i></button></div><div class='owl-dots disabled'><button role='button' class='owl-dot active'><span></span></button></div></div>
+            </div>
+        </div>
+    </section>"
 
 # Section 4
 
@@ -493,7 +579,7 @@ UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];linkName[lang=$
                        ;;SavedCartsLink;"Saved Carts"
                        ;;UpdateEmailLink;"Email Address"
                        ;;UpdatePasswordLink;"Password"
-                       ;;WebcamsCategoryLink;"Webcams"
+#                       ;;WebcamsCategoryLink;"Webcams"
 
 # CMS Navigation Nodes
 UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
