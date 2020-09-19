@@ -22,6 +22,11 @@ $productResource=jar:org.demo.initialdata.setup.InitialDataSystemSetup&/demoinit
 # Language
 $lang=en
 
+$backGroundImage=backGroundImage(code, $contentCV)
+$hoverOverImage=hoverOverImage(code, $contentCV)
+$Image=image(code, $contentCV)
+
+
 # Site Logo Component
 UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];$picture[lang=$lang]
                             ;;SiteLogoComponent;/images/theme/logo-hybris.png;
@@ -312,46 +317,7 @@ INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];con
                 </div>
             </div>"
 
-# Home page slot 3A
-
-# Media Content
-INSERT_UPDATE Media;mediaFormat(qualifier);$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];mime[default='image/jpeg'];realfilename;folder(qualifier)[default='images'];altText
-                   ;tablet;;demo-test-200.jpg;$siteResource/images/banners/homepage/responsive/demo-test-200.jpg;;demo-test-200.jpg;;"In the Box"
-                   ;tablet;;demo-test1-200.png;$siteResource/images/banners/homepage/responsive/demo-test1-200.png;;demo-test1-200.png;;"In the Box"
-                   ;desktop;;demo-test-240.jpg;$siteResource/images/banners/homepage/responsive/demo-test-240.jpg;;demo-test-240.jpg;;"In the Box"
-                   ;desktop;;demo-test1-240.png;$siteResource/images/banners/homepage/responsive/demo-test1-240.png;;demo-test1-240.png;;"In the Box"
-                   ;widescreen;;demo-test-350.jpg;$siteResource/images/banners/homepage/responsive/demo-test-350.jpg;;demo-test-350.jpg;;"In the Box"
-                   ;widescreen;;demo-test1-350.png;$siteResource/images/banners/homepage/responsive/demo-test1-350.png;;demo-test1-350.png;;"In the Box"
-
-INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$contentCV[unique=true]
-                            ;demo-homepage-light-fam-en;demo-test-350.jpg,demo-test-240.jpg,demo-test-200.jpg
-                            ;demo-homepage-light-text-en;demo-test1-350.png,demo-test1-240.png,demo-test1-200.png
-
-INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];$mediaContainer
-                                             ;;DemoHompageLightFamBannerComponent;demo-homepage-light-fam-en
-                                             ;;DemoHompageLightFamTextBannerComponent;demo-homepage-light-text-en
-
-# Home section 3B
-
-# Media Content
-INSERT_UPDATE Media;mediaFormat(qualifier);$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];mime[default='image/jpeg'];realfilename;folder(qualifier)[default='images'];altText
-                   ;tablet;;demo-test-2-200.png;$siteResource/images/banners/homepage/responsive/demo-test2-200.png;;demo-tes-2-200.png;;"In the Box"
-                   ;tablet;;demo-test3-200.png;$siteResource/images/banners/homepage/responsive/demo-test3-200.png;;demo-test3-200.png;;"In the Box"
-                   ;desktop;;demo-tes-2-240.png;$siteResource/images/banners/homepage/responsive/demo-test2-240.png;;demo-tes-2-240.png;;"In the Box"
-                   ;desktop;;demo-test3-240.png;$siteResource/images/banners/homepage/responsive/demo-test3-240.png;;demo-test3-240.png;;"In the Box"
-                   ;widescreen;;demo-test-2-350.png;$siteResource/images/banners/homepage/responsive/demo-test2-350.png;;demo-tes-2-350.png;;"In the Box"
-                   ;widescreen;;demo-test3-350.png;$siteResource/images/banners/homepage/responsive/demo-test3-350.png;;demo-test3-350.png;;"In the Box"
-
-INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$contentCV[unique=true]
-                            ;demo-homepage-springbed-03-en;demo-test-2-200.png,demo-tes-2-240.png,demo-tes-2-350.png;
-                            ;demo-homepage-springbed-04-en;demo-test3-350.png,demo-test3-240.png,demo-test3-200.png;
-
-INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];$mediaContainer
-                                             ;;DemoHompageSpringbedBannerComponent;demo-homepage-springbed-03-en
-                                             ;;DemoHompageSpringbedChildBannerComponent;demo-homepage-springbed-04-en
-
-
-# Home Section 3c
+# Home Section 3A
 INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[lang=en];
                                    ;;CollapseParagraghComponent;"<section class='experience section'>
                                    <div class='container'>
@@ -409,6 +375,54 @@ INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];con
             </div>
         </div>
     </section>"
+
+
+# Home page slot 3B
+# Media Content
+INSERT_UPDATE Media;mediaFormat(qualifier);$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];mime[default='image/jpeg'];realfilename;folder(qualifier)[default='images'];altText
+                   ;tablet;;demo-test-200.jpg;$siteResource/images/banners/homepage/responsive/demo-test-200.jpg;;demo-test-200.jpg;;"In the Box"
+                   ;tablet;;demo-test1-200.png;$siteResource/images/banners/homepage/responsive/demo-test1-200.png;;demo-test1-200.png;;"In the Box"
+                   ;desktop;;demo-test-240.jpg;$siteResource/images/banners/homepage/responsive/demo-test-240.jpg;;demo-test-240.jpg;;"In the Box"
+                   ;desktop;;demo-test1-240.png;$siteResource/images/banners/homepage/responsive/demo-test1-240.png;;demo-test1-240.png;;"In the Box"
+                   ;widescreen;;demo-test-350.jpg;$siteResource/images/banners/homepage/responsive/demo-test-350.jpg;;demo-test-350.jpg;;"In the Box"
+                   ;widescreen;;demo-test1-350.png;$siteResource/images/banners/homepage/responsive/demo-test1-350.png;;demo-test1-350.png;;"In the Box"
+
+INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$contentCV[unique=true]
+                            ;demo-homepage-light-fam-en;demo-test-350.jpg,demo-test-240.jpg,demo-test-200.jpg
+                            ;demo-homepage-light-text-en;demo-test1-350.png,demo-test1-240.png,demo-test1-200.png
+
+#INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];$mediaContainer
+#                                             ;;DemoHompageLightFamBannerComponent;demo-homepage-light-fam-en
+#                                             ;;DemoHompageLightFamTextBannerComponent;demo-homepage-light-text-en
+
+INSERT_UPDATE DemoEaseOfAnyWhereCMSComponent;$contentCV[unique=true];uid[unique=true];$backGroundImage;$hoverOverImage;title;footerUrl;footerUrlName;&componentRef
+                                            ;;HomePageEaseOfAnyWhere1;demo-test1-350.png;demo-test1-350.png;Keluarkan;/sevaservice/credit-calculator/;Keluarkan;HomePageEaseOfAnyWhere1
+                                            ;;HomePageEaseOfAnyWhere2;demo-test1-350.png;demo-test1-350.png;Posisikan;https://seva.id/cariparkir/;Posisikan;HomePageEaseOfAnyWhere2
+
+# Home section 3C
+# Media Content
+INSERT_UPDATE Media;mediaFormat(qualifier);$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];mime[default='image/jpeg'];realfilename;folder(qualifier)[default='images'];altText
+                   ;tablet;;demo-test-2-200.png;$siteResource/images/banners/homepage/responsive/demo-test2-200.png;;demo-tes-2-200.png;;"In the Box"
+                   ;tablet;;demo-test3-200.png;$siteResource/images/banners/homepage/responsive/demo-test3-200.png;;demo-test3-200.png;;"In the Box"
+                   ;desktop;;demo-tes-2-240.png;$siteResource/images/banners/homepage/responsive/demo-test2-240.png;;demo-tes-2-240.png;;"In the Box"
+                   ;desktop;;demo-test3-240.png;$siteResource/images/banners/homepage/responsive/demo-test3-240.png;;demo-test3-240.png;;"In the Box"
+                   ;widescreen;;demo-test-2-350.png;$siteResource/images/banners/homepage/responsive/demo-test2-350.png;;demo-tes-2-350.png;;"In the Box"
+                   ;widescreen;;demo-test3-350.png;$siteResource/images/banners/homepage/responsive/demo-test3-350.png;;demo-test3-350.png;;"In the Box"
+
+INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$contentCV[unique=true]
+                            ;demo-homepage-springbed-03-en;demo-test-2-200.png,demo-tes-2-240.png,demo-tes-2-350.png;
+                            ;demo-homepage-springbed-04-en;demo-test3-350.png,demo-test3-240.png,demo-test3-200.png;
+
+INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];$mediaContainer
+#                                             ;;DemoHompageSpringbedBannerComponent;demo-homepage-springbed-03-en
+#                                             ;;DemoHompageSpringbedChildBannerComponent;demo-homepage-springbed-04-en
+
+INSERT_UPDATE DemoEaseOfAnyWhereCMSComponent;$contentCV[unique=true];uid[unique=true];$backGroundImage;$hoverOverImage;title;footerUrl;footerUrlName;&componentRef
+                                            ;;HomePageEaseOfAnyWhere3;demo-test-2-350.png;demo-test-2-350.png;Buka Plastik;/sevaservice/book-service/;Buka Plastik;HomePageEaseOfAnyWhere3
+                                            ;;HomePageEaseOfAnyWhere4;demo-test-2-350.png;demo-test-2-350.png;Tunggu Mengembang;/sevaservice/book-service/;Tunggu Mengembang;HomePageEaseOfAnyWhere4
+
+
+
 
 # Section 4
 
