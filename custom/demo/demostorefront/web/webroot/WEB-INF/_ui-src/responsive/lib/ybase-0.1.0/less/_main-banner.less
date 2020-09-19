@@ -1,0 +1,17 @@
+@main-banner: 'main-banner';
+
+.main-banner {
+    width: 100%;
+    height: auto;
+
+    &.slick-initialized.slick-slider{
+        .slick-dots {
+            bottom: 0px;
+            li button{
+                &::before {
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+}
