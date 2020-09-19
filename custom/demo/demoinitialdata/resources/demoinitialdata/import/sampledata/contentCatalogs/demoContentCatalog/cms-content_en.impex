@@ -122,7 +122,6 @@ UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=$la
                         ;;BrandLinksNavNode;"Cameras"
                         ;;BrandsNavNode;"Brands"
                         ;;AllBedsNavNode;"All Beds"
-                        ;;BedsNavNode;"Beds"
                         ;;CameraAccessoriesNavNode;"Camera Accessories & Supplies"
                         ;;DigitalCamerasNavNode;"Digital Cameras"
                         ;;DemoNavNode;"Demo Site"

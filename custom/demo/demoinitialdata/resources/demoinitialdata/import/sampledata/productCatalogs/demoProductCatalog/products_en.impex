@@ -14,9 +14,9 @@ $lang = en
 
 # Update allProducts with localisations
 UPDATE BedProduct; code[unique = true]; name[lang = $lang]
-                 ; INTHEBOXX          ; INTHEBOX X
-                 ; INTHEBOX           ; INTHEBOX
-                 ; INTHEBOXHYBRID     ; INTHEBOX HYBRID
+                 ; X                  ; X
+                 ; NORMAL             ; NORMAL
+                 ; HYBRID             ; HYBRID
                  ; SOFABED            ; SOFA BED
 
 

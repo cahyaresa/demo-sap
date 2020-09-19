@@ -4,25 +4,20 @@
 # ImpEx for Importing Categories
 
 # Macros / Replacement Parameter definitions
-$productCatalog=demoProductCatalog
-$productCatalogName=demo Product Catalog
+$productCatalog = demoProductCatalog
+$productCatalogName = demo Product Catalog
 
-$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
-$supercategories=source(code, $catalogVersion)[unique=true]
-$categories=target(code, $catalogVersion)[unique=true]
-
-# Insert Categories
-INSERT_UPDATE Category; code[unique = true]    ; $catalogVersion; supercategories(code, $catalogVersion); allowedPrincipals(uid)[default = 'customergroup']; type(code)[default = 'BED']; order
-                      ; BUNDLE                 ;                ;                                       ;                                                  ; NONVISIBLE                     ;
-                      ; BED                    ;                ;                                       ;                                                  ; NONVISIBLE                     ;
-                      ; SPRINGBED              ;                ; BED                                   ;                                                  ; SELLABLE                       ; 1
-                      ; SOFA                   ;                ; BED                                   ;                                                  ; SELLABLE                       ; 2
-
+$catalogVersion = catalogversion(catalog(id[default=$productCatalog]), version[default='Staged'])[unique=true, default=$productCatalog:Staged]
+$supercategories = source(code, $catalogVersion)[unique=true]
+$categories = target(code, $catalogVersion)[unique=true]
 
 # Insert Categories
-INSERT_UPDATE Category;code[unique=true];allowedPrincipals(uid)[default='customergroup'];$catalogVersion
-                      ;BUNDLE
-                      ;BED
-                      ;SPRINGBED
-                      ;SOFA
+INSERT_UPDATE Category; code[unique = true]; $catalogVersion; supercategories(code, $catalogVersion); allowedPrincipals(uid)[default = 'customergroup']; type(code)[default = 'BED']; order
+                      ; BUNDLE             ;                ;                                       ;                                                  ; NONVISIBLE                 ;
+                      ; BED                ;                ;                                       ;                                                  ; NONVISIBLE                 ;
+                      ; BRAND              ;                ; BED                                   ;                                                  ; NONVISIBLE                 ;
+                      ; TYPE               ;                ; BED                                   ;                                                  ; NONVISIBLE                 ;
+                      ; INTHEBOX           ;                ; BRAND                                 ;                                                  ;                            ;
+                      ; SPRINGBED          ;                ; TYPE                                  ;                                                  ; SELLABLE                   ; 1
+                      ; SOFA               ;                ; TYPE                                  ;                                                  ; SELLABLE                   ; 2
 

@@ -2,25 +2,25 @@
 # Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
 # -----------------------------------------------------------------------
 # ImpEx for Importing Product Localisations
- 
-# Macros / Replacement Parameter definitions
-$productCatalog=demoProductCatalog
-$productCatalogName=demo Product Catalog
 
-$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+# Macros / Replacement Parameter definitions
+$productCatalog = demoProductCatalog
+$productCatalogName = demo Product Catalog
+
+$catalogVersion = catalogversion(catalog(id[default=$productCatalog]), version[default='Staged'])[unique=true, default=$productCatalog:Staged]
 
 # Language
-$lang=id
+$lang = id
 
 # Update allProducts with localisations
-UPDATE BedProduct;code[unique=true];name[lang=$lang]
-                 ; INTHEBOXX          ; INTHEBOX X
-                 ; INTHEBOX           ; INTHEBOX
-                 ; INTHEBOXHYBRID     ; INTHEBOX HYBRID
+UPDATE BedProduct; code[unique = true]; name[lang = $lang]
+                 ; X                  ; X
+                 ; NORMAL             ; NORMAL
+                 ; HYBRID             ; HYBRID
                  ; SOFABED            ; SOFA BED
 
 
-UPDATE BedSizeVariantProduct;code[unique=true];name[lang=$lang]
+UPDATE BedSizeVariantProduct; code[unique = true]; name[lang = $lang]
                             ; SUPERKINGX         ; Super King
                             ; KINGX              ; King
                             ; QUEENSIZEX         ; Queen Size
