@@ -163,6 +163,47 @@
                 </attributes>
             </itemtype>
 
+            <!--     Custom Component       -->
+
+            <itemtype code="DemoEaseOfAnyWhereCMSComponent" jaloclass="org.demo.core.jalo.DemoEaseOfAnyWhereCMSComponent"
+                      extends="SimpleCMSComponent" autocreate="true" generate="true" >
+                <attributes>
+                    <attribute type="Media" qualifier="backGroundImage">
+                        <persistence type="property"></persistence>
+                        <description>Localized media that is displayed Ease Of Any Where.</description>
+                    </attribute>
+                    <attribute type="Media" qualifier="hoverOverImage">
+                        <persistence type="property"></persistence>
+                        <description>Localized media that is displayed Ease Of Any Where.</description>
+                    </attribute>
+                    <attribute qualifier="title" type="localized:java.lang.String">
+                        <description>title </description>
+                        <modifiers />
+                        <persistence type="property" />
+                    </attribute>
+                    <attribute qualifier="description" type="localized:java.lang.String">
+                        <description>Description </description>
+                        <modifiers />
+                        <persistence type="property" />
+                    </attribute>
+                    <attribute qualifier="footerUrl" type="localized:java.lang.String">
+                        <description>footer Url </description>
+                        <modifiers />
+                        <persistence type="property" />
+                    </attribute>
+                    <attribute qualifier="footerUrlName" type="localized:java.lang.String">
+                        <description>footer Url Name </description>
+                        <modifiers />
+                        <persistence type="property" />
+                    </attribute>
+                    <attribute qualifier="desclink" type="localized:java.lang.String">
+                        <description>Link</description>
+                        <modifiers />
+                        <persistence type="property" />
+                    </attribute>
+                </attributes>
+            </itemtype>
+
         </typegroup>
 
     </itemtypes>

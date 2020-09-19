@@ -31,6 +31,8 @@ INSERT_UPDATE PageTemplate;$contentCV[unique=true];uid[unique=true];name;fronten
                           ;;LandingPage6Template;Landing Page 6 Template;layout/landingLayout6Page;CategoryPage,ContentPage
                           ;;ContentPage1Template;Content Page 1 Template;layout/contentLayout1Page;ContentPage
                           ;;AccountPageTemplate;Account Page Template;account/accountLayoutPage;ContentPage
+                          ;;StoreFinderPageTemplate;Store Finder Page Template;storeFinder/storeFinderSearchPage;ContentPage;false;
+                          ;;ErrorPageTemplate;Error Page Template;error/errorNotFoundPage;ContentPage;false;
 
 # Templates without a frontendTemplateName
                           ;;CartPageTemplate;Cart Page Template;;ContentPage;false;
@@ -38,8 +40,9 @@ INSERT_UPDATE PageTemplate;$contentCV[unique=true];uid[unique=true];name;fronten
                           ;;CheckoutLoginPageTemplate;Checkout Login Page Template;;ContentPage;false;
                           ;;MultiStepCheckoutSummaryPageTemplate;Multi Step Checkout Summary Page Template;;ContentPage;false;
                           ;;OrderConfirmationPageTemplate;Order Confirmation Page Template;;ContentPage;false;
-                          ;;StoreFinderPageTemplate;Store Finder Page Template;storeFinder/storeFinderSearchPage;ContentPage;false;
-                          ;;ErrorPageTemplate;Error Page Template;error/errorNotFoundPage;ContentPage;false;
+
+
+
 
 # Add Velocity templates that are in the CMS Cockpit. These give a better layout for editing pages
 # The FileLoaderValueTranslator loads a File into a String property. The templates could also be inserted in-line in this file.
@@ -239,10 +242,11 @@ INSERT_UPDATE ContentSlotName;name[unique=true];template(uid,$contentCV)[unique=
                              ;MiniCart;;;minicart
                              ;NavigationBar;;;navigation
                              ;Section1;;;wide
-                             ;Section2A;;;narrow
-                             ;Section2B;;;narrow
-                             ;Section2C;;;wide
-                             ;Section3;;;wide
+                             ;Section2A;;;wide
+                             ;Section2B;;;wide
+                             ;Section3A;;;wide
+                             ;Section3B;;;narrow
+                             ;Section3C;;;narrow
                              ;Section4;;;narrow
                              ;Section5;;;wide
                              ;Footer;;;footer

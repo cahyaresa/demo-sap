@@ -118,3 +118,44 @@ header {
 
 }
 
+.bottom-header {
+  background-color: @bottom-header-nav;
+  border-bottom: 1px solid @bottom-header-nav;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  .content {
+    span {
+      position: relative;
+      bottom: 20%;
+    }
+    
+
+    &:first-child {
+      &::before{
+        font-family: @icomoon;
+        content: "\e92c";
+        font-size: 30px;
+        padding: 0px 5px;
+      }
+    }
+
+    &:nth-child(2) {
+      &::before{
+        font-family: @icomoon;
+        content: "\f218";
+        font-size: 30px;
+        padding: 0px 5px;
+      }
+    }
+
+    &:last-child {
+      &::before{
+        font-family: @icomoon;
+        content: "\f232";
+        font-size: 30px;
+        padding: 0px 5px;
+      }
+    }
+  }
+}

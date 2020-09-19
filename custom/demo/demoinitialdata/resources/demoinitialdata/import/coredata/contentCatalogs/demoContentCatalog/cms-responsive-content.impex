@@ -239,10 +239,11 @@ INSERT_UPDATE ContentSlotName;name[unique=true];template(uid,$contentCV)[unique=
                              ;MiniCart;;;minicart
                              ;NavigationBar;;;navigation
                              ;Section1;;;wide
-                             ;Section2A;;;narrow
-                             ;Section2B;;;narrow
-                             ;Section2C;;;wide
-                             ;Section3;;;wide
+                             ;Section2A;;;wide
+                             ;Section2B;;;wide
+                             ;Section3A;;;narrow
+                             ;Section3B;;;narrow
+                             ;Section3C;;;wide
                              ;Section4;;;narrow
                              ;Section5;;;wide
                              ;Footer;;;footer
