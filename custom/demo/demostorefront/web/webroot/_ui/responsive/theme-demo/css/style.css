@@ -19014,3 +19014,10 @@ select[multiple].input-sm {
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Petita-Bold';
+  src: url('../fonts/PetitaBold.ttf');
+  src: url('../fonts/PetitaBold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: bold;
+}
