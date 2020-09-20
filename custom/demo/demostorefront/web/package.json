@@ -10,13 +10,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "ajv": "6.12.5",
     "grunt": "^0.4.5",
     "grunt-contrib-less": "^1.4.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-sync": "0.0.8",
     "plugin": "^0.3.3"
   },
-  "dependencies": {
-    "grunt-sync": "0.0.8"
-  }
+  "dependencies": {}
 }
