@@ -90,11 +90,11 @@ module.exports = function(grunt) {
     // Plugins
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-less');
-//    grunt.loadNpmTasks('grunt-sync');
+    grunt.loadNpmTasks('grunt-sync');
 
 
     // Default task(s). Run 'grunt watch' to start the watching task or add 'watch' to the task list and run 'grunt'.
-    grunt.registerTask('default', ['less', 'watch']);
+    grunt.registerTask('default', ['less', 'sync', 'watch']);
 
 
 

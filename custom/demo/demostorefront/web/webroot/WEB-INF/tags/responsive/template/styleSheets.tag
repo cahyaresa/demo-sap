@@ -11,6 +11,20 @@
 		<link rel="stylesheet" type="text/css" media="all" href="${fn:escapeXml(contextPath)}/wro/${fn:escapeXml(themeName)}_responsive.css" />
 		<link rel="stylesheet" type="text/css" media="all" href="${fn:escapeXml(contextPath)}/wro/addons_responsive.css" />
 	</c:when>
+	<c:when test="${useCombinedCss}">
+    		<link rel="stylesheet" type="text/css" media="all" href="${themeResourcePath}/combined-css/combined.min.css?v=${buildVersionNumber}"/>
+    		<c:if test="${cmsPageRequestContextData.preview}">
+    			<%--  AddOn Common CSS files --%>
+    			<c:forEach items="${addOnCommonCssPaths}" var="addOnCommonCss">
+    				<link rel="stylesheet" type="text/css" media="all" href="${addOnCommonCss}?v=${buildVersionNumber}"/>
+    			</c:forEach>
+    			<%--  AddOn Theme CSS files --%>
+    			<c:forEach items="${addOnThemeCssPaths}" var="addOnThemeCss">
+    				<link rel="stylesheet" type="text/css" media="all" href="${addOnThemeCss}?v=${buildVersionNumber}"/>
+    			</c:forEach>
+    			<link rel="stylesheet" type="text/css" media="all" href="${themeResourcePath}/css/astra-smartedit.css?v=${buildVersionNumber}"/>
+    		</c:if>
+    	</c:when>
 	<c:otherwise>
 		<%-- Theme CSS files --%>
 		<link rel="stylesheet" type="text/css" media="all" href="${fn:escapeXml(themeResourcePath)}/css/style.css"/>

@@ -1,0 +1,33 @@
+{
+  "name": "asta",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShashankSuresh-Born/ASTA.git"
+  },
+  "author": "shashank suresh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ShashankSuresh-Born/ASTA/issues"
+  },
+  "homepage": "https://github.com/ShashankSuresh-Born/ASTA#readme",
+  "devDependencies": {
+    "grunt": "^1.3.0",
+    "grunt-contrib-cssmin": "^3.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^4.0.1",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-html-includes": "0.0.3",
+    "grunt-includes": "^1.1.0",
+    "grunt-webfont": "^1.6.0"
+  },
+  "dependencies": {
+    "dev": "^0.1.3",
+    "grunt-iconfont": "^0.3.0"
+  }
+}

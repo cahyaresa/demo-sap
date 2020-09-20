@@ -14,7 +14,7 @@
 
 <div class="container">
 <%-- Section 2 : Best Selling & New Product Start --%>
-<div class="row section-2">
+    <div class="row section-2">
         <div class="col-xs-12 col-md-12 no-space">
             <cms:pageSlot position="Section2A" var="feature" element="div" class="row no-margin">
                 <cms:component component="${feature}" element="div" class="col-12 paragraph-inthebox yComponentWrapper"/>

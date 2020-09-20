@@ -13,6 +13,18 @@
 	  	<script src="${fn:escapeXml(contextPath)}/wro/all_responsive.js"></script>
 	  	<script src="${fn:escapeXml(contextPath)}/wro/addons_responsive.js"></script>
 	</c:when>
+    <c:when test="${useCombinedJs}">
+		<script type="text/javascript" src="${themeResourcePath}/combined-js/combined-vendor.min.js?v=${buildVersionNumber}"></script>
+		<script type="text/javascript" src="${themeResourcePath}/combined-js/combined-acc.min.js?v=${buildVersionNumber}"></script>
+		<%-- Cms Action JavaScript files --%>
+		<c:forEach items="${cmsActionsJsFiles}" var="actionJsFile">
+		    <script type="text/javascript" src="${commonResourcePath}/js/cms/${actionJsFile}?v=${buildVersionNumber}"></script>
+		</c:forEach>
+
+
+		<script type="text/javascript" src="${sharedResourcePath}/js/tagmanager.js?v=${buildVersionNumber}"></script>
+		<script async src="//seva.api.useinsider.com/ins.js?id=10002624"></script>
+	</c:when>
 	<c:otherwise>
 		<%-- jquery --%>
 		<script src="${commonResourcePathHtml}/js/jquery-3.2.1.min.js"></script>

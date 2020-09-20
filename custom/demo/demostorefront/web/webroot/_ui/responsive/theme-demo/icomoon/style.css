@@ -1,0 +1,381 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?2174j3');
+  src:  url('fonts/icomoon.eot?2174j3#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?2174j3') format('truetype'),
+    url('fonts/icomoon.woff?2174j3') format('woff'),
+    url('fonts/icomoon.svg?2174j3#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-Icons_Transmisi:before {
+  content: "\e96d";
+  color: #06f;
+}
+.icon-Icons_Keamanan:before {
+  content: "\e96e";
+  color: #06f;
+}
+.icon-Icons_Kapasitas_Penumpang:before {
+  content: "\e96f";
+  color: #06f;
+}
+.icon-Icons_Kapasitas_Mesin:before {
+  content: "\e970";
+  color: #06f;
+}
+.icon-Icons_Dimensi:before {
+  content: "\e971";
+  color: #06f;
+}
+.icon-Icons_Bahan_Bakar:before {
+  content: "\e972";
+  color: #06f;
+}
+.icon-Group-1456:before {
+  content: "\e969";
+}
+.icon-petrol1:before {
+  content: "\e96a";
+}
+.icon-Seat-belt:before {
+  content: "\e96b";
+}
+.icon-Kapasitas-Penumpang1:before {
+  content: "\e96c";
+}
+.icon-PDP-CC1:before {
+  content: "\e968";
+}
+.icon-Dimension1:before {
+  content: "\e967";
+  color: #06f;
+}
+.icon-PDP-CC:before {
+  content: "\e966";
+  color: #06f;
+}
+.icon-Dimension:before {
+  content: "\e95f";
+}
+.icon-Jenis-Bahan-Bakar:before {
+  content: "\e960";
+}
+.icon-Kapasitas-Mesin:before {
+  content: "\e961";
+}
+.icon-Kapasitas-Penumpang:before {
+  content: "\e962";
+}
+.icon-Kelengkapan-Keamanan:before {
+  content: "\e963";
+}
+.icon-Lihat-Brosur:before {
+  content: "\e964";
+}
+.icon-Transmisi:before {
+  content: "\e965";
+}
+.icon-whatsapp:before {
+  content: "\e91b";
+  color: #626262;
+}
+.icon-new_seva_dropdown:before {
+  content: "\e95e";
+}
+.icon-Headphone:before {
+  content: "\e95a";
+}
+.icon-Link:before {
+  content: "\e95b";
+}
+.icon-Medal:before {
+  content: "\e95c";
+}
+.icon-Car_Brokedown:before {
+  content: "\e95d";
+}
+.icon-Error:before {
+  content: "\e91f";
+}
+.icon-Information2:before {
+  content: "\e920";
+}
+.icon-Success:before {
+  content: "\e94e";
+}
+.icon-Warning:before {
+  content: "\e94f";
+}
+.icon-1:before {
+  content: "\e900";
+}
+.icon-2:before {
+  content: "\e901";
+}
+.icon-3:before {
+  content: "\e902";
+}
+.icon-4:before {
+  content: "\e903";
+}
+.icon-5:before {
+  content: "\e904";
+}
+.icon-Book_an_appointment:before {
+  content: "\e905";
+}
+.icon-Location:before {
+  content: "\e906";
+}
+.icon-Empty_bag:before {
+  content: "\e907";
+}
+.icon-Gift:before {
+  content: "\e908";
+}
+.icon-Payment_01:before {
+  content: "\e909";
+}
+.icon-Payment_02:before {
+  content: "\e90a";
+}
+.icon-Payment_03:before {
+  content: "\e90b";
+}
+.icon-Payment_04:before {
+  content: "\e90c";
+}
+.icon-Service_02:before {
+  content: "\e90d";
+}
+.icon-Service_04:before {
+  content: "\e90e";
+}
+.icon-print:before {
+  content: "\e90f";
+}
+.icon-petrol:before {
+  content: "\e91d";
+}
+.icon-class:before {
+  content: "\e910";
+}
+.icon-control:before {
+  content: "\e911";
+}
+.icon-locate-dealer:before {
+  content: "\e912";
+}
+.icon-Share:before {
+  content: "\e913";
+}
+.icon-smart-safety:before {
+  content: "\e914";
+}
+.icon-speed:before {
+  content: "\e915";
+}
+.icon-trade-in-s:before {
+  content: "\e916";
+}
+.icon-zoom:before {
+  content: "\e917";
+}
+.icon-cc:before {
+  content: "\e918";
+}
+.icon-filter:before {
+  content: "\e921";
+}
+.icon-search-close:before {
+  content: "\e922";
+}
+.icon-seats:before {
+  content: "\e923";
+}
+.icon-speed2:before {
+  content: "\e924";
+}
+.icon-wishlist-copy:before {
+  content: "\e925";
+}
+.icon-wishlist:before {
+  content: "\e926";
+}
+.icon-Google_plus:before {
+  content: "\e927";
+}
+.icon-Information:before {
+  content: "\e928";
+}
+.icon-Tick:before {
+  content: "\e929";
+}
+.icon-All-types:before {
+  content: "\e92a";
+}
+.icon-All_logo:before {
+  content: "\e92b";
+}
+.icon-Commercial:before {
+  content: "\e92c";
+}
+.icon-Hatchback:before {
+  content: "\e92d";
+}
+.icon-Hybrid:before {
+  content: "\e92e";
+}
+.icon-MPV:before {
+  content: "\e92f";
+}
+.icon-Sedan:before {
+  content: "\e930";
+}
+.icon-Sport:before {
+  content: "\e931";
+}
+.icon-SUV:before {
+  content: "\e932";
+}
+.icon-All:before {
+  content: "\e958";
+}
+.icon-General_Query:before {
+  content: "\e959";
+}
+.icon-Three_dots:before {
+  content: "\e957";
+}
+.icon-Clock:before {
+  content: "\e956";
+}
+.icon-Minus:before {
+  content: "\e953";
+}
+.icon-Plus:before {
+  content: "\e954";
+}
+.icon-Upload_image_icon:before {
+  content: "\e955";
+}
+.icon-Current_Location:before {
+  content: "\e941";
+}
+.icon-Calender:before {
+  content: "\e933";
+}
+.icon-Bookmark-stroke:before {
+  content: "\e91e";
+}
+.icon-compare_Active1:before {
+  content: "\e91c";
+}
+.icon-compare:before {
+  content: "\e919";
+}
+.icon-compare_Active:before {
+  content: "\e91a";
+}
+.icon-Register:before {
+  content: "\e944";
+}
+.icon-Sign-in:before {
+  content: "\e94c";
+}
+.icon-Sign-out:before {
+  content: "\e94d";
+}
+.icon-cart-car:before {
+  content: "\e939";
+}
+.icon-Bell:before {
+  content: "\e934";
+}
+.icon-Book_a_Service:before {
+  content: "\e935";
+}
+.icon-Bookmark_02:before {
+  content: "\e936";
+}
+.icon-Calculate:before {
+  content: "\e937";
+}
+.icon-Car:before {
+  content: "\e938";
+}
+.icon-Cart_Car:before {
+  content: "\e951";
+}
+.icon-Chat-icon:before {
+  content: "\e93a";
+}
+.icon-Compare-car:before {
+  content: "\e93b";
+}
+.icon-Dropdown_arrows_small:before {
+  content: "\e93c";
+}
+.icon-Facebook:before {
+  content: "\e93d";
+}
+.icon-Hamburger-Menu:before {
+  content: "\e93e";
+}
+.icon-Help:before {
+  content: "\e93f";
+}
+.icon-Instagram:before {
+  content: "\e940";
+}
+.icon-Key:before {
+  content: "\e950";
+}
+.icon-Language_arrow:before {
+  content: "\e942";
+}
+.icon-left_Arrow:before {
+  content: "\e943";
+}
+.icon-Mybag-car:before {
+  content: "\e952";
+}
+.icon-Parking:before {
+  content: "\e945";
+}
+.icon-Right_Arrow:before {
+  content: "\e946";
+}
+.icon-Sad-Face:before {
+  content: "\e947";
+}
+.icon-search:before {
+  content: "\e948";
+}
+.icon-Twitter:before {
+  content: "\e949";
+}
+.icon-user:before {
+  content: "\e94a";
+}
+.icon-youtube:before {
+  content: "\e94b";
+}

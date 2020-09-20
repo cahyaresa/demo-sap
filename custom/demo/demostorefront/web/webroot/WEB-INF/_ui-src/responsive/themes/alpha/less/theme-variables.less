@@ -213,7 +213,14 @@
 
 //*********Font Face*********
 
-@icomoon: "icomoon";
+@icomoon: 'icomoon';
+@petita-bold: 'Petita-Bold';
+@petita-light: 'Petita-Light';
+@petita-medium: 'Petita-Medium';
+@nunito-regular: 'Nunito-Regular';
+@nunito-Bold: 'Nunito-Bold';
+@nunito-SemiBold: 'Nunito-SemiBold';
+@dk-lemon: 'DK-Lemon-Yellow-Sun';
 
 @font-face {
     font-family: @icomoon;
@@ -225,4 +232,20 @@
     font-weight: normal;
     font-style: normal;
 
+}
+
+@font-face {
+    font-family: @petita-bold;
+    src: url('../fonts/PetitaBold.ttf');
+    src: url('../fonts/PetitaBold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: bold;
+}
+
+@font-face {
+    font-family: @dk-lemon;
+    src: url('../fonts/DK-Lemon-Yellow-Sun.otf');
+    src: url('../fonts/DK-Lemon-Yellow-Sun.otf') format('opentype');
+    font-weight: 700;
+    font-style: bold;
 }

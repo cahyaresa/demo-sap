@@ -120,6 +120,8 @@
 			<property name="cookieNotificationCookieGenerator" ref="cookieNotificationCookieGenerator" />
 		</bean>
 
+		<bean class="org.demo.storefront.interceptors.beforeview.DemoConfigurationBeforeViewHandler" />
+
 	</util:list>
 	
 	<!-- Interceptor that runs once per request and before the controller handler method is called -->
