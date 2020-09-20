@@ -14,6 +14,8 @@
 
 	<bean class="de.hybris.platform.commercefacades.product.data.VariantOptionData">
 		<property name="name" type="String"/>
+		<property name="size" type="String"/>
+		<property name="marketingName" type="String"/>
 	</bean>
 
 	<bean class="org.demo.facades.product.data.GenderData">

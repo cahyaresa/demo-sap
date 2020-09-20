@@ -30,11 +30,13 @@
 						<c:set var="optionsString">${optionsString}&nbsp;${fn:escapeXml(variantOptionQualifier.name)}&nbsp;${fn:escapeXml(variantOptionQualifier.value)}, </c:set>
 					</c:forEach>--%>
 					<c:set var="images" value="${variantImages[variantOption.code]}"/>
+					<product:productVariantImagePanel galleryImages="${images}" />
 
 					<div class="_product-info">
 						<a href="${encodedContextPath}${variantOption.url}" title="" tabindex="0">
-							<product:productVariantImagePanel galleryImages="${images}" />
 							<div><span class="_brand-name prod_name"> ${variantOption.name}</span></div>
+							<span class="_brand-name _marketing-name"> ${variantOption.marketingName}</span>
+							<span class="_brand-name _size"> ${variantOption.size}</span>
 							<span class="_brand-name _rp"> <format:price priceData="${variantOption.priceData}" /></span>
 						</a>
 					</div>

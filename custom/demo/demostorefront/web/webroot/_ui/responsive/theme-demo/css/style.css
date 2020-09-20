@@ -10883,90 +10883,85 @@ fieldset[disabled] .btn-primary.active {
 .pdp-scroll__data h2 {
   color: #404041;
 }
-@include screen(desktop) {
-  text-align: left;
-  color: #1a1a1a;
+.pdp-scroll__data .btn-lihat-semua {
+  margin: auto;
+  text-align: center;
 }
 .pdp-scroll__data .new-pdp-variant {
   margin-bottom: 40px;
 }
-@include screen(desktop) {
-  padding-left: 10px;
-  padding-right: 10px;
+.pdp-scroll__data .new-pdp-variant .four-colum .slide-box .product-list-component {
+  margin: 10px;
+  border: 0;
+  border-radius: 2px;
+  box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  height: 400px;
+  /*@include screen(desktop){
+						height: 400px;
+					}*/
 }
-@include screen(desktop) {
-  height: 348px;
-}
-@include screen(mobile-only) {
-  box-shadow: 7px 7px 5px 0 rgba(0, 0, 0, 0.1);
-  width: 127.7px;
-  height: 181.3px;
-  @media screen and (max-width: 320px) {
-    width: 107.7px;
-    height: 161.3px;
-  }
-  @media screen and (min-width: 400px) {
-    width: 147.7px;
-    height: 201.3px;
-  }
-  @media screen and (min-width: 768px) {
-    width: 320.7px;
-    height: 333.3px;
-  }
-}
-@include screen(mobile-only) {
-  padding: 7px 5px;
+.pdp-scroll__data .new-pdp-variant .four-colum .slide-box .product-list-component ._product-info {
+  /*@include screen(mobile-only){
+							padding: 7px 5px;
+						}*/
 }
 .pdp-scroll__data .new-pdp-variant .four-colum .slide-box .product-list-component a {
   text-align: left;
 }
 .pdp-scroll__data .new-pdp-variant .four-colum .slide-box .product-list-component .prod_name {
-  font-size: 10px;
-  line-height: 12px;
-  height: 24px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-}
-@include screen(mobile-only) {
-  margin-bottom: -7px;
-  padding: 0px 5px;
-}
-@include screen(desktop) {
+  display: block;
+  padding: 0 5px;
+  margin-top: 30px;
   font-size: 18px !important;
-  line-height: 22px;
-  height: 54px;
-  padding: 10px 5px;
+  color: #2178b5;
+  text-align: center;
+  font-weight: bold;
+  /*@include screen(desktop){
+							font-size: 18px !important;
+							line-height: 22px;
+							height: 54px;
+							padding: 10px 5px;
+						}*/
 }
 .pdp-scroll__data .new-pdp-variant .four-colum .slide-box .product-list-component ._rp {
-  color: #2769f6;
-  font-size: 10px;
-  padding: 0px 5px;
+  display: block;
+  padding: 0 5px;
   margin-top: 15px;
-}
-@include screen(desktop) {
-  font-size: 16px !important;
+  font-size: 18px !important;
+  color: #2178b5;
+  text-align: center;
   font-weight: bold;
-  color: #0539f5;
+  /*@include screen(desktop){
+							font-size: 16px !important;
+							font-weight: bold;
+							color: #0539f5;
+						}*/
 }
-@include screen(mobile-only) {
-  margin-top: 10px;
+.pdp-scroll__data .new-pdp-variant .four-colum .slide-box .product-list-component ._size {
+  display: block;
+  padding: 0 5px;
+  font-size: 16px !important;
+  color: #2178b5;
+  text-align: center;
+}
+.pdp-scroll__data .new-pdp-variant .four-colum .slide-box .product-list-component ._marketing-name {
+  display: block;
+  padding: 0 5px;
+  margin-top: 15px;
+  font-size: 16px !important;
+  color: #2178b5;
+  text-align: center;
 }
 .pdp-scroll__data .new-pdp-variant .four-colum .slide-box .product-list-component .bestOfferButton {
   background: #2769f6;
   margin-top: 1px;
-}
-@include screen(desktop) {
-  font-size: 16px !important;
-  margin-top: 5px;
-  height: 46px;
-  font-weight: bold;
-}
-@include screen(mobile-only) {
-  padding: 0px;
-  height: 22px;
-  margin-top: 1px;
+  /*@include screen(desktop){
+							font-size: 16px !important;
+							margin-top: 5px;
+							height: 46px;
+							font-weight: bold;
+						}*/
 }
 .pdp-scroll__data .like-product-wpr {
   padding-top: 0;
@@ -10987,10 +10982,10 @@ fieldset[disabled] .btn-primary.active {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
   font-weight: 500;
-}
-@include screen(desktop) {
-  font-size: 24px;
-  color: #1a1a1a;
+  /*@include screen(desktop) {
+				font-size: 24px;
+				color: #1a1a1a;
+			}*/
 }
 .pdp-scroll__data .slick-arrow:before {
   content: "\e942";
@@ -11016,28 +11011,8 @@ fieldset[disabled] .btn-primary.active {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 500;
 }
-@include screen(desktop) {
-  font-size: 24px;
-  color: #1a1a1a;
-}
-.pdp-scroll__data .news_articles_container .subordinate_articles img {
-  object-fit: fill;
-  width: 100%;
-}
-@include screen(mobile) {
-  height: 30vw;
-}
-@include screen(tablet) {
-  height: 24vw;
-}
-@include screen(desktop) {
-  height: 11vw;
-}
 .__left-content {
   position: relative;
-}
-@include screen(mobile-only) {
-  margin-bottom: 30px;
 }
 .__left-content .__product-tags {
   position: absolute;
@@ -11056,67 +11031,23 @@ fieldset[disabled] .btn-primary.active {
   position: relative;
   top: -15px;
   height: 20px;
-  @include border-radius(2px);
 }
-@include screen(mobile-only) {
-  font-size: 10px;
-  height: 12px;
-  line-height: 12px;
-  padding: 0 3px;
+.__left-content .__product-img {
+  height: 200px;
 }
 .__left-content .__product-img img {
   display: block;
   margin: 0 auto;
   width: 100%;
-  object-fit: scale-down;
-  @include border-radius(6px);
-  text-indent: -99999em;
-}
-@include screen(desktop) {
-  width: 100%;
-  object-fit: scale-down;
-  /* @include align-vmiddle(absolute);
-            left: 0;
-            right: 0; */
-}
-@include screen(desktop-only) {
-  /* width: 100%!important;*/
-}
-.__left-content .__product-img-used-car img {
-  display: block;
-  margin: 0 auto;
-  width: 100%;
-  object-fit: scale-down;
-  @include border-radius(6px);
-  text-indent: -99999em;
-}
-@include screen(desktop) {
-  width: 100%;
-  object-fit: scale-down;
-  @include align-vmiddle(absolute);
-  left: 0;
-  right: 0;
-}
-@include screen(desktop-only) {
-  /* width: 100%!important;*/
-}
-@media screen and (max-width: 480px) {
-  .__left-content .__product-img-used-car img {
-    width: 100%;
-    object-fit: scale-down;
-    @include align-vmiddle(absolute);
-    left: 0;
-    right: 0;
-  }
-}
-@media screen and (min-width: 481px) and (max-width: 992px) {
-  .__left-content .__product-img-used-car img {
-    width: 80%;
-    object-fit: scale-down;
-    @include align-vmiddle(absolute);
-    left: 0;
-    right: 0;
-  }
+  height: inherit;
+  object-fit: fill;
+  /*@include screen(desktop) {
+				width: 100%;
+				object-fit: scale-down;
+				!* @include align-vmiddle(absolute);
+				left: 0;
+				right: 0; *!
+			}*/
 }
 .image-gallery img {
   width: 100%;
@@ -12550,8 +12481,8 @@ a.product__listing .product__listing--promo:focus {
 }
 .product__listing.product__grid .thumb img {
   width: 100%;
-  height: auto;
-  max-width: 140px;
+  height: inherit;
+  object-fit: fill;
 }
 .product__listing.product__grid .details {
   text-align: center;

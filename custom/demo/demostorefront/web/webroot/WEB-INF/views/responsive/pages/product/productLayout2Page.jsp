@@ -3,6 +3,7 @@
 <%@ taglib prefix="template" tagdir="/WEB-INF/tags/responsive/template"%>
 <%@ taglib prefix="cms" uri="http://hybris.com/tld/cmstags"%>
 <%@ taglib prefix="product" tagdir="/WEB-INF/tags/responsive/product"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <template:page pageTitle="${pageTitle}">
 	<cms:pageSlot position="Section1" var="comp" element="div" class="productDetailsPageSection1">
@@ -35,6 +36,9 @@
 							<spring:theme code="text.pdp.variant" />
 						</h2>
 						<product:productVariantListerGridItem product="${product}" />
+					</div>
+					<div class="btn-lihat-semua">
+						<a href="${encodedContextPath}/c/BED" class="btn btn-primary"><spring:theme code="product.view.all" /></a>
 					</div>
 				</div>
 			</div>
