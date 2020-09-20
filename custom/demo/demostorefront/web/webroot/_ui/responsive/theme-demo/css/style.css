@@ -10100,6 +10100,9 @@ header {
   position: relative;
   bottom: 20%;
 }
+.bottom-header .content span a {
+  color: #ffffff;
+}
 .bottom-header .content:first-child::before {
   font-family: 'icomoon';
   content: "\e92c";
