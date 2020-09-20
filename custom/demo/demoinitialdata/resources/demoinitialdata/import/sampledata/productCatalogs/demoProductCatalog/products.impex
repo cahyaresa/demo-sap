@@ -12,16 +12,16 @@ $supercategories = supercategories(code, $catalogVersion)
 $baseProduct = baseProduct(code, $catalogVersion)
 $approved = approvalstatus(code)[default='approved']
 $syncJobCode = sync $productCatalog:Staged->Online
-$ruleType=ruleType(code)[default='ANY']
-$lang=en
-$langid=id
+$ruleType = ruleType(code)[default='ANY']
+$lang = en
+$langid = id
 
 # Insert Products
-INSERT_UPDATE BedProduct; code[unique = true]; name           ; $supercategories; varianttype(code)[default = 'BedSizeVariantProduct']; $approved; unit(code)[default = pieces]; $catalogVersion
-                        ; INTHEBOXX          ; INTHEBOXX      ; "SPRINGBED"     ;                                                     ;          ;                             ;
-                        ; INTHEBOX           ; INTHEBOX       ; "SPRINGBED"     ;                                                     ;          ;                             ;
-                        ; INTHEBOXHYBRID     ; INTHEBOXHYBRID ; "SPRINGBED"     ;                                                     ;          ;                             ;
-                        ; SOFABED            ; SOFABED        ; "SOFA"          ;                                                     ;          ;                             ;
+INSERT_UPDATE BedProduct; code[unique = true]; name            ; $supercategories; varianttype(code)[default = 'BedSizeVariantProduct']; $approved; unit(code)[default = pieces]; $catalogVersion
+                        ; INTHEBOXX          ; Inthebox X      ; "SPRINGBED"     ;                                                     ;          ;                             ;
+                        ; INTHEBOX           ; Inthebox        ; "SPRINGBED"     ;                                                     ;          ;                             ;
+                        ; INTHEBOXHYBRID     ; Inthebox Hybrid ; "SPRINGBED"     ;                                                     ;          ;                             ;
+                        ; SOFABED            ; Sofa Bed        ; "SOFA"          ;                                                     ;          ;                             ;
 
 INSERT_UPDATE BedSizeVariantProduct; $baseProduct   ; code[unique = true]; length; width; height; unit(code)[default = pieces]; $approved; $catalogVersion; $supercategories; description
                                    ; INTHEBOXX      ; SUPERKINGX         ; 200   ; 200  ; 20    ;                             ;          ;                ; "SPRINGBED"     ; In The Box X Super King
@@ -47,43 +47,43 @@ INSERT_UPDATE BedSizeVariantProduct; $baseProduct   ; code[unique = true]; lengt
 
 
 # Bundle Starts Here
-INSERT_UPDATE BedProduct;code[unique=true];$supercategories[default='BUNDLE'];unit(code)[default=pieces];$catalogVersion;varianttype(code)[default = 'BedSizeVariantProduct'];$approved
-                         ;BUNDLE_AUTO_PRODUCT;
+INSERT_UPDATE BedProduct; code[unique = true] ; $supercategories[default = 'BUNDLE']; unit(code)[default = pieces]; $catalogVersion; varianttype(code)[default = 'BedSizeVariantProduct']; $approved
+                        ; BUNDLE_AUTO_PRODUCT ;
 
 
-$baseProduct=baseProduct(code,$catalogVersion)
-INSERT_UPDATE BedSizeVariantProduct;$baseProduct;code[unique=true];name[lang=$lang];length;width;height;unit(code)[default=pieces];$supercategories[default='BUNDLE'];$catalogVersion;$approved
-                                     ;BUNDLE_AUTO_PRODUCT;STARTER_GUARANTEE_2_YEARS;Starter Guarantee 2 Years;0;0;0
+$baseProduct = baseProduct(code, $catalogVersion)
+INSERT_UPDATE BedSizeVariantProduct; $baseProduct        ; code[unique = true]       ; name[lang = $lang]        ; length; width; height; unit(code)[default = pieces]; $supercategories[default = 'BUNDLE']; $catalogVersion; $approved
+                                   ; BUNDLE_AUTO_PRODUCT ; STARTER_GUARANTEE_2_YEARS ; Starter Guarantee 2 Years ; 0     ; 0    ; 0
 
 
 
-INSERT_UPDATE BundleTemplate;id[unique=true];parentTemplate(id, version[default=1.0], $catalogVersion);name;version[default=1.0][unique=true];$catalogVersion
-                            ;StarterBundle;;Starter Bundle
-                            ;StarterProductsComponent;StarterBundle;Starter Product Component
-                            ;StarterServiceComponent;StarterBundle;Starter Service Component
+INSERT_UPDATE BundleTemplate; id[unique = true]        ; parentTemplate(id, version[default = 1.0], $catalogVersion); name; version[default = 1.0][unique = true]; $catalogVersion
+                            ; StarterBundle            ;                                                            ; Starter Bundle
+                            ; StarterProductsComponent ; StarterBundle                                              ; Starter Product Component
+                            ; StarterServiceComponent  ; StarterBundle                                              ; Starter Service Component
 
 
-UPDATE BundleTemplate;id[unique=true];products(code, $catalogVersion);version[default=1.0][unique=true];$catalogVersion;
-                     ;StarterProductsComponent;INTHEBOXX
-                     ;StarterServiceComponent;STARTER_GUARANTEE_2_YEARS
+UPDATE BundleTemplate; id[unique = true]        ; products(code, $catalogVersion); version[default = 1.0][unique = true]; $catalogVersion;
+                     ; StarterProductsComponent ; X
+                     ; StarterServiceComponent  ; STARTER_GUARANTEE_2_YEARS
 
 
-INSERT_UPDATE PickExactlyNBundleSelectionCriteria;id[unique=true];starter;n[default=1];$catalogVersion
-                                                 ;StarterProductsComponent_Pick1;true
-                                                 ;StarterServiceComponent_Pick1;
+INSERT_UPDATE PickExactlyNBundleSelectionCriteria; id[unique = true]              ; starter; n[default = 1]; $catalogVersion
+                                                 ; StarterProductsComponent_Pick1 ; true
+                                                 ; StarterServiceComponent_Pick1  ;
 
-UPDATE BundleTemplate;id[unique=true];bundleSelectionCriteria(id, $catalogVersion);version[default=1.0];$catalogVersion
-                     ;StarterProductsComponent;StarterProductsComponent_Pick1
-                     ;StarterServiceComponent;StarterServiceComponent_Pick1
+UPDATE BundleTemplate; id[unique = true]        ; bundleSelectionCriteria(id, $catalogVersion); version[default = 1.0]; $catalogVersion
+                     ; StarterProductsComponent ; StarterProductsComponent_Pick1
+                     ; StarterServiceComponent  ; StarterServiceComponent_Pick1
 
-INSERT_UPDATE ChangeProductPriceBundleRule;id[unique=true];$catalogVersion;bundleTemplate(id,version[default=1.0],$catalogVersion);conditionalProducts(code,$catalogVersion);targetProducts(code,$catalogVersion);name;$ruleType;price;currency(isocode)[default=IDR, unique=true]
-                                          ;StarterProductsComponentPriceRule;;StarterProductsComponent;;;;;0;
-                                          ;StarterServiceComponentPriceRule;;StarterServiceComponent;;;;;0;
+INSERT_UPDATE ChangeProductPriceBundleRule; id[unique = true]                 ; $catalogVersion; bundleTemplate(id, version[default = 1.0], $catalogVersion); conditionalProducts(code, $catalogVersion); targetProducts(code, $catalogVersion); name; $ruleType; price; currency(isocode)[default = IDR, unique = true]
+                                          ; StarterProductsComponentPriceRule ;                ; StarterProductsComponent                                   ;                                           ;                                      ;     ;          ; 0    ;
+                                          ; StarterServiceComponentPriceRule  ;                ; StarterServiceComponent                                    ;                                           ;                                      ;     ;          ; 0    ;
 
 # Set the child templates again to make sure that the sequence of child templates is correct
-UPDATE BundleTemplate;id[unique=true];version[default=1.0][unique=true];childTemplates(id,version[default=1.0],$catalogVersion);$catalogVersion
-                     ;StarterBundle;;StarterProductsComponent,StarterServiceComponent
+UPDATE BundleTemplate; id[unique = true]; version[default = 1.0][unique = true]; childTemplates(id, version[default = 1.0], $catalogVersion); $catalogVersion
+                     ; StarterBundle    ;                                      ; StarterProductsComponent,StarterServiceComponent
 
 # Add BundleTemplate and BundleTemplateStatus as rootTypes to the synchronization
-UPDATE CatalogVersionSyncJob;code[unique=true];roottypes(code)[mode=append];
-                            ;$syncJobCode;BundleTemplate,BundleTemplateStatus;
+UPDATE CatalogVersionSyncJob; code[unique = true]; roottypes(code)[mode = append]      ;
+                            ; $syncJobCode       ; BundleTemplate,BundleTemplateStatus ;

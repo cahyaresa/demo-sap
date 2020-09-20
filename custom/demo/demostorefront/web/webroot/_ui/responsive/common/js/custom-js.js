@@ -79,10 +79,36 @@ var windowWidth;
             return formattedPrice;
         },
 
+        pdp: function() {
+            var four_columns = $(".four-colum");
+
+            four_columns.slick({
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                arrows: true,
+                responsive: [{
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                },
+                    {
+                        breakpoint: 794,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1,
+                            arrows: false
+                        }
+                    }
+                ]
+            });
+        },
 
         init: function() {
             var _self = demo.global;
             _self.home();
+            _self.pdp();
         }
     };
     demo.global.init();

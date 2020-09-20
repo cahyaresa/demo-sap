@@ -127,5 +127,6 @@
      <extension name="demoinitialdata"/>
      <extension name="demobackoffice"/>
      <extension name="demostorefront"/>
+     <extension name="demostorefrontcommons"/>
   </extensions>
 </hybrisconfig>

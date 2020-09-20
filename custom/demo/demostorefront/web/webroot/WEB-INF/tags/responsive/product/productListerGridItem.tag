@@ -27,7 +27,7 @@
 
 			<ycommerce:testId code="product_productName">
 				<a class="name" href="${fn:escapeXml(productUrl)}">
-					<c:out escapeXml="false" value="${ycommerce:sanitizeHTML(product.name)}" />
+					<c:out escapeXml="false" value="${ycommerce:sanitizeHTML(product.brand)} ${ycommerce:sanitizeHTML(product.name)}" />
 				</a>
 			</ycommerce:testId>
 		
@@ -38,7 +38,11 @@
 					</c:forEach>
 				</div>
 			</c:if>
-			
+
+			<ycommerce:testId code="product_producSize">
+				<div>${ycommerce:sanitizeHTML(product.width)} X ${ycommerce:sanitizeHTML(product.length)} X ${ycommerce:sanitizeHTML(product.height)} cm</div>
+			</ycommerce:testId>
+
 			<ycommerce:testId code="product_productPrice">
 				<div class="price"><product:productListerItemPrice product="${product}"/></div>
 			</ycommerce:testId>

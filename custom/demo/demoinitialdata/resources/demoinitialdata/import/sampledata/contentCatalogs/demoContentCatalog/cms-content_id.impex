@@ -20,7 +20,7 @@ $siteResource=jar:org.demo.initialdata.setup.InitialDataSystemSetup&/demoinitial
 $productResource=jar:org.demo.initialdata.setup.InitialDataSystemSetup&/demoinitialdata/import/sampledata/productCatalogs/$productCatalog
 
 # Language
-$lang=en
+$lang=id
 
 # Site Logo Component
 UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];$picture[lang=$lang]
@@ -83,7 +83,7 @@ UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];$picture[l
 
 # CMS Mini Cart Component
 UPDATE MiniCartComponent;$contentCV[unique=true];uid[unique=true];name;title[lang=$lang]
-                        ;;MiniCart;Mini Cart;"YOUR SHOPPING CART"
+                        ;;MiniCart;Mini Cart;"KERANJANG BELANJA ANDA"
 
 # CMS tabs components
 UPDATE CMSTabParagraphComponent;$contentCV[unique=true];uid[unique=true];title[lang=$lang];content[lang=$lang]
@@ -91,9 +91,9 @@ UPDATE CMSTabParagraphComponent;$contentCV[unique=true];uid[unique=true];title[l
 
 # CMS tabbed jsp include components
 INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
-                                 ;;ProductDetailsTabComponent;"Product Details"
-                                 ;;ProductReviewsTabComponent;"Reviews"
-                                 ;;ProductSpecsTabComponent;"Specs"
+                                 ;;ProductDetailsTabComponent;"Detail Produk"
+                                 ;;ProductReviewsTabComponent;"Ulasan"
+                                 ;;ProductSpecsTabComponent;"Spesifikasi"
 
 # CMS ProductReferences Components
 UPDATE ProductReferencesComponent;$contentCV[unique=true];uid[unique=true];title[lang=$lang]

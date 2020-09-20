@@ -362,4 +362,6 @@
 		<property name="defaultTheme" value="blue"/>
 	</bean>
 
+	<bean id="modifyPopulatorListBeanPostProcessor" class="de.hybris.platform.converters.impl.ModifyPopulatorListBeanPostProcessor"/>
+
 </beans>

@@ -6,10 +6,24 @@
 
 	<bean class="de.hybris.platform.commercefacades.product.data.ProductData">
 		<property name="genders" type="java.util.List&lt;org.demo.facades.product.data.GenderData>"/>
+		<property name="width" type="String"/>
+		<property name="length" type="String"/>
+		<property name="height" type="String"/>
+		<property name="brand" type="String"/>
+	</bean>
+
+	<bean class="de.hybris.platform.commercefacades.product.data.VariantOptionData">
+		<property name="name" type="String"/>
+		<property name="size" type="String"/>
+		<property name="marketingName" type="String"/>
 	</bean>
 
 	<bean class="org.demo.facades.product.data.GenderData">
 		<property name="code" type="String"/>
 		<property name="name" type="String"/>
 	</bean>
+
+	<enum class="de.hybris.platform.commercefacades.product.ProductOption">
+		<value>DEMO_PRODUCT</value>
+	</enum>
 </beans>

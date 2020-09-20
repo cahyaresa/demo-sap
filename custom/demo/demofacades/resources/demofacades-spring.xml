@@ -182,4 +182,34 @@
 	</bean>
 
 	<bean id="genderData" class="org.demo.facades.product.data.GenderData" scope="prototype"/>
+
+	<alias name="defaultDemoSearchResultProductPopulator" alias="demoSearchResultProductPopulator"/>
+	<bean id="defaultDemoSearchResultProductPopulator" class="org.demo.facades.populators.DemoSearchResultProductPopulator" parent="defaultCommerceSearchResultProductPopulator">
+		<property name="categoryConverter" ref="categoryConverter" />
+	</bean>
+
+	<bean parent="modifyPopulatorList">
+		<property name="list" ref="commerceSearchResultProductConverter"/>
+		<property name="add" ref="demoSearchResultProductPopulator"/>
+	</bean>
+
+	<alias name="defaultDemoProductPopulator" alias="demoProductPopulator"/>
+	<bean id="defaultDemoProductPopulator" class="org.demo.facades.populators.DemoProductPopulator">
+	</bean>
+
+	<bean parent="configurablePopulatorModification">
+		<property name="target" ref="defaultProductConfiguredPopulator" />
+		<property name="keyType" value="de.hybris.platform.commercefacades.product.ProductOption" />
+		<property name="key" value="DEMO_PRODUCT" />
+		<property name="add" ref="demoProductPopulator" />
+	</bean>
+
+	<alias name="defaultDemoVariantOptionDataPopulator" alias="demoVariantOptionDataPopulator"/>
+	<bean id="defaultDemoVariantOptionDataPopulator" class="org.demo.facades.populators.DemoVariantOptionDataPopulator">
+	</bean>
+
+	<bean parent="modifyPopulatorList">
+		<property name="list" ref="variantOptionDataConverter"/>
+		<property name="add" ref="demoVariantOptionDataPopulator"/>
+	</bean>
 </beans>
