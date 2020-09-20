@@ -17,33 +17,33 @@ $lang = en
 $langid = id
 
 # Insert Products
-INSERT_UPDATE BedProduct; code[unique = true]; name           ; $supercategories; varianttype(code)[default = 'BedSizeVariantProduct']; $approved; unit(code)[default = pieces]; $catalogVersion
-                        ; NORMAL             ; INTHEBOXX      ; "INTHEBOX,SPRINGBED"     ;                                                     ;          ;                             ;
-                        ; X                  ; INTHEBOX       ; "INTHEBOX,INTHEBOX,SPRINGBED"     ;                                                     ;          ;                             ;
-                        ; HYBRID             ; INTHEBOXHYBRID ; "SPRINGBED"     ;                                                     ;          ;                             ;
-                        ; SOFABED            ; SOFABED        ; "INTHEBOX,SOFA"          ;                                                     ;          ;                             ;
+INSERT_UPDATE BedProduct; code[unique = true]; name            ; $supercategories              ; varianttype(code)[default = 'BedSizeVariantProduct']; $approved; unit(code)[default = pieces]; $catalogVersion
+                        ; NORMAL             ; Inthebox X      ; "INTHEBOX,SPRINGBED"          ;                                                     ;          ;                             ;
+                        ; X                  ; Inthebox        ; "INTHEBOX,SPRINGBED" ;                                                     ;          ;                             ;
+                        ; HYBRID             ; Inthebox Hybrid ; "INTHEBOX,SPRINGBED"                   ;                                                     ;          ;                             ;
+                        ; SOFABED            ; Sofa Bed        ; "INTHEBOX,SOFA"               ;                                                     ;          ;                             ;
 
-INSERT_UPDATE BedSizeVariantProduct; $baseProduct; code[unique = true]; length; width; height; unit(code)[default = pieces]; $approved; $catalogVersion; $supercategories; description
-                                   ; X           ; SUPERKINGX         ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED"     ; In The Box X Super King
-                                   ; X           ; KINGX              ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED"     ; In The Box X King
-                                   ; X           ; QUEENSIZEX         ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED"     ; In The Box X King
-                                   ; X           ; FULLSIZEX          ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED"     ; In The Box X King
-                                   ; X           ; SUPERSINGLEX       ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED"     ; In The Box X King
-                                   ; X           ; SINGLESIZEX        ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED"     ; In The Box X King
-                                   ; NORMAL      ; SUPERKING          ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED"     ; In The Box X Super King
-                                   ; NORMAL      ; KING               ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED"     ; In The Box X King
-                                   ; NORMAL      ; QUEENSIZE          ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED"     ; In The Box X King
-                                   ; NORMAL      ; FULLSIZE           ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED"     ; In The Box X King
-                                   ; NORMAL      ; SUPERSINGLE        ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED"     ; In The Box X King
-                                   ; NORMAL      ; SINGLESIZE         ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED"     ; In The Box X King
-                                   ; HYBRID      ; SUPERKINGHYBRID    ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED"     ; In The Box X Super King
-                                   ; HYBRID      ; KINGHYBRID         ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED"     ; In The Box X King
-                                   ; HYBRID      ; QUEENSIZEHYBRID    ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED"     ; In The Box X King
-                                   ; HYBRID      ; FULLSIZEHYBRID     ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED"     ; In The Box X King
-                                   ; HYBRID      ; SUPERSINGLEHYBRID  ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED"     ; In The Box X King
-                                   ; HYBRID      ; SINGLESIZEHYBRID   ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED"     ; In The Box X King
-                                   ; HYBRID      ; HYBRID140X200      ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED"     ; In The Box X King
-                                   ; SOFABED     ; SUPERSINGLESOFA    ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SOFA"          ; Sofa Single
+INSERT_UPDATE BedSizeVariantProduct; $baseProduct; code[unique = true]; length; width; height; unit(code)[default = pieces]; $approved; $catalogVersion; $supercategories     ; description
+                                   ; X           ; SUPERKINGX         ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED" ; In The Box X Super King
+                                   ; X           ; KINGX              ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED" ; In The Box X King
+                                   ; X           ; QUEENSIZEX         ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED" ; In The Box X King
+                                   ; X           ; FULLSIZEX          ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED" ; In The Box X King
+                                   ; X           ; SUPERSINGLEX       ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED" ; In The Box X King
+                                   ; X           ; SINGLESIZEX        ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED" ; In The Box X King
+                                   ; NORMAL      ; SUPERKING          ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED" ; In The Box X Super King
+                                   ; NORMAL      ; KING               ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED" ; In The Box X King
+                                   ; NORMAL      ; QUEENSIZE          ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED" ; In The Box X King
+                                   ; NORMAL      ; FULLSIZE           ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED" ; In The Box X King
+                                   ; NORMAL      ; SUPERSINGLE        ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED" ; In The Box X King
+                                   ; NORMAL      ; SINGLESIZE         ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED" ; In The Box X King
+                                   ; HYBRID      ; SUPERKINGHYBRID    ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED" ; In The Box X Super King
+                                   ; HYBRID      ; KINGHYBRID         ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED" ; In The Box X King
+                                   ; HYBRID      ; QUEENSIZEHYBRID    ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED" ; In The Box X King
+                                   ; HYBRID      ; FULLSIZEHYBRID     ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED" ; In The Box X King
+                                   ; HYBRID      ; SUPERSINGLEHYBRID  ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED" ; In The Box X King
+                                   ; HYBRID      ; SINGLESIZEHYBRID   ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED" ; In The Box X King
+                                   ; HYBRID      ; HYBRID140X200      ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SPRINGBED" ; In The Box X King
+                                   ; SOFABED     ; SUPERSINGLESOFA    ; 200   ; 200  ; 20    ;                             ;          ;                ; "INTHEBOX,SOFA"      ; Sofa Single
 
 
 # Bundle Starts Here

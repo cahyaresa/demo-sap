@@ -6,7 +6,7 @@
 
 <div class="product-details page-title">
 	<ycommerce:testId code="productDetails_productNamePrice_label_${product.code}">
-		<div class="name">${fn:escapeXml(product.name)}<span class="sku">ID</span><span class="code">${fn:escapeXml(product.code)}</span></div>
+		<div class="name">${fn:escapeXml(product.manufacturer)}&nbsp;${fn:escapeXml(product.name)}<span class="sku">ID</span><span class="code">${fn:escapeXml(product.code)}</span></div>
 	</ycommerce:testId>
 	<product:productReviewSummary product="${product}" showLinks="true"/>
 </div>
@@ -19,13 +19,13 @@
 		<div class="product-main-info">
 			<div class="row">
 				<div class="col-lg-6">
-					<div class="product-details">
+					<%--<div class="product-details">
 						<product:productPromotionSection product="${product}"/>
 						<ycommerce:testId code="productDetails_productNamePrice_label_${product.code}">
 							<product:productPricePanel product="${product}" />
 						</ycommerce:testId>
 						<div class="description">${ycommerce:sanitizeHTML(product.summary)}</div>
-					</div>
+					</div>--%>
 				</div>
 
 				<div class="col-sm-12 col-md-9 col-lg-6">

@@ -46,6 +46,10 @@ public class DemoSearchResultProductPopulator extends SearchResultProductPopulat
     @Override
     public void populate(final SearchResultValueData source, final ProductData target) throws ConversionException
     {
+        target.setWidth(this.<String> getValue(source, "width"));
+        target.setLength(this.<String> getValue(source, "length"));
+        target.setHeight(this.<String> getValue(source, "height"));
+        target.setBrand(this.<String> getValue(source, "brand"));
         target.setCategories(this.populateCategories(source));
         final ArrayList<String> brandNameList = this.<ArrayList> getValue(source, "brandName");
 

@@ -4,6 +4,7 @@
 <%@ taglib prefix="format" tagdir="/WEB-INF/tags/shared/format" %>
 <%@ taglib prefix="product" tagdir="/WEB-INF/tags/responsive/product" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="ycommerce" uri="http://hybris.com/tld/ycommercetags"%>
 
 <%@ attribute name="product" required="true" type="de.hybris.platform.commercefacades.product.data.ProductData" %>
 
@@ -196,50 +197,58 @@
         <c:if test="${not empty variantOptions}">
             <div class="variant-section">
                 <div class="variant-selector">
-                    <div class="variant-name">
-                        <label for="Type"><spring:theme code="product.variants.type"/><span
-                                class="variant-selected typeName"></span></label>
-                    </div>
-                    <select id="variant" class="form-control variant-select" disabled="disabled">
-                        <option selected="selected" disabled="disabled"><spring:theme
-                                code="product.variants.select.variant"/></option>
-                        <c:forEach items="${variantOptions}" var="variantOption">
-                            <c:set var="optionsStringHtml" value=""/>
-                            <c:set var="nameStringHtml" value=""/>
-                            <c:forEach items="${variantOption.variantOptionQualifiers}" var="variantOptionQualifier">
-                                <c:set var="optionsStringHtml">${optionsStringHtml}&nbsp;
-                                    ${fn:escapeXml(variantOptionQualifier.name)}&nbsp;${fn:escapeXml(variantOptionQualifier.value)}, </c:set>
-                                <c:set var="nameStringHtml">${fn:escapeXml(variantOptionQualifier.value)}</c:set>
-                            </c:forEach>
+                        <%--<div class="variant-name">
+                            <label for="Type"><spring:theme code="product.variants.type"/><span
+                                    class="variant-selected typeName"></span></label>
+                        </div>
+                        <select id="variant" class="form-control variant-select" disabled="disabled">
+                            <option selected="selected" disabled="disabled"><spring:theme
+                                    code="product.variants.select.variant"/></option>
+                            <c:forEach items="${variantOptions}" var="variantOption">
+                                <c:set var="optionsStringHtml" value=""/>
+                                <c:set var="nameStringHtml" value=""/>
+                                <c:forEach items="${variantOption.variantOptionQualifiers}" var="variantOptionQualifier">
+                                    <c:set var="optionsStringHtml">${optionsStringHtml}&nbsp;
+                                        ${fn:escapeXml(variantOptionQualifier.name)}&nbsp;${fn:escapeXml(variantOptionQualifier.value)}, </c:set>
+                                    <c:set var="nameStringHtml">${fn:escapeXml(variantOptionQualifier.value)}</c:set>
+                                </c:forEach>
 
-                            <c:if test="${(variantOption.stock.stockLevel gt 0) and (variantSize.stock.stockLevelStatus ne 'outOfStock')}">
-                                <c:set var="stockLevelHtml">${fn:escapeXml(variantOption.stock.stockLevel)} <spring:theme code="product.variants.in.stock"/></c:set>
-                            </c:if>
-                            <c:if test="${(variantOption.stock.stockLevel le 0) and (variantSize.stock.stockLevelStatus eq 'inStock')}">
-                                <c:set var="stockLevelHtml"><spring:theme code="product.variants.available"/></c:set>
-                            </c:if>
-                            <c:if test="${(variantOption.stock.stockLevel le 0) and (variantSize.stock.stockLevelStatus ne 'inStock')}">
-                                <c:set var="stockLevelHtml"><spring:theme code="product.variants.out.of.stock"/></c:set>
-                            </c:if>
-                            <c:choose>
-                                <c:when test="${product.purchasable and product.stock.stockLevelStatus.code ne 'outOfStock' }">
+                                <c:if test="${(variantOption.stock.stockLevel gt 0) and (variantSize.stock.stockLevelStatus ne 'outOfStock')}">
+                                    <c:set var="stockLevelHtml">${fn:escapeXml(variantOption.stock.stockLevel)} <spring:theme code="product.variants.in.stock"/></c:set>
+                                </c:if>
+                                <c:if test="${(variantOption.stock.stockLevel le 0) and (variantSize.stock.stockLevelStatus eq 'inStock')}">
+                                    <c:set var="stockLevelHtml"><spring:theme code="product.variants.available"/></c:set>
+                                </c:if>
+                                <c:if test="${(variantOption.stock.stockLevel le 0) and (variantSize.stock.stockLevelStatus ne 'inStock')}">
+                                    <c:set var="stockLevelHtml"><spring:theme code="product.variants.out.of.stock"/></c:set>
+                                </c:if>
+                                <c:choose>
+                                    <c:when test="${product.purchasable and product.stock.stockLevelStatus.code ne 'outOfStock' }">
+                                        <c:set var="showAddToCart" value="${true}" scope="session"/>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <c:set var="showAddToCart" value="${false}" scope="session"/>
+                                    </c:otherwise>
+                                </c:choose>
+                                <c:url value="${variantOption.url}" var="variantOptionUrl"/>
+                                <c:if test="${(variantOption.url eq product.url)}">
                                     <c:set var="showAddToCart" value="${true}" scope="session"/>
-                                </c:when>
-                                <c:otherwise>
-                                    <c:set var="showAddToCart" value="${false}" scope="session"/>
-                                </c:otherwise>
-                            </c:choose>
-                            <c:url value="${variantOption.url}" var="variantOptionUrl"/>
-                            <c:if test="${(variantOption.url eq product.url)}">
-                                <c:set var="showAddToCart" value="${true}" scope="session"/>
-                                <c:set var="currentSizeHtml" value="${nameStringHtml}"/>
-                            </c:if>
-                            <option value="${fn:escapeXml(variantOptionUrl)}" ${(variantOption.url eq product.url) ? 'selected="selected"' : ''}>
-                                <span class="variant-selected">${optionsStringHtml}&nbsp;<format:price
-                                        priceData="${variantOption.priceData}"/>&nbsp;&nbsp;${fn:escapeXml(variantOption.stock.stockLevel)}</span>
-                            </option>
-                        </c:forEach>
-                    </select>
+                                    <c:set var="currentSizeHtml" value="${nameStringHtml}"/>
+                                </c:if>
+                                <option value="${fn:escapeXml(variantOptionUrl)}" ${(variantOption.url eq product.url) ? 'selected="selected"' : ''}>
+                                    <span class="variant-selected">${optionsStringHtml}&nbsp;<format:price
+                                            priceData="${variantOption.priceData}"/>&nbsp;&nbsp;${fn:escapeXml(variantOption.stock.stockLevel)}</span>
+                                </option>
+                            </c:forEach>
+                        </select>--%>
+                    <div class="product-details">
+                        <product:productPromotionSection product="${product}"/>
+                        <ycommerce:testId code="productDetails_productNamePrice_label_${product.code}">
+                            <product:productPricePanel product="${product}" />
+                        </ycommerce:testId>
+                        <div class="description">${ycommerce:sanitizeHTML(product.width)} X ${ycommerce:sanitizeHTML(product.length)} X ${ycommerce:sanitizeHTML(product.height)} cm</div>
+                        <div class="description">${ycommerce:sanitizeHTML(product.description)}</div>
+                    </div>
                     <div id="currentTypeValue" data-type-value="${currentSizeHtml}"></div>
                 </div>
             </div>

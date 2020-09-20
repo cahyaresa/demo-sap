@@ -5,7 +5,9 @@
 
 <spring:htmlEscape defaultHtmlEscape="true" />
 
+<%--
 <nav:pagination top="true" supportShowPaged="${isShowPageAllowed}" supportShowAll="${isShowAllAllowed}" searchPageData="${searchPageData}" searchUrl="${searchPageData.currentQuery.url}" numberPagesShown="${numberPagesShown}"/>
+--%>
 
 <div class="product__listing product__grid">
     <c:forEach items="${searchPageData.results}" var="product" varStatus="status">

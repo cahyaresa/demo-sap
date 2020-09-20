@@ -16,7 +16,5 @@
     "grunt-sync": "0.0.8",
     "plugin": "^0.3.3"
   },
-  "dependencies": {
-    "grunt-sync": "0.0.8"
-  }
+  "dependencies": {}
 }
