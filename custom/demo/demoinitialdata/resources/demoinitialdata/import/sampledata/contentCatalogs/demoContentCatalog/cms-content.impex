@@ -111,7 +111,7 @@ INSERT_UPDATE ProductVariantSelectorComponent;$contentCV[unique=true];uid[unique
 
 # CMS ProductAddToCart Components
 INSERT_UPDATE ProductAddToCartComponent;$contentCV[unique=true];uid[unique=true];name;actions(&actionRef);&componentRef
-                                       ;;AddToCart;Product Add To Cart;AddToCartAction,PickUpInStoreAction;AddToCart
+                                       ;;AddToCart;Product Add To Cart;AddToCartAction;AddToCart
 
 # CMS AddToCart Action
 INSERT_UPDATE AddToCartAction;$contentCV[unique=true];uid[unique=true];url;name;&actionRef
