@@ -844,6 +844,14 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsCom
                          ;;Section7Slot-Homepage;true;StoreFinderBannerComponent
 
 
+### Section 8
+INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef
+                                   ;;MaterialBusaComponent;Material Busa Paragraph Component;MaterialBusaComponent
+                                   ;;MaterialKainComponent;Material Kain Paragraph Component;MaterialKainComponent
+                                   ;;MaterialPerComponent;Material Per Paragraph Component;MaterialPerComponent
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsComponents(&componentRef)
+                         ;;Section8Slot-Homepage;true;MaterialBusaComponent,MaterialKainComponent,MaterialPerComponent
 
 #################    HOME PAGE END       #################
 

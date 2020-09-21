@@ -415,6 +415,7 @@ INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique
                                              ;;DemoHompageMaterial2BannerComponent;demo-homepage-material2-fam-en
                                              ;;DemoHompageMaterial3BannerComponent;demo-homepage-material3-fam-en
 
+
 #Home Section 7
 INSERT_UPDATE Media;mediaFormat(qualifier);$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];mime[default='image/jpeg'];realfilename;folder(qualifier)[default='images'];altText
                                         ;tablet;;storefinder-tablet.png;$siteResource/images/banners/homepage/responsive/storefinder-widescreen.png;;storefinder-tablet.png;;"In the Box"
@@ -427,6 +428,11 @@ INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$contentCV[unique=tr
 INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];$mediaContainer
                                              ;;StoreFinderBannerComponent;demo-homepage-storefinder-fam-en
 
+#Home Section 8INSERT_UPDATE
+INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[lang=en];
+                                   ;;MaterialBusaComponent;"<h3 class='title'>BUSA</h3><div class='desc'>Busa kasur premium dengan kepadatan tinggi</div>"
+                                   ;;MaterialKainComponent;"<h3 class='title'>KAIN</h3><div class='desc'>Quilting super soft yang lembut dan adem</div>"
+                                   ;;MaterialPerComponent;"<h3 class='title'>PER</h3><div class='desc'>Berkualitas tinggi untuk sensasi tidur nyaman</div>"
 
 
 # Media Content
