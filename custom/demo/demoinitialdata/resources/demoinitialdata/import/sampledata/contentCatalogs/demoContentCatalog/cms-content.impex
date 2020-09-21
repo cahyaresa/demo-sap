@@ -362,6 +362,10 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
                                 ;;Section3C-Homepage;Section3C;;Section3CSlot-Homepage
                                 ;;Section4-Homepage;Section4;;Section4Slot-Homepage
                                 ;;Section5-Homepage;Section5;;Section5Slot-Homepage
+                                ;;Section6-Homepage;Section6;;Section6Slot-Homepage
+                                ;;Section7-Homepage;Section7;;Section7Slot-Homepage
+                                ;;Section8-Homepage;Section8;;Section8Slot-Homepage
+                                ;;Section9-Homepage;Section8;;Section9Slot-Homepage
 
 ###### Electronics Camera Accessories and Supplies Category Landing Page - not used ######
 
@@ -799,12 +803,6 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsCom
                          ;;Section3BSlot-Homepage;true;HomePageEaseOfAnyWhere1,HomePageEaseOfAnyWhere2
 
 #### Home section 3C #######
-#INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
-#                                             ;;DemoHompageSpringbedBannerComponent;Electronics Homepage Camcorders Banner Component;/p/SUPERKINGX;DemoHompageSpringbedBannerComponent
-#
-#INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
-#                                             ;;DemoHompageSpringbedChildBannerComponent;Electronics Homepage Light Family Banner Component Child;/Open-Catalogue/Cameras/Hand-held-Camcorders/c/584;DemoHompageSpringbedChildBannerComponent
-
 INSERT_UPDATE DemoEaseOfAnyWhereCMSComponent;$contentCV[unique=true];uid[unique=true];&componentRef
                                             ;;HomePageEaseOfAnyWhere3;HomePageEaseOfAnyWhere3
                                             ;;HomePageEaseOfAnyWhere4;HomePageEaseOfAnyWhere4
@@ -817,25 +815,40 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsCom
 
 ###  Home page slot 4A  ####
 INSERT_UPDATE FlashComponent;$contentCV[unique=true];uid[unique=true];urlLink;&componentRef
-                            ;;AstraVideoLink;https://www.youtube.com/embed/psuJC1BmI5k?;AstraVideoLink
+                            ;;AstraVideoLink;https://www.youtube.com/embed/cJAkzjf5yBY;AstraVideoLink
 
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(&componentRef)
                          ;;Section4Slot-Homepage;AstraVideoLink
 
-#### Home section 4B #######
-
-
-
-### Section 5
-INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
-#                                             ;;ElectronicsHompageFreeDelBannerComponent;Electronics Homepage Free Delivery Banner Component;/faq;ElectronicsHompageFreeDelBannerComponent
+#### Home section 5 #######
+INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef
+                                   ;;MaterialParagraghComponent;Material Paragraph Component;MaterialParagraghComponent
 
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsComponents(&componentRef)
-#                         ;;Section5Slot-Homepage;true;ElectronicsHompageFreeDelBannerComponent
+                         ;;Section5Slot-Homepage;true;MaterialParagraghComponent
+
+### Section 6
+INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
+                                             ;;DemoHompageMaterial1BannerComponent;Demo Homepage Camcorders Banner Component;;DemoHompageMaterial1BannerComponent
+                                             ;;DemoHompageMaterial2BannerComponent;Demo Homepage Camcorders Banner Component;;DemoHompageMaterial2BannerComponent
+                                             ;;DemoHompageMaterial3BannerComponent;Demo Homepage Camcorders Banner Component;;DemoHompageMaterial3BannerComponent
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsComponents(&componentRef)
+                         ;;Section6Slot-Homepage;true;DemoHompageMaterial3BannerComponent,DemoHompageMaterial2BannerComponent,DemoHompageMaterial1BannerComponent
+
+### Section 7
+INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
+                                             ;;StoreFinderBannerComponent;Storefinder Homepage Banner Component;/store-finder;StoreFinderBannerComponent
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsComponents(&componentRef)
+                         ;;Section7Slot-Homepage;true;StoreFinderBannerComponent
 
 
 
 #################    HOME PAGE END       #################
+
+
+
 
 #################    MY ACCOUNT START    #################
 

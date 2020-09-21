@@ -4,13 +4,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-	               <div>
+	                    <div class="ease-1">
                            <div class="__image-container">
-                            <img src="${component.backGroundImage.url}"/>                            
+                                <img src="${component.backGroundImage.url}"/>
+                           </div>
                         </div>
-                        <div class="">
-                        
-                         <div class="maintanence-links ease-of-anywhere" data-title="${component.title}">
+                        <div class="ease-2">
+                            <div class="maintanence-links " data-title="${component.title}">
                          		<spring:url var="encodedUrl" value="${component.footerUrl}"/>
                          		<a href="${encodedUrl}"><i class="${component.desclink}"></i><p>${component.title}</p></a>
                             </div>
@@ -18,11 +18,12 @@
                                 <div class="content">
                                     ${component.description}
                                 </div>
+                                <!--
                                 <div class="footer-link ease-of-anywhere" data-title="${component.title}">
                                 	<spring:url var="encodedUrl" value="${component.footerUrl}"/>
-                                    <a href="${encodedUrl}"> ${component.footerUrlName}</a>
+                                    <a href="${encodedUrl}"> ${component.description}</a>
                                 </div>
+                                -->
                             </div>
                         </div>
-                  	   </div>
                     

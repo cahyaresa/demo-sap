@@ -56,6 +56,25 @@ var windowWidth;
                 slidesToShow: 1,
                 adaptiveHeight: true
             });
+
+            $(".btn-collapsed").on("click", function(){
+                $(".desc-collapse").toggleClass("show");
+            })
+
+            $(".forming-material").slick({
+                dots: false,
+                slidesToShow: 3,
+                responsive: [
+                    {
+                      breakpoint: 768,
+                      settings: {
+                        slidesToShow: 1,
+                        dots:true
+                      }
+                    },
+                    ]
+            });
+
         },
         priceFormat: function(str) {
             var newString = "",

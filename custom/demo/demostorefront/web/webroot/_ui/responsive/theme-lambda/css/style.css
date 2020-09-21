@@ -1074,7 +1074,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-family: 'Petita-Medium', "Open Sans", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
   color: #3c3c3c;
@@ -5980,7 +5980,7 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-family: 'Petita-Medium', "Open Sans", Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -6098,7 +6098,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-family: 'Petita-Medium', "Open Sans", Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -8217,6 +8217,41 @@ a.ui-button:active,
   filter: alpha(opacity=35);
   /* support: IE8 - See #6059 */
 }
+@font-face {
+  font-family: 'icomoon';
+  src: url('../icomoon/fonts/icomoon.eot');
+  src: url('../icomoon/fonts/icomoon.eot?#iefix') format('embedded-opentype'), url('../icomoon/fonts/icomoon.woff') format('woff'), url('../icomoon/fonts/icomoon.ttf') format('truetype'), url('../icomoon/fonts/icomoon.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Petita-Bold';
+  src: url('../fonts/PetitaBold.ttf');
+  src: url('../fonts/PetitaBold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: bold;
+}
+@font-face {
+  font-family: 'Petita-Medium';
+  src: url('../fonts/PetitaMedium.ttf');
+  src: url('../fonts/PetitaMedium.ttf') format('truetype');
+  font-weight: 700;
+  font-style: bold;
+}
+@font-face {
+  font-family: 'Petita-Light';
+  src: url('../fonts/PetitaLight.ttf');
+  src: url('../fonts/PetitaLight.ttf') format('truetype');
+  font-weight: 700;
+  font-style: bold;
+}
+@font-face {
+  font-family: 'DK Lemon Yellow Sun';
+  src: url('../fonts/DK Lemon Yellow Sun.otf');
+  src: url('../fonts/DK Lemon Yellow Sun.otf') format('opentype');
+  font-weight: 700;
+  font-style: bold;
+}
 body {
   overflow-x: hidden;
   position: relative;
@@ -8674,7 +8709,7 @@ ul.nav__links::after {
   }
 }
 .branding-mobile {
-  padding: 10px 0 9px 0;
+  padding: 10px 0 ;
   border-bottom: solid 1px #d9d9d9;
   z-index: 9999;
   background-color: #f4f4f4;
@@ -8686,6 +8721,10 @@ ul.nav__links::after {
     padding-left: 20px;
     padding-right: 20px;
   }
+}
+.branding-mobile .js-mobile-logo a img {
+  width: 80vw;
+  padding: 10px 0;
 }
 .navigation.navigation--top {
   padding-left: 30px;
@@ -8699,11 +8738,6 @@ ul.nav__links::after {
 }
 .navigation--top .nav__left {
   padding: 9px 0 7px;
-}
-.navigation--top .nav__left .simple-banner-component img,
-.navigation--top .nav__left .banner__component img {
-  width: 50%;
-  padding: 20px 0;
 }
 .miniCartSlot > div[data-ng-transclude] {
   display: inline-block;
@@ -10089,6 +10123,16 @@ header {
     margin-left: 0;
   }
 }
+.main-logo .simple-banner a img {
+  width: 50%;
+  padding: 20px 0;
+}
+@media screen and (max-width: 768px) {
+  .main-logo .simple-banner a img {
+    width: 80vw;
+    padding: 10px 0;
+  }
+}
 .bottom-header {
   background-color: #aae1fa;
   border-bottom: 1px solid #aae1fa;
@@ -10108,18 +10152,38 @@ header {
   content: "\e92c";
   font-size: 30px;
   padding: 0px 5px;
+  min-width: 50px;
+  text-align: center;
 }
 .bottom-header .content:nth-child(2)::before {
   font-family: 'icomoon';
   content: "\f218";
   font-size: 30px;
   padding: 0px 5px;
+  min-width: 50px;
+  text-align: center;
 }
 .bottom-header .content:last-child::before {
   font-family: 'icomoon';
   content: "\f232";
   font-size: 30px;
   padding: 0px 5px;
+  min-width: 50px;
+  text-align: center;
+}
+@media screen and (max-width: 767px) {
+  .bottom-header {
+    display: block;
+  }
+  .bottom-header .content {
+    display: flex;
+    width: 100%;
+  }
+  .bottom-header .content span {
+    display: inherit;
+    align-items: center;
+    font-size: 12px;
+  }
 }
 .page-headline {
   color: #3c3c3c;
@@ -17831,9 +17895,110 @@ select[multiple].input-sm {
 .section-2 .paragraph-inthebox {
   text-align: center;
 }
+.section-2 .paragraph-inthebox .section-header {
+  font-family: 'DK Lemon Yellow Sun';
+  font-size: 3rem;
+  color: #2178b5;
+  text-align: center;
+  margin-bottom: 20px;
+}
 .section-2 .paragraph-inthebox .section-desc {
+  font-family: 'Petita-Medium';
   float: none;
   margin: 0 auto;
+  font-size: 1.3rem;
+  text-align: justify;
+}
+.section-3A,
+.section-5 {
+  margin: 50px 0px;
+}
+.section-3A .experience .section-header,
+.section-5 .experience .section-header,
+.section-3A .material-paragraph .section-header,
+.section-5 .material-paragraph .section-header {
+  font-family: 'DK Lemon Yellow Sun';
+  font-size: 3rem;
+  color: #2178b5;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.section-3A .experience .section-header img,
+.section-5 .experience .section-header img,
+.section-3A .material-paragraph .section-header img,
+.section-5 .material-paragraph .section-header img {
+  max-width: 70px;
+}
+.section-3A .experience .placeholder-animation,
+.section-5 .experience .placeholder-animation,
+.section-3A .material-paragraph .placeholder-animation,
+.section-5 .material-paragraph .placeholder-animation {
+  -webkit-animation-duration: 1.7s;
+  animation-duration: 1.7s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-name: placeholderAnimate;
+  animation-name: placeholderAnimate;
+  background: #f5f7f9;
+  background: linear-gradient(90deg, #f5f7f9 2%, #ebecf0 18%, #f5f7f9 33%);
+  background-size: 1300px;
+}
+.section-3A .experience .section-desc,
+.section-5 .experience .section-desc,
+.section-3A .material-paragraph .section-desc,
+.section-5 .material-paragraph .section-desc {
+  margin: 0 auto;
+  float: none;
+  font-size: 1.3rem;
+  text-align: justify;
+}
+.section-3A .experience .section-desc .desc-collapse,
+.section-5 .experience .section-desc .desc-collapse,
+.section-3A .material-paragraph .section-desc .desc-collapse,
+.section-5 .material-paragraph .section-desc .desc-collapse {
+  display: none;
+}
+.section-3A .experience .section-desc .show,
+.section-5 .experience .section-desc .show,
+.section-3A .material-paragraph .section-desc .show,
+.section-5 .material-paragraph .section-desc .show {
+  display: block;
+}
+.section-3B .ease-of-anywhere .ease-1 {
+  text-align: center;
+}
+.section-3B .ease-of-anywhere .ease-2 {
+  text-align: center;
+  max-width: 75%;
+  margin: 0 auto;
+}
+.section-3B .ease-of-anywhere .ease-2 .maintanence-links {
+  letter-spacing: 1px;
+  font-size: 1.5rem;
+  color: #22178b5;
+  text-transform: uppercase;
+}
+.section-4 {
+  margin: 50px 0;
+}
+.section-4 .video-promo {
+  text-align: center;
+}
+.section-4 .video-promo iframe {
+  width: 60vw;
+  height: 30vw;
+}
+.section-7 .storefinder {
+  margin: 50px 0;
+}
+@media screen and (max-width: 480px) {
+  .section-7 .storefinder {
+    margin: 30px 0;
+  }
 }
 .product-details-toggle {
   position: relative;
