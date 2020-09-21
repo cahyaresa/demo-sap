@@ -21,7 +21,7 @@
 			<div class="col-sm-12 col-md-4">
 				<div class="nav__left js-site-logo">
 					<cms:pageSlot position="SiteLogo" var="logo" limit="1">
-						<cms:component component="${logo}" element="div" class="yComponentWrapper"/>
+						<cms:component component="${logo}" element="div" class="main-logo yComponentWrapper"/>
 					</cms:pageSlot>
 				</div>
 			</div>

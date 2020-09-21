@@ -13,7 +13,7 @@ $classAttribute=classificationAttribute(code,$classSystemVersion)
 $classClass=classificationClass(code,$classCatalogVersion)
 $classAttributeAssignment=classAttributeAssignment($classClass,$classAttribute,$classSystemVersion)
 $contentCatalogVersion=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalogName]),CatalogVersion.version[default=Staged])[default=$contentCatalogName:Staged]
-$productCatalog=__PRODUCT_CATALOG_NAME__
+$productCatalog=demoProductCatalog
 $productCatalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
 
 

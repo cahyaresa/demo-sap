@@ -333,10 +333,9 @@ INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];con
                                     <div class='row'>
                                         <div class='offset-md-1 col-md-10 section-desc'>
                                             Kombinasi teknologi modern dan desain elegan terbukti mampu menghasilkan produk berkualitas. Berbeda dengan spring bed pada umumnya, kasur INTHEBOX dikemas di dalam box praktis. Pengemasan yang unik akan memberikan Anda pengalaman unik saat membuka kemasannya.
-                                            <a data-toggle='collapse' href='#home_desc_extend' role='button' aria-expanded='true' aria-controls='home_desc_extend' class=''>
-                                                SELENGKAPNYA...
-                                            </a>
-                                            <div class='collapse show' id='home_desc_extend' style=''>
+                                            <a data-toggle='collapse' role='button' aria-expanded='false' aria-controls='home_desc_extend' class='btn-collapsed'>
+                                            SELENGKAPNYA...</a>
+                                            <div class='desc-collapse' id='home_desc_extend' style=''>
                                                 <br>Ukuran kasur spring bed yang jadi lebih kecil saat dikemas, membuat INTHEBOX mudah untuk dibawa ketika kamu membelinya. Ukuran spring bed sebesar apapun bisa kamu bawa dan masukkan ke dalam mobil berukuran kecil karena dikemas dalam box unik. Kini membeli kasur bisa lebih praktis!<br>
                                                 <br>
                                                 Meski dikemas berbeda dari spring bed pada umumnya, hal ini tidak mengurangi kualitas INTHEBOX sebagai spring bed terbaik di kelasnya. Material kasur dan khususnya pegas dijamin berkualitas dan bergaransi. Bukan hanya kasur, pengalaman unboxing INTHEBOX juga bisa kamu rasakan saat saat membuka produk bantal guling.<br>
@@ -345,34 +344,6 @@ INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];con
                                             </div>
                                         </div>
                                     </div>
-            <div class='experience-slider-container'>
-                <div class='owl-carousel owl-theme owl-loaded owl-drag' id='experience-slider'>
-                <div class='owl-stage-outer'><div class='owl-stage' style='transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1170px;'><div class='owl-item active' style='width: 242.5px; margin-right: 50px;'><div class='slide-item'>
-                        <div class='image'>
-                            <img class='owl-lazy' data-src='/images/exp-1.webp' alt='Page - Home - KELUARKAN' src='/images/exp-1.webp' style='opacity: 1;'></img>
-                        </div>
-                        <h3 class='title'>KELUARKAN</h3>
-                        <div class='desc'>Keluarkan kasur INTHEBOX dari kemasannya secara perlahan-lahan</div>
-                    </div></div><div class='owl-item active' style='width: 242.5px; margin-right: 50px;'><div class='slide-item'>
-                        <div class='image'>
-                            <img class='owl-lazy' data-src='/images/exp-2.webp' alt='Page - Home - POSISIKAN' src='/images/exp-2.webp' style='opacity: 1;'></img>
-                        </div>
-                        <h3 class='title'>POSISIKAN</h3>
-                        <div class='desc'>Posisikan kasur INTHEBOX di atas permukaan tempat tidur atau divan</div>
-                    </div></div><div class='owl-item active' style='width: 242.5px; margin-right: 50px;'><div class='slide-item'>
-                        <div class='image'>
-                            <img class='owl-lazy' data-src='/images/exp-3.webp' alt='Page - Home - BUKALAH' src='/images/exp-3.webp' style='opacity: 1;'></img>
-                        </div>
-                        <h3 class='title'>BUKA PLASTIK</h3>
-                        <div class='desc'>Lepaskan plastik pembungkus dan pastikan logo INTHEBOX ada di bawah</div>
-                    </div></div><div class='owl-item active' style='width: 242.5px; margin-right: 50px;'><div class='slide-item'>
-                        <div class='image'>
-                            <img class='owl-lazy' data-src='/images/exp-4.webp' alt='' src='/images/exp-4.webp' style='opacity: 1;'></img>
-                        </div>
-                        <h3 class='title'>TUNGGU MENGEMBANG</h3>
-                        <div class='desc'>Kasur INTHEBOX akan langsung mengembang. Tunggu 60 menit untuk digunakan.</div>
-                    </div></div></div></div><div class='owl-nav disabled'><button type='button' role='presentation' class='owl-prev disabled'><i class='la la-chevron-circle-left'></i></button><button type='button' role='presentation' class='owl-next disabled'><i class='la la-chevron-circle-right'></i></button></div><div class='owl-dots disabled'><button role='button' class='owl-dot active'><span></span></button></div></div>
-            </div>
         </div>
     </section>"
 
@@ -380,51 +351,83 @@ INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];con
 # Home page slot 3B
 # Media Content
 INSERT_UPDATE Media;mediaFormat(qualifier);$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];mime[default='image/jpeg'];realfilename;folder(qualifier)[default='images'];altText
-                   ;tablet;;demo-test-200.jpg;$siteResource/images/banners/homepage/responsive/demo-test-200.jpg;;demo-test-200.jpg;;"In the Box"
-                   ;tablet;;demo-test1-200.png;$siteResource/images/banners/homepage/responsive/demo-test1-200.png;;demo-test1-200.png;;"In the Box"
-                   ;desktop;;demo-test-240.jpg;$siteResource/images/banners/homepage/responsive/demo-test-240.jpg;;demo-test-240.jpg;;"In the Box"
-                   ;desktop;;demo-test1-240.png;$siteResource/images/banners/homepage/responsive/demo-test1-240.png;;demo-test1-240.png;;"In the Box"
-                   ;widescreen;;demo-test-350.jpg;$siteResource/images/banners/homepage/responsive/demo-test-350.jpg;;demo-test-350.jpg;;"In the Box"
-                   ;widescreen;;demo-test1-350.png;$siteResource/images/banners/homepage/responsive/demo-test1-350.png;;demo-test1-350.png;;"In the Box"
+                   ;tablet;;keluarkan.png;$siteResource/images/banners/homepage/responsive/keluarkan.png;;keluarkan.png;;"Keluarkan"
+                   ;tablet;;posisikan.png;$siteResource/images/banners/homepage/responsive/posisikan.png;;posisikan.png;;"posisikan"
 
 INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$contentCV[unique=true]
-                            ;demo-homepage-light-fam-en;demo-test-350.jpg,demo-test-240.jpg,demo-test-200.jpg
-                            ;demo-homepage-light-text-en;demo-test1-350.png,demo-test1-240.png,demo-test1-200.png
+                            ;demo-homepage-light-fam-en;keluarkan.png
+                            ;demo-homepage-light-text-en;posisikan.png
 
 #INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];$mediaContainer
 #                                             ;;DemoHompageLightFamBannerComponent;demo-homepage-light-fam-en
 #                                             ;;DemoHompageLightFamTextBannerComponent;demo-homepage-light-text-en
 
-INSERT_UPDATE DemoEaseOfAnyWhereCMSComponent;$contentCV[unique=true];uid[unique=true];$backGroundImage;$hoverOverImage;title;footerUrl;footerUrlName;&componentRef
-                                            ;;HomePageEaseOfAnyWhere1;demo-test1-350.png;demo-test1-350.png;Keluarkan;/sevaservice/credit-calculator/;Keluarkan;HomePageEaseOfAnyWhere1
-                                            ;;HomePageEaseOfAnyWhere2;demo-test1-350.png;demo-test1-350.png;Posisikan;https://seva.id/cariparkir/;Posisikan;HomePageEaseOfAnyWhere2
+INSERT_UPDATE DemoEaseOfAnyWhereCMSComponent;$contentCV[unique=true];uid[unique=true];$backGroundImage;$hoverOverImage;title;footerUrl;footerUrlName;description[lang=$lang];&componentRef
+                                            ;;HomePageEaseOfAnyWhere1;keluarkan.png;keluarkan.png;Keluarkan;/sevaservice/credit-calculator/;Keluarkan;Keluarkan kasur INTHEBOX dari kemasannya secara perlahan-lahan;HomePageEaseOfAnyWhere1
+                                            ;;HomePageEaseOfAnyWhere2;posisikan.png;posisikan.png;Posisikan;https://seva.id/cariparkir/;Posisikan;Posisikan kasur INTHEBOX di atas permukaan tempat tidur atau divan;HomePageEaseOfAnyWhere2
 
 # Home section 3C
 # Media Content
 INSERT_UPDATE Media;mediaFormat(qualifier);$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];mime[default='image/jpeg'];realfilename;folder(qualifier)[default='images'];altText
-                   ;tablet;;demo-test-2-200.png;$siteResource/images/banners/homepage/responsive/demo-test2-200.png;;demo-tes-2-200.png;;"In the Box"
+                   ;tablet;;bukaplastik.png;$siteResource/images/banners/homepage/responsive/bukaplastik.png;;bukaplastik.png;;"Buka Plastik"
+                   ;tablet;;tunggumengembang.png;$siteResource/images/banners/homepage/responsive/tunggumengembang.png;;tunggumengembang.png;;"Tunggu Mengembang"
+
+INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$contentCV[unique=true]
+                            ;demo-homepage-springbed-03-en;bukaplastik.png
+                            ;demo-homepage-springbed-04-en;tunggumengembang.png
+
+
+INSERT_UPDATE DemoEaseOfAnyWhereCMSComponent;$contentCV[unique=true];uid[unique=true];$backGroundImage;$hoverOverImage;title;footerUrl;footerUrlName;description[lang=$lang];&componentRef
+                                            ;;HomePageEaseOfAnyWhere3;bukaplastik.png;bukaplastik.png;Buka Plastik;/sevaservice/book-service/;Buka Plastik;Kasur INTHEBOX akan langsung mengembang. Tunggu 60 menit untuk digunakan.;HomePageEaseOfAnyWhere3
+                                            ;;HomePageEaseOfAnyWhere4;tunggumengembang.png;tunggumengembang.png;Tunggu Mengembang;/sevaservice/book-service/;Tunggu Mengembang;Kasur INTHEBOX akan langsung mengembang. Tunggu 60 menit untuk digunakan.;HomePageEaseOfAnyWhere4
+
+# Home Section 5
+INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[lang=en];
+                                    ;;MaterialParagraghComponent;"<h2 class='section-header'>MATERIAL KASUR INTHEBOX</h2><div class='row'>
+                <div class='offset-md-1 col-md-10 section-desc'>
+                    <p class='text-center'>Kasur spring bed INTHEBOX dibuat dari berbagai material premium.</p>
+                    Penggunaan busa kasur premium dengan kepadatan tinggi membuat kasur ini sangat nyaman. Dilengkapi juga dengan quilting supersoft, kain pelapis kasur yang anti-panas. Hadir sebagai kasur modern, pegas INTHEBOX mengusung teknologi pocket spring yang meminimalisir gerakan dan turn and free untuk menopang posisi tulang belakang dengan baik.
+                </div>
+            </div>"
+
+# Home Section 6
+INSERT_UPDATE Media;mediaFormat(qualifier);$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];mime[default='image/jpeg'];realfilename;folder(qualifier)[default='images'];altText
+                   ;tablet;;demo-test-200.jpg;$siteResource/images/banners/homepage/responsive/demo-test-200.jpg;;demo-test-200.jpg;;"In the Box"
+                   ;tablet;;demo-test1-200.png;$siteResource/images/banners/homepage/responsive/demo-test1-200.png;;demo-test1-200.png;;"In the Box"
+                   ;tablet;;demo-test2-200.png;$siteResource/images/banners/homepage/responsive/demo-test2-200.png;;demo-tes2-200.png;;"In the Box"
                    ;tablet;;demo-test3-200.png;$siteResource/images/banners/homepage/responsive/demo-test3-200.png;;demo-test3-200.png;;"In the Box"
-                   ;desktop;;demo-tes-2-240.png;$siteResource/images/banners/homepage/responsive/demo-test2-240.png;;demo-tes-2-240.png;;"In the Box"
+                   ;desktop;;demo-test-240.jpg;$siteResource/images/banners/homepage/responsive/demo-test-240.jpg;;demo-test-240.jpg;;"In the Box"
+                   ;desktop;;demo-test1-240.png;$siteResource/images/banners/homepage/responsive/demo-test1-240.png;;demo-test1-240.png;;"In the Box"
+                   ;desktop;;demo-test2-240.png;$siteResource/images/banners/homepage/responsive/demo-test2-240.png;;demo-tes2-240.png;;"In the Box"
                    ;desktop;;demo-test3-240.png;$siteResource/images/banners/homepage/responsive/demo-test3-240.png;;demo-test3-240.png;;"In the Box"
-                   ;widescreen;;demo-test-2-350.png;$siteResource/images/banners/homepage/responsive/demo-test2-350.png;;demo-tes-2-350.png;;"In the Box"
+                   ;widescreen;;demo-test-350.jpg;$siteResource/images/banners/homepage/responsive/demo-test-350.jpg;;demo-test-350.jpg;;"In the Box"
+                   ;widescreen;;demo-test1-350.png;$siteResource/images/banners/homepage/responsive/demo-test1-350.png;;demo-test1-350.png;;"In the Box"
+                   ;widescreen;;demo-test2-350.png;$siteResource/images/banners/homepage/responsive/demo-test2-350.png;;demo-tes2-350.png;;"In the Box"
                    ;widescreen;;demo-test3-350.png;$siteResource/images/banners/homepage/responsive/demo-test3-350.png;;demo-test3-350.png;;"In the Box"
 
 INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$contentCV[unique=true]
-                            ;demo-homepage-springbed-03-en;demo-test-2-200.png,demo-tes-2-240.png,demo-tes-2-350.png;
-                            ;demo-homepage-springbed-04-en;demo-test3-350.png,demo-test3-240.png,demo-test3-200.png;
+                            ;demo-homepage-material1-fam-en;demo-test1-200.png,demo-test1-240.png,demo-test1-350.png
+                            ;demo-homepage-material2-fam-en;demo-test2-200.png,demo-test2-240.png,demo-test2-350.png
+                            ;demo-homepage-material3-fam-en;demo-test3-200.png,demo-test3-240.png,demo-test3-350.png
 
 INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];$mediaContainer
-#                                             ;;DemoHompageSpringbedBannerComponent;demo-homepage-springbed-03-en
-#                                             ;;DemoHompageSpringbedChildBannerComponent;demo-homepage-springbed-04-en
+                                             ;;DemoHompageMaterial1BannerComponent;demo-homepage-material1-fam-en
+                                             ;;DemoHompageMaterial2BannerComponent;demo-homepage-material2-fam-en
+                                             ;;DemoHompageMaterial3BannerComponent;demo-homepage-material3-fam-en
 
-INSERT_UPDATE DemoEaseOfAnyWhereCMSComponent;$contentCV[unique=true];uid[unique=true];$backGroundImage;$hoverOverImage;title;footerUrl;footerUrlName;&componentRef
-                                            ;;HomePageEaseOfAnyWhere3;demo-test-2-350.png;demo-test-2-350.png;Buka Plastik;/sevaservice/book-service/;Buka Plastik;HomePageEaseOfAnyWhere3
-                                            ;;HomePageEaseOfAnyWhere4;demo-test-2-350.png;demo-test-2-350.png;Tunggu Mengembang;/sevaservice/book-service/;Tunggu Mengembang;HomePageEaseOfAnyWhere4
+#Home Section 7
+INSERT_UPDATE Media;mediaFormat(qualifier);$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];mime[default='image/jpeg'];realfilename;folder(qualifier)[default='images'];altText
+                                        ;tablet;;storefinder-tablet.png;$siteResource/images/banners/homepage/responsive/storefinder-widescreen.png;;storefinder-tablet.png;;"In the Box"
+                                        ;desktop;;storefinder-desktop.png;$siteResource/images/banners/homepage/responsive/storefinder-widescreen.png;;storefinder-desktop.png;;"In the Box"
+                                        ;widescreen;;storefinder-widescreen.png;$siteResource/images/banners/homepage/responsive/storefinder-widescreen.png;;storefinder-widescreen.png;;"In the Box"
+
+INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$contentCV[unique=true]
+                            ;demo-homepage-storefinder-fam-en;storefinder-tablet.png,storefinder-desktop.png,storefinder-widescreen.png
+
+INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];$mediaContainer
+                                             ;;StoreFinderBannerComponent;demo-homepage-storefinder-fam-en
 
 
-
-
-# Section 4
 
 # Media Content
 INSERT_UPDATE Media;mediaFormat(qualifier);$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];mime[default='image/jpeg'];realfilename;folder(qualifier)[default='images'];altText

@@ -117,6 +117,19 @@ header {
   }
 
 }
+.main-logo {
+    .simple-banner a {
+        img {
+            width: 50%;
+            padding: 20px 0;
+
+            @media screen and (max-width : 768px){
+                width: 80vw;
+                padding: 10px 0;
+            }
+        }
+    }
+}
 
 .bottom-header {
   background-color: @bottom-header-nav;
@@ -141,6 +154,8 @@ header {
         content: "\e92c";
         font-size: 30px;
         padding: 0px 5px;
+        min-width: 50px;
+        text-align: center;
       }
     }
 
@@ -150,6 +165,8 @@ header {
         content: "\f218";
         font-size: 30px;
         padding: 0px 5px;
+        min-width: 50px;
+        text-align: center;
       }
     }
 
@@ -159,7 +176,22 @@ header {
         content: "\f232";
         font-size: 30px;
         padding: 0px 5px;
+        min-width: 50px;
+        text-align: center;
       }
+    }
+  }
+
+  @media screen and (max-width: 767px){
+    display :block;
+    .content {
+        display: flex;
+        width: 100%;
+        span {
+            display: inherit;
+            align-items: center;
+            font-size: 12px;
+        }
     }
   }
 }
