@@ -88,6 +88,16 @@
 
 <%-- Section7: Material Section Image Start --%>
     <div class="container">
+        <div class="row section-8">
+            <cms:pageSlot position="Section8" var="feature" element="div" class="storefinder">
+                    <cms:component component="${feature}" element="div" class="yComponentWrapper"/>
+            </cms:pageSlot>
+        </div>
+    </div>
+<%-- Section7: Material Section image End --%>
+
+<%-- Section7: Material Section Image Start --%>
+    <div class="container">
         <div class="row section-7">
             <cms:pageSlot position="Section7" var="feature" element="div" class="storefinder">
                     <cms:component component="${feature}" element="div" class="yComponentWrapper"/>
@@ -95,6 +105,7 @@
         </div>
     </div>
 <%-- Section7: Material Section image End --%>
+
 
 
 
