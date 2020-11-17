@@ -2,6 +2,16 @@
   <extensions>
     <path dir='${HYBRIS_BIN_DIR}' autoload='false' />
     <path dir='${HYBRIS_BIN_DIR}/modules' autoload='false' />
+
+    <extension name="demofulfilmentprocess"/>
+    <extension name="democore"/>
+    <extension name="demofacades"/>
+    <!--     <extension name="demotest"/>-->
+    <extension name="demoinitialdata"/>
+    <extension name="demobackoffice"/>
+    <extension name="demostorefront"/>
+    <extension name="demostorefrontcommons"/>
+
     <!--CPI Integration-->
     <!--<path dir='${HYBRIS_BIN_DIR}/modules/integration-apis/integrationbackoffice' />
     <path dir='${HYBRIS_BIN_DIR}/modules/sap-framework-core/sapcoreaddon' />
@@ -12,6 +22,9 @@
     <path dir='${HYBRIS_BIN_DIR}/modules/scpi' autoload="true" depth="1" />
     <path dir='${HYBRIS_BIN_DIR}/modules/sap-framework-core/sapcoretest' />
     <path dir='${HYBRIS_BIN_DIR}/modules/scpi' autoload="true" depth="1" />-->
+
+    <extension dir="${HYBRIS_BIN_DIR}/modules/platform/mediaconversion"/>
+    <extension dir="${HYBRIS_BIN_DIR}/modules/backoffice-applications/mediaconversionbackoffice"/>
 
     <extension name="sapcoreaddon"/>
     <extension name="sapmodelbackoffice"/>
@@ -37,7 +50,7 @@
 <!--    <extension name='yacceleratorinitialdata' />-->
 <!--    <extension name='yacceleratorfulfilmentprocess' />-->
 <!--    <extension name='yacceleratorstorefront' />-->
-<!--    <extension name='ycommercewebservices' />-->
+    <extension name='ycommercewebservices' />
 <!--    <extension name='ycommercewebservicestest' />-->
 <!--    <extension name='electronicsstore' />-->
 <!--    <extension name='apparelstore' />-->
@@ -120,13 +133,7 @@
 <!--    <extension name='merchandisingservices' />-->
 <!--    <extension name='merchandisingservicesbackoffice' />-->
 <!--    <extension name='merchandisingstorefrontsampledataaddon' />-->
-     <extension name="demofulfilmentprocess"/>
-     <extension name="democore"/>
-     <extension name="demofacades"/>
-<!--     <extension name="demotest"/>-->
-     <extension name="demoinitialdata"/>
-     <extension name="demobackoffice"/>
-     <extension name="demostorefront"/>
-     <extension name="demostorefrontcommons"/>
+
+    <extension name="spartacussampledataaddon"/>
   </extensions>
 </hybrisconfig>
