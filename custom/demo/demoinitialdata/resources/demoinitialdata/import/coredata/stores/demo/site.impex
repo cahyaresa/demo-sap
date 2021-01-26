@@ -15,7 +15,7 @@ $siteMapUrlLimitPerFile=50000
 
 $siteMapLangCur=idIdr
 $siteMapPage=Homepage,Product,CategoryLanding,Category,Store,Content,Custom
-$customSiteMapUrls=
+$customSiteMapUrls=/c/BED,p/SUPERSINGLESOFA,/c/BED?q=%3Arelevance%3Acategory%3ASPRINGBED
 
 # Import config properties into impex macros
 UPDATE GenericItem[processor=de.hybris.platform.commerceservices.impex.impl.ConfigPropertyImportProcessor];pk[unique=true]
