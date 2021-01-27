@@ -33,4 +33,5 @@ bin/
 **/web/testclasses/*
 
 /.gitignore
+**/.settings
 *backoffice_bof.jar
