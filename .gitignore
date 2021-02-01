@@ -1,0 +1,37 @@
+# Add any directories, files, or patterns you don't want to be tracked by version control
+
+*.class
+
+# Package Files #
+
+*.war
+
+*.ear
+
+*.springBeans
+
+*.project
+
+*.classpath
+
+jalo/
+gensrc/
+bin/
+**/gensrc/*
+**/jalo/*
+**/classes/*
+**/items.xsd
+**/beans.xsd
+**/extensioninfo.xsd
+**/platformhome.properties
+**/*-testclasses.xml
+**/*-webtestclasses.xml
+**/build.xml
+**/web/addonsrc/*
+**/web/commonwebsrc/*
+**/web/webroot/**/addons/*
+**/web/testclasses/*
+
+/.gitignore
+**/.settings
+*backoffice_bof.jar
