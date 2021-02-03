@@ -22,6 +22,7 @@ bin/
 **/classes/*
 **/items.xsd
 **/beans.xsd
+addon/
 **/extensioninfo.xsd
 **/platformhome.properties
 **/*-testclasses.xml
